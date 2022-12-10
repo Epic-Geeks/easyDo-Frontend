@@ -10,14 +10,14 @@ import {
 import { selectIsAuthorized, selectUserInfo } from '../redux/counterSlicer';
 import { useSelector } from "react-redux";
 import Home from "./pages/Home";
-import Navbar from "./navbar/Navbar";
+import Navbar from "./NavBar";
 import SignUp from "./SignUp";
 import UserDashboard from "./user/UserDashboard";
 import ProviderDashboard from "./provider/ProviderDashboard";
 import CreateOrderForm from "./user/CreateOrderForm";
 import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
-import Footer from "./footer/Footer";
+import Footer from "./Footer";
 
 
 
