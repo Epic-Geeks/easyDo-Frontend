@@ -27,18 +27,7 @@ body {
   filter: drop-shadow(0px 4px 50px rgba(0, 0, 0, 0.14));
 }
 
-.more_news_gradient {
-  background: linear-gradient(
-    0deg,
-    #ffffff 58.57%,
-    rgba(255, 255, 255, 0) 95.77%
-  );
-  margin-top: -5rem;
-}
 
-.news_card_shadow {
-  box-shadow: 0px 3.48006px 12.1802px rgba(0, 0, 0, 0.05);
-}
 
 /* Funds Tabs styles */
 .react-tabs__tab--selected {

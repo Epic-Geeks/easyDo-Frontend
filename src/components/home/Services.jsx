@@ -1,4 +1,4 @@
-import Container from "./Container";
+import Container from "../Container";
 import ServicesTabs from "./ServicesTabs";
 
 export default function Services() {
