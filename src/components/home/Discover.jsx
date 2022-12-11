@@ -1,5 +1,5 @@
 import  partner1  from "../../assets/home/partners/partner1.jpg";
-import Container from "./Container";
+import Container from "../Container";
 import SectionTitle from "./SectionTitle";
 
 const cards = [

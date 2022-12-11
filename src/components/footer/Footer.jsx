@@ -1,5 +1,5 @@
 import logo from "./logo.png";
-import Container from "../home/Container";
+import Container from "../Container";
 
 export default function Footer() {
   return (

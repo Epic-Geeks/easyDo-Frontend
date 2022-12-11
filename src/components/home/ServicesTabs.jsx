@@ -1,6 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import FundCards from "./ServiceCards";
+import ServiceCards from "./ServiceCards";
 import SectionTitle from "./SectionTitle";
 
 export default function ServicesTabs() {
@@ -27,19 +27,19 @@ export default function ServicesTabs() {
         </TabList>
       </div>
       <TabPanel>
-        <FundCards />
+        <ServiceCards />
       </TabPanel>
       <TabPanel>
         <p>something else not available yet</p>
       </TabPanel>
       <TabPanel>
-        <FundCards />
+        <ServiceCards />
       </TabPanel>
       <TabPanel>
         <p>something else not available yet</p>
       </TabPanel>
       <TabPanel>
-        <FundCards />
+        <ServiceCards />
       </TabPanel>
     </Tabs>
   );
