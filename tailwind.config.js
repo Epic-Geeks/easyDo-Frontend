@@ -13,6 +13,9 @@ module.exports = {
         colors: {
           "button-primary": "#D9CAB3",
           "button-primary-hover": "#B9CAB8",
+          "dark-purple": "#212121",
+          "light-white": "rgba(255,255,255,0.17)",
+          "light-yellow": "#ffe590",
         },
       },
     },
