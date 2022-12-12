@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
-import logo from "./assets/logo.png"
+import logo from "./assets/logo2.png"
 import Container from '../Container';
 
 const Navbar = () => {
@@ -51,7 +51,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Link to="/">
+        <Link to="/signin">
           <div className="hidden md:block hover:bg-button-primary px-4 py-1 rounded-xl">
             Log In
           </div>

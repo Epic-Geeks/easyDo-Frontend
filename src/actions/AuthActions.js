@@ -7,7 +7,6 @@ export const login = (payload, dispatch) => {
     payload.preventDefault();
     const { email, password } = payload.target;
     const encoded = base64.encode(`${email.value}:${password.value}`);
-    console.log("payload", payload);
     try {
       axios
         .post(
@@ -35,17 +34,23 @@ export const login = (payload, dispatch) => {
 export const signupAction = (payload, dispatch) => {
     payload.preventDefault();
     const { username, email, password, name, role } = payload.target;
-    console.log("payload", role.vale);
+    // const fd = new FormData();
+    // fd.append("picture", picture.files[0])
+    // console.log(picture.files[0])
     const obj = {
         username: username.value,
         email: email.value,
         password: password.value,
         name: name.value,
+        role: role.value,
+        // picture: fd
     };
-    console.log("obj", obj);
+    // console.log(obj);
     try {
       axios
-        .post(`${process.env.REACT_APP_BACKEND}/${role.value}/signup`, obj)
+        .post(`${process.env.REACT_APP_BACKEND}/${role.value}/signup`, obj,{   
+          headers: { "Content-Type": "multipart/form-data" } 
+  })
         .then((res) => {
             cookies.save("token", res.data.token);
             cookies.save("name", res.data.name);
