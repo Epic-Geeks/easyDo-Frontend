@@ -11,11 +11,11 @@ import cookies from "react-cookies";
 import AppRoutes from "./components/Routes";
 
 function App() {
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //   getServices(dispatch)
-    //   if(cookies.load("token")) getProfile(dispatch)
-    // }, [])
+    const dispatch = useDispatch();
+    useEffect(() => {
+    getServices(dispatch)
+    if(cookies.load("token")) getProfile(dispatch)
+     }, [])
 
   return (
             <AppRoutes />

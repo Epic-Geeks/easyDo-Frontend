@@ -24,13 +24,16 @@ export const getServices = (dispatch) => {
 
 export const createService = (dispatch, payload) => {
   payload.preventDefault();
-  const { serviceDescription, price, serviceCategory } = payload.target;
+  const { serviceDescription, price, serviceCategory, picture} = payload.target;
   const obj = {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-  };
+/*     picture: picture.value,
+ */  };
   console.log("payload", obj);
+ 
+  
   try {
     axios
       .post(
@@ -49,6 +52,74 @@ export const createService = (dispatch, payload) => {
       .catch((err) => alert(err.message));
   } catch (err) {
     alert(err);
-  }
+  };
 };
+
+export const editService = (dispatch, payload) => {
+    payload.preventDefault();
+    const { serviceDescription, price, serviceCategory, picture} = payload.target;
+    const obj = {
+      serviceDescription: serviceDescription.value,
+      price: price.value,
+      serviceCategory: serviceCategory.value,
+      picture: picture.value,
+    };
+    console.log("payload", obj);
+    try {
+      axios
+        .put(
+          `${process.env.REACT_APP_BACKEND}/service`,
+          obj,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.load("token")}`,
+            },
+          }
+          )
+      .then((res) => {
+          getProfile(dispatch); 
+          getServices(dispatch);
+      })
+      .catch((err) => alert(err.message));
+  } catch (err) {
+    alert(err);
+  };
+};
+
+
+  export const deleteService = (dispatch, payload) => {
+    payload.preventDefault();
+    const { serviceDescription, price, serviceCategory, picture} = payload.target;
+    const obj = {
+      serviceDescription: serviceDescription.value,
+      price: price.value,
+      serviceCategory: serviceCategory.value,
+      picture: picture.value,
+    };
+    console.log("payload", obj);
+    try {
+      axios
+        .delete(
+          `${process.env.REACT_APP_BACKEND}/service`,
+          obj,
+          {
+            headers: {
+                Authorization: `Bearer ${cookies.load("token")}`,
+              },
+            }
+            )
+        .then((res) => {
+            getProfile(dispatch); 
+            getServices(dispatch);
+        })
+        .catch((err) => alert(err.message));
+    }
+    catch (err) {
+      alert(err);
+    }
+  };
+
+
+  
+
 
