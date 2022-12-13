@@ -16,6 +16,10 @@ module.exports = {
           "dark-purple": "#212121",
           "light-white": "rgba(255,255,255,0.17)",
           "light-yellow": "#ffe590",
+          "Myrtle-Green": "#2B6777",
+          "Columbia-Blue": "#C8D8E4",
+          "Anti-Flash-White": "#F2F2F2",
+          "Polished-Pine": "#52AB98"
         },
       },
     },
