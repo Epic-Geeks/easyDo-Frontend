@@ -6,6 +6,7 @@ import { selectIsAuthorized } from "../../redux/counterSlicer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutHandler } from "../../actions/AuthActions";
+
 const Navbar = () => {
   const isAuthorized = useSelector(selectIsAuthorized);
   const [isOpen, setIsOpen] = useState(false);
@@ -112,7 +113,6 @@ const Navbar = () => {
               >
                 About us
               </Link>
-
               <Link
                 to="/signin"
                 className="hover:bg-primary-base bg-cyan-700  text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -120,6 +120,7 @@ const Navbar = () => {
                 Log In
               </Link>
             </div>
+
           </div>
         )}
       </Container>

@@ -40,7 +40,7 @@ function AppRoutes() {
               element={isAuthorized && userInfo.role === "customer" ? <UserDashboard /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <SignUp />}
             />
             <Route
-              path="/dashboard/*"
+              path="/dashboard"
               element={isAuthorized && userInfo.role === "customer" ? <UserDashboard /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <Navigate to="/signIn" />}
             />
             <Route
