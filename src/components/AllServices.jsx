@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectOrders } from '../redux/counterSlicer';
 
-export default function Orders() {
+export default function AllServices() {
     const orders = useSelector(selectOrders);
     return (
         <div className="bg-gray-200">

@@ -25,7 +25,7 @@ export default function EditProfile() {
 
   return (
     <div>
-      <div className="pl-20 pr-20 pb-20">
+      <div className="pl-20 pr-20 pb-20 mt-6">
         <h1 className="text-2xl pt-6 pb-6">Edit Profile</h1>
         <hr></hr>
 
@@ -207,8 +207,6 @@ export default function EditProfile() {
           );
         })} 
         </div>
-        </div>
-    </div>
 
   );
 }

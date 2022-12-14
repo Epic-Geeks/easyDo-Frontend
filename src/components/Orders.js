@@ -7,7 +7,7 @@ export default function Orders() {
   const orders = useSelector(selectOrders);
   const services = useSelector(selectMyServices);
 
-
+  console.log(services)
   return (
     <div className="bg-gray-200">
       <h2 className="text-2xl font-bold  p-2 text-center">Orders</h2>

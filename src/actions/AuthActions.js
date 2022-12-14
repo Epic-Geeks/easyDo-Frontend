@@ -21,6 +21,8 @@ export const login = (payload, dispatch) => {
         .then(async(res) => {
           cookies.save("token", res.data.token);
           cookies.save("name", res.data.name);
+          cookies.save("email", res.data.email);
+          cookies.save("username", res.data.email);
           cookies.save("capabilities", JSON.stringify(res.data.capabilities));
           cookies.save("userInfo", JSON.stringify(res.data));
           getProfile( dispatch);
