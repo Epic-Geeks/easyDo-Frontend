@@ -69,7 +69,7 @@ export default function ProviderDashboard() {
                     className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
                    `}
                   >
-                    <iimg src={Menu.src} style={{ width: "25px" }} />
+                    <img src={Menu.src} style={{ width: "25px" }} alt=""/>
                     <Link to={Menu.path}>
                       <span
                         className={`${

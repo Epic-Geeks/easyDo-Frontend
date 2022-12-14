@@ -34,17 +34,17 @@ export default function SignIn() {
                     className="border border-gray-400 py-1 px-2 w-full" />
                 </div>
                 <div className="mt-5">
-                  <input type="checkbox" className="border border-gray-400" />
-                  <span className='m-2'>
+                  <input type="checkbox" className="border border-gray-400" id='remember' />
+                  <label className='m-2' htmlFor="remember">
                     Remember me
-                  </span>
+                  </label>
                 </div>
                 <div className="mt-5">
                   <button className="w-full bg-gray-500 py-3 text-center text-white">Sign In</button>
                 </div>
               </form>
               <p className='mt-2'>
-                You don't have an account? <Link to={"/signup"}>Sign up</Link>
+                You don't have an account? <Link className='underline' to={"/signup"}>Sign up</Link>
               </p>
             </div>
           </div>

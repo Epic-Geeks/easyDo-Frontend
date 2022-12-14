@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "./assets/logo3.png";
+import logo from "./assets/easydo.png";
 import Container from "../Container";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
 import { useSelector } from "react-redux";
@@ -17,35 +17,35 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 bg-transparent">
           <div className="flex gap-4 items-center">
             <img
-              className="h-[100px] w-[100px] cursor-pointer mt-10"
+              className="h-[70px] w-[120px] cursor-pointer mt-2 object-contain"
               src={logo}
               alt="logo"
             />
             <div className="hidden md:block">
               {!isAuthorized && (
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-48 flex items-baseline space-x-16 font-semibold">
                   <Link
                     to="/"
-                    className=" hover:bg-cyan-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="hover:bg-cyan-700 hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Home
                   </Link>
 
                   <Link
                     href="#services"
-                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Services
                   </Link>
                   <Link
                     to="/"
-                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Providers
                   </Link>
                   <Link
                     to="/"
-                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     About us
                   </Link>
@@ -58,14 +58,14 @@ const Navbar = () => {
             <button onClick={() => dispatch(logoutHandler)}>
               {" "}
               <Link to="/">
-                <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-xl">
+                <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
                   Log out
                 </div>
               </Link>
             </button>
           ) : (
             <Link to="/signin">
-              <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-xl">
+              <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
                 Log In
               </div>
             </Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="mt-5 md:hidden transition-all" id="mobile-menu">
+          <div className="mt-8 md:hidden transition-all" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-black">
               <Link
                 to="/"
@@ -113,14 +113,22 @@ const Navbar = () => {
               >
                 About us
               </Link>
-              <Link
-                to="/signin"
-                className="hover:bg-primary-base bg-cyan-700  text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Log In
-              </Link>
+              {!isAuthorized ? (
+                <Link
+                  to="/signin"
+                  className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Log In
+                </Link>
+              ) : (
+                <Link
+                  onClick={() => dispatch(logoutHandler)}
+                  className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Log out
+                </Link>
+              )}
             </div>
-
           </div>
         )}
       </Container>

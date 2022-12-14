@@ -1,4 +1,4 @@
-import logo from "./logo3.png";
+import logo from "./easydo.png";
 import Container from "../Container";
 import { FaFacebook, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
                 <br />
                 <strong>Email: </strong> info@easydo.com
                 <br /> */}
-                <img src={logo} alt="" className="mt-10 w-[150px] h-[150px]" />
+                <img src={logo} alt="" className="mt-10 w-[180px] h-[180px] cursor-pointer mt-2 object-contain ml-5 bg-white rounded-2xl" />
               </p>
             </div>
             <div className="mb-5 mt-10">

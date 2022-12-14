@@ -5,7 +5,7 @@ export default function Front() {
   const [searchBar, setSearchBar] = useState(false);
 
   return (
-    <section className="z-10 mt-10">
+    <section className="z-10 m-auto">
       <div className="sm:w-12/12 mx-auto">
         <div
           className={`py-8  relative w-full h-[620px] bg-homefrontbg bg-cover lg:bg-center bg-no-repeat bg-left`}

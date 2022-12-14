@@ -5,7 +5,8 @@ import App from "./App";
 
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
-
+import { fetchServices } from "./redux/counterSlicer";
+store.dispatch(fetchServices);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

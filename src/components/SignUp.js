@@ -16,9 +16,7 @@ export default function SignUp() {
   }
   return (
     <div>
-      <div className="min-h-screen py-4 flex items-center justify-center m-5"
-        style={{ backgroundImage: "rgb(148 163 184 / 0)" }}
-      >
+      <div className="min-h-screen py-4 flex items-center justify-center m-5">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto overflow-hidden shadow-2xl hover:scale-105 transition-transform">
             <div
@@ -230,13 +228,13 @@ export default function SignUp() {
                 </div>
 
                 <div className="mt-5">
-                  <input type="checkbox" className="border border-gray-400" />
-                  <span className="m-2">
+                  <input type="checkbox" className="border border-gray-400" id="policy"/>
+                  <label className="m-2" htmlFor="policy">
                     I accept the
                     <a href="#yes" className="text-gray-500 font-semibold">Terms of Use </a>
                     &
                     <a href="#1" className="text-gray-500 font-semibold"> Privacy Policy</a>
-                  </span>
+                  </label>
                 </div>
                 {password === confPassword && password !== "" ? (
                   <div className="mt-5">
@@ -249,7 +247,7 @@ export default function SignUp() {
                       className="w-full bg-gray-500 py-3 text-center text-white cursor-not-allowed">Register Now</button>
                   </div>}
               </form>
-              <div className="w-full lg:w-1/1 py-4">Allready have an account?<Link to={"/signin"}> Signin</Link> </div>
+              <div className="w-full lg:w-1/1 py-4">Allready have an account?<Link className="underline" to={"/signin"}> Signin</Link> </div>
             </div>
           </div>
         </div>
