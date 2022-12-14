@@ -14,7 +14,7 @@ export default function UserDashboard() {
     // { title: "Dashboard", src: "Chart_fill", path: '/', },
     { title: "Edit Profile", src: User, path: "/EditProfile" },
     // { title: "Chat", src: "Chat", path: '/' },
-    { title: "Orders ", src: Chart_fill, path: "/Orders" },
+    { title: "Orders ", src: Chart_fill, path: "/orders" },
     // { title: "Search", src: "Search" },
     // { title: "Analytics", src: "Chart" },
     // { title: "Files ", src: "Folder", gap: true },

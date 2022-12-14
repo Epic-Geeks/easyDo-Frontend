@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
-import Orders from "../Orders";
+import Orders from "../customer/Orders";
 import MyServices from "./MyServices";
 
 // import logo3 from "../../assets/dashboard/logo3.png"

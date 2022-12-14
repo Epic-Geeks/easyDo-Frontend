@@ -18,7 +18,9 @@ import CreateOrderForm from "./user/CreateOrderForm";
 import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
-
+import AllServices from "./allServices";
+import Orders from "./customer/Orders";
+import Reviews from "./reviews/reviews";
 
 
 function AppRoutes() {
@@ -29,7 +31,7 @@ function AppRoutes() {
     <div className="App" data-testid="homePage">
       <>
         <Router>
-          <Navbar/>
+          <Navbar />
           <Routes >
             <Route
               path="/signIn/*"
@@ -60,10 +62,22 @@ function AppRoutes() {
               element={<Home />}
             />
 
+            <Route
+              path="/allservices"
+              element={<AllServices />}
+            />
+            <Route
+              path="/orders"
+              element={<Orders />}
+            />
+            <Route
+              path="/reviews"
+              element={<Reviews />}
+            />
           </Routes>
           {
             !isAuthorized &&
-          <Footer />
+            <Footer />
           }
         </Router>
       </>
