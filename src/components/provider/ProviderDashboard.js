@@ -16,6 +16,7 @@ export default function ProviderDashboard() {
     { title: "Home", src: "homepage", path: "/" },
     // { title: "Dashboard", src: "Chart_fill", path: '/', },
     { title: "Profile", src: "Chat", path: "/EditProfile" },
+    { title: "Craete Service", src: "", path: "/createService" },
     // { title: "Order ", src: "Calendar", path: '/order' },
     // { title: "Services", src: "Services", path: '/providerServices' },
     // { title: "Chat", src: "Chat", path: '/Chat' },
@@ -30,10 +31,11 @@ export default function ProviderDashboard() {
           <div
             className={`${
               open ? "w-72" : "w-20"
-            } duration-300 h-screen p-5 pt-8 bg-dark-purple relative`}
+            } duration-300 h-auto p-5 pt-8 bg-dark-purple relative`}
           >
             <img
               src={control}
+              alt=""
               className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-dark-purple ${
                 !open && "rotate-180"
               }`}
@@ -43,6 +45,7 @@ export default function ProviderDashboard() {
               <img
                 src={logo3}
                 style={{width:'50px'}}
+                alt=""
                 className={`curson-pointer duration-500 light-yellow ${
                   open && "rotate-[360deg]"
                 } `}
@@ -64,31 +67,39 @@ export default function ProviderDashboard() {
                    `}
                   >
                     
-                    <Link to={"/"}>{Menu.title}
-                    <img src={`../../assets/dashboard/${Menu.src}.png`} alt='img' />
+                    <Link to={Menu.path}>{Menu.title}</Link>  
                     <span
                       className={`${
                         !open && "hidden"
                       } origin-left duration-200`}
                     >
-                      
+                      <img src={Menu.src} alt="" />
                     </span>
-                    </Link>
                   </li>
+
+                  
                 );
               })}
+              
             </ul>
+          
           </div>
-          <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-            <h1>Home Page</h1>
-          </div>
+          
+          <MyServices />
+          
+        
+         
+          
 
           {/* <div>Dashboard for Provider {cookies.load("name")}</div> */}
         </div>
+        
       )}
-      <Link to="/createService">Create Service</Link>
-      <Orders />
-      <MyServices />
+      {/* <Orders /> */}
+     
+     
+     
     </div>
+    
   );
 }
