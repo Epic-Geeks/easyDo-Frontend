@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLocation, editProfile } from "../actions/AuthActions";
 import { selectUserInfo } from "../redux/counterSlicer";
+import cookies from "react-cookies";
 
 export default function EditProfile() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
+
+  const [openName, setOpenName] = useState(false);
+  const [openEmail, setOpenEmail] = useState(false);
+  const [openPassword, setOpenPassword] = useState(false);
+  const [openPhone, setOpenPhone] = useState(false);
+  const [openCity, setOpenCity] = useState(false);
 
   const handleRemoveLoc = (idx) => {
     // userInfo.customerAddress.splice(idx, 1); // faster way to remove an item from an array
@@ -18,28 +25,175 @@ export default function EditProfile() {
 
   return (
     <div>
-       <div className="flex items-center justify-center min-h-screen ">
-        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 ">
-        <h2 className="text-3xl font-bold dark:text-white">Add Address</h2>
-      <form onSubmit={(e) => editProfile(e, dispatch, userInfo)}>
-      <div className="mb-6">
-    <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
-    <input type="text" id="city" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-half p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
-</div>
-        <div className="mb-6">
-    <label htmlFor="street" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Street</label>
-    <input type="text" id="street" name="street" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-half p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
-</div>
-        
-<div className="mb-6">
-    <label htmlFor="buliding_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Buliding num</label>
-    <input type="text" id="buliding_num" name="buliding_num" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-half p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
-</div>
+      <div className="pl-20 pr-20 pb-20">
+        <h1 className="text-2xl pt-6 pb-6">Edit Profile</h1>
+        <hr></hr>
 
+        <div>
+          <form
+            onClick={() => setOpenName(!openName)}
+            className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
+          >
+            <label>Name</label>
+          </form>
 
-<button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Address</button>
-      </form>
-       {userInfo &&
+          <form
+            className={`${
+              !openName && "hidden"
+            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+            onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+          >
+            <label className="pl-2 pr-2">First Name</label>
+            <input
+              className="border border-dark-purple rounded"
+              type="text"
+              name="firstName"
+              id="firstName"
+              defaultValue={cookies.load("name")}
+            />
+            <label className="pl-12 pr-2">Last Name</label>
+            <input
+              className="border border-dark-purple rounded"
+              type="text"
+              name="lastName"
+              id="lastName"
+              // defaultValue={cookies.load("lastName")}
+            />
+          </form>
+        </div>
+        <hr></hr>
+
+        <form
+          onClick={() => setOpenEmail(!openEmail)}
+          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
+        >
+          <label>Email</label>
+        </form>
+
+        <form
+          className={`${
+            !openEmail && "hidden"
+          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+        >
+          <label className="pl-2 pr-2">Email</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="email"
+            id="email"
+            defaultValue={cookies.load("email")}
+          />
+        </form>
+        <hr></hr>
+
+        <form
+          onClick={() => setOpenPassword(!openPassword)}
+          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
+        >
+          <label>Password</label>
+        </form>
+
+        <form
+          className={`${
+            !openPassword && "hidden"
+          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+        >
+          <label className="pl-2 pr-2">password</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="password"
+            id="password"
+          />
+        </form>
+        <hr></hr>
+
+        <form
+          onClick={() => setOpenPhone(!openPhone)}
+          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
+        >
+          <label>Phone</label>
+        </form>
+
+        <form
+          className={`${
+            !openPhone && "hidden"
+          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+        >
+          <label className="pl-2 pr-2">Phone</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="phone"
+            id="phone"
+          />
+        </form>
+        <hr></hr>
+
+        <form
+          onClick={() => setOpenCity(!openCity)}
+          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
+        >
+          <label>City</label>
+        </form>
+
+        <form
+          className={`${
+            !openCity && "hidden"
+          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+        >
+          <label className="pl-2 pr-2">City</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="city"
+            id="city"
+          />
+          <label className="pl-12 pr-2">Street</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="street"
+            id="street"
+          />
+          <label className="pl-12 pr-2">building num</label>
+          <input
+            className="border border-dark-purple rounded"
+            type="text"
+            name="buildingNum"
+            id="buildingNum"
+          />
+        </form>
+        <hr></hr>
+
+        <div className="flex justify-end">
+          <button
+            className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-8 rounded mt-8 "
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+
+      {/* <h2>Add Address</h2>
+      <form
+        className="space-y-6"
+        onSubmit={(e) => editProfile(e, dispatch, userInfo)}
+      >
+        <label>City</label>
+        <input type="text" name="city" id="city" />
+        <label>Street</label>
+        <input type="text" name="street" id="street" />
+        <label>building num</label>
+        <input type="text" name="buildingNum" id="buildingNum" />
+        <button type="submit">Add Address</button>
+      </form> */}
+      {userInfo &&
         userInfo.customerAddress &&
         userInfo.customerAddress.map((item, idx) => {
           let parsedData = JSON.parse(item);
