@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import cookies from "react-cookies";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
@@ -12,11 +11,11 @@ export default function UserDashboard() {
   const isAuthorized = useSelector(selectIsAuthorized);
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Home", src: "homepage", path: "/" },
+    { title: "Book a service", src: "s", path: "/services" },
     // { title: "Dashboard", src: "Chart_fill", path: '/', },
-    { title: "Accounts", src: "User", gap: true, path: "/EditProfile" },
+    { title: "Account", src: "User", gap: true, path: "/EditProfile" },
     // { title: "Chat", src: "Chat", path: '/' },
-    { title: "Orders ", src: "Orders" },
+    { title: "Orders ", src: "Orders", path: "/orders" },
     // { title: "Search", src: "Search" },
     // { title: "Analytics", src: "Chart" },
     // { title: "Files ", src: "Folder", gap: true },
@@ -25,7 +24,7 @@ export default function UserDashboard() {
   return (
     <>
       {isAuthorized && (
-        <div className="flex">
+        <div className="flex mt-8 mb-8">
           <div
             className={`${
               open ? "w-72" : "w-20"
@@ -33,6 +32,7 @@ export default function UserDashboard() {
           >
             <img
               src={control}
+              alt=""
               className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-dark-purple ${
                 !open && "rotate-180"
               }`}
@@ -41,6 +41,7 @@ export default function UserDashboard() {
             <div className="flex gap-x-4 items-center">
               <img
                 src={logo3}
+                alt=""
                 style={{ width: "50px" }}
                 className={`curson-pointer duration-500 light-yellow ${
                   open && "rotate-[360deg]"
@@ -62,14 +63,13 @@ export default function UserDashboard() {
                     className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
                        `}
                   >
-                    <Link to={Menu.path}></Link>
-                    <img src={`../../assets/dashboard${Menu.src}.png`} />
+                    <Link to={Menu.path}>{Menu.title}</Link>
+                    <img src={`../../assets/dashboard${Menu.src}.png`} alt="" />
                     <span
                       className={`${
                         !open && "hidden"
                       } origin-left duration-200`}
                     >
-                      {Menu.title}
                     </span>
                   </li>
                 );
@@ -77,13 +77,13 @@ export default function UserDashboard() {
             </ul>
           </div>
           <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-            <h1>Home Page</h1>
+            <h1>My Orders</h1>
           </div>
 
           {/* <div>Dashboard for User {cookies.load("name")}</div> */}
         </div>
       )}
-      <Orders />
+      {/* <Orders /> */}
     </>
   );
 }

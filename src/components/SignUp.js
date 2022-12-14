@@ -16,11 +16,11 @@ export default function SignUp() {
   }
   return (
     <div>
-      <div className="min-h-screen py-4 bg-gradient-to-r from-gray-500"
+      <div className="min-h-screen py-4 flex items-center justify-center m-5"
         style={{ backgroundImage: "rgb(148 163 184 / 0)" }}
       >
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto overflow-hidden shadow-2xl hover:scale-105 transition-transform">
             <div
               className="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center bg-signupImg"
             >
