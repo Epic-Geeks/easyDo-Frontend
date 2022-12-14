@@ -8,9 +8,9 @@ export default function SignIn() {
   return (
     <div>
 
-      <div className="min-h-screen py-4  bg-gradient-to-r from-gray-500" >
+      <div className="min-h-screen py-4 justify-center flex items-center">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden shadow-2xl hover:scale-105 transition-transform">
             <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center bg-signinImg" >
               {/* <h1 className="text-gray-900 text-3xl mb-3">Welcome Back</h1> */}
             </div>
@@ -40,7 +40,7 @@ export default function SignIn() {
                   </span>
                 </div>
                 <div className="mt-5">
-                  <button className="w-full bg-gray-500 py-3 text-center text-white">Register Now</button>
+                  <button className="w-full bg-gray-500 py-3 text-center text-white">Sign In</button>
                 </div>
               </form>
               <p className='mt-2'>

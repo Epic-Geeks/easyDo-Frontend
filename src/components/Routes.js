@@ -29,8 +29,7 @@ function AppRoutes() {
     <div className="App" data-testid="homePage">
       <>
         <Router>
-          <Navbar />
-          <br />
+          <Navbar/>
           <Routes >
             <Route
               path="/signIn/*"
@@ -62,7 +61,10 @@ function AppRoutes() {
             />
 
           </Routes>
+          {
+            !isAuthorized &&
           <Footer />
+          }
         </Router>
       </>
     </div>

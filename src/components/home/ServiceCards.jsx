@@ -17,7 +17,7 @@ const cards = [
     price: "103,000",
     date: "14.05.24",
     topic:
-      "Initiative Proposition - Creating AI driven buses for a better connected Europe. Needed expertise in AI",
+      "Initiative Proposition - Creating AI driven buses for a better connected Europe.",
     image: img,
     circleText: "LOGIN TO MATCH",
   },
@@ -26,7 +26,7 @@ const cards = [
     price: "25,000,000",
     date: "14.05.24",
     topic:
-      "The annual integration of communication systems in the new thales networking system, as part of ECOMSE & Horizon 2020",
+      "The annual integration of communication systems in the new thales",
     image: img,
     circleText: "DISCOVER HOW MUCH YOU MATCH",
   },
@@ -59,7 +59,7 @@ const cards = [
     price: "25,000,000",
     date: "14.05.24",
     topic:
-      "Initiative Proposition - Creating AI driven buses for a better connected Europe. Needed expertise in AI",
+      "Initiative Proposition - Creating AI driven buses",
     image: img,
     circleText: "91% match",
   },

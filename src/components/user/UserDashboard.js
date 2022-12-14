@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import cookies from "react-cookies";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
@@ -24,7 +23,7 @@ export default function UserDashboard() {
   return (
     <>
       {isAuthorized && (
-        <div className="flex">
+        <div className="flex mt-8 mb-8">
           <div
             className={`${
               open ? "w-72" : "w-20"
@@ -79,7 +78,7 @@ export default function UserDashboard() {
             </ul>
           </div>
           <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-            <h1>Home Page</h1>
+            <h1>My Orders</h1>
           </div>
 
           {/* <div>Dashboard for User {cookies.load("name")}</div> */}

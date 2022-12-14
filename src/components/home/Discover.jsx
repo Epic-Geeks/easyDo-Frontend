@@ -1,30 +1,30 @@
-import  partner1  from "../../assets/home/partners/partner1.jpg";
+import { trend7, trend8 } from "../../assets/home/trending";
 import Container from "../Container";
-import SectionTitle from "./SectionTitle";
+import  partner1  from "../../assets/home/partners/partner1.jpg";
 
 const cards = [
   {
     id: 1,
-    image: partner1,
-    title: "Grants",
+    image: trend8,
+    title: "professionals",
   },
   {
     id: 2,
     image: partner1,
-    title: "Consortium",
+    title: "Certified",
   },
   {
     id: 3,
-    image: partner1,
-    title: "Partners",
+    image: trend7,
+    title: "experience",
   },
 ];
 
 const DiscoverCard = ({ card }) => {
   return (
     <div className="relative rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform">
-      <img src={card.image} alt="discover_image" />
-      <div className="absolute bottom-10 capitalize left-10 text-white font-bold md:text-[50px] text-[40px]">
+      <img src={card.image} alt="discover_image" className="" />
+      <div className="absolute bottom-10 capitalize left-10 text-white font-bold md:text-[40px] text-[30px]">
         {card.title}
       </div>
     </div>
@@ -33,10 +33,9 @@ const DiscoverCard = ({ card }) => {
 
 export default function Discover() {
   return (
-    <section className="my-14">
+    <section className="my-4">
       <Container>
-        <div>
-          <SectionTitle title="discover" />
+        <div>     
           <div className="grid lg:grid-cols-3 mt-8 sm:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4">
             {cards.map((card) => (
               <DiscoverCard card={card} key={card.id} />

@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../Container";
-import SectionTitle from "./SectionTitle";
 import { how_1, how_2, how_3, how_4 } from "../../assets/home/howitworks";
 
 const items = [
@@ -13,7 +12,7 @@ const items = [
   {
     id: 2,
     icon: how_2,
-    heading: "Access the platform",
+    heading: "Access the platform to check the services",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et venenatis pharetra enim est lectus.",
   },
   {
@@ -32,10 +31,9 @@ const items = [
 
 export default function HowItWorks() {
   return (
-    <section className="my-14">
-      <Container>
-        <SectionTitle title="how it works" />
-        <div className="bg-[#D9CAB3] bg-opacity-30 px-8 py-14 rounded-md mt-8">
+    <section className="my-0">
+      {/* <Container> */}
+        <div className=" bg-opacity-30 px-8 py-14 rounded-md mt-6">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-8">
             {items.map((item) => (
               <div
@@ -49,7 +47,7 @@ export default function HowItWorks() {
             ))}
           </div>
         </div>
-      </Container>
+      {/* </Container> */}
     </section>
   );
 }
