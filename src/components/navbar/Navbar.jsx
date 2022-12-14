@@ -2,6 +2,8 @@ import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import logo from "./assets/logo2.png"
 import Container from '../Container';
+import { logoutHandler } from '../../actions/AuthActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -110,6 +112,9 @@ const Navbar = () => {
             >
               Log In
             </Link>
+
+            
+
           </div>
         </div>
       )}
