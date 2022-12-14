@@ -205,7 +205,10 @@ export default function EditProfile() {
               <button onClick={() => handleRemoveLoc(idx)}>delete</button>
             </div>
           );
-        })}
+        })} 
+        </div>
+        </div>
     </div>
+
   );
 }

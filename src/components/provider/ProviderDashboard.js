@@ -32,11 +32,13 @@ export default function ProviderDashboard() {
           <div
             className={`${
               open ? "w-72" : "w-20"
-            } duration-300 h-screen p-5 pt-8 bg-dark-purple relative`}
+            } duration-300 h-auto p-5 pt-8 bg-dark-purple relative`}
           >
             <img
               src={control}
+
               alt="control img"
+
               className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-dark-purple ${
                 !open && "rotate-180"
               }`}
@@ -77,21 +79,17 @@ export default function ProviderDashboard() {
                         {Menu.title}
                       </span>
                     </Link>
-                  </li>
+                  </li>                 
                 );
-              })}
-            </ul>
-          </div>
-          <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-            <h1>Home Page</h1>
-          </div>
-
+              })}           
+            </ul>         
+          </div>       
+          <MyServices />
           {/* <div>Dashboard for Provider {cookies.load("name")}</div> */}
-        </div>
+        </div>   
       )}
-      <Link to="/createService">Create Service</Link>
-      <Orders />
-      <MyServices />
+      {/* <Orders /> */} 
     </div>
+    
   );
 }
