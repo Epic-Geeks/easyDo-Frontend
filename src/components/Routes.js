@@ -19,6 +19,9 @@ import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
 import About from "./About";
+import AllServices from "./AllServices";
+import Orders from "./user/Orders";
+import Reviews from "./reviews/reviews";
 
 
 
@@ -64,9 +67,19 @@ function AppRoutes() {
               path="/about"
               element={<About />}
             />
-
+              <Route
+              path="/allservices"
+              element={<AllServices />}
+            />
+            <Route
+              path="/orders"
+              element={<Orders />}
+            />
+            <Route
+              path="/reviews"
+              element={<Reviews />}
+            />
           </Routes>
-         
           <Footer />
           
         </Router>
