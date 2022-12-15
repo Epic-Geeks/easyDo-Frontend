@@ -6,9 +6,9 @@ module.exports = {
           xs: "410px",
         },
         backgroundImage: {
-          homefrontbg: "url(./assets/home/front3.jpeg)",
-          signupImg: "url(./assets/signup/signup2.jpg)",
-          signinImg: "url(./assets/signin/signin4.jpg)",
+          homefrontbg: "url(./assets/images/home/front3.jpeg)",
+          signupImg: "url(./assets/images/signup/signup2.jpg)",
+          signinImg: "url(./assets/images/signin/signin4.jpg)",
           trendbg: "url(./assets/home/trending/trend8.jpg)"
         },
         colors: {

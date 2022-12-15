@@ -1,7 +1,7 @@
 import ServiceCard from "./ServiceCard";
 import 
   img
- from "../../assets/home/front6.jpg";
+ from "../../assets/images/home/front.jpg";
 
 const cards = [
   {

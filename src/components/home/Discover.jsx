@@ -1,6 +1,6 @@
-import { trend7, trend8 } from "../../assets/home/trending";
+import { trend7, trend8 } from "../../assets/images/trending";
 import Container from "../Container";
-import  partner1  from "../../assets/home/partners/partner1.jpg";
+import  partner1  from "../../assets/images/partners/partner1.jpg";
 
 const cards = [
   {

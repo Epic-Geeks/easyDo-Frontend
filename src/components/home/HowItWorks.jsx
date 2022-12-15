@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../Container";
-import { how_1, how_2, how_3, how_4 } from "../../assets/home/howitworks";
+import { how_1, how_2, how_3, how_4 } from "../../assets/images/howitworks";
 
 const items = [
   {

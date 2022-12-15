@@ -1,5 +1,5 @@
 import { useState } from "react";
-import random from "../../assets/home/front.jpg";
+import random from "../../assets/images/home/front.jpg";
 
 export default function SearchBar() {
   const [focusBox, setFocusBox] = useState(false);
