@@ -54,7 +54,7 @@ const Trending = () => {
                       src={item.img}
                       alt="blog"
                     />
-                    <div className="p-6 text-gray-900 hover:bg-indigo-700 hover:text-white transition duration-300 ease-in">
+                    <div className="p-6 text-gray-900 hover:bg-Myrtle-Green hover:text-white transition duration-300 ease-in">
                       <h2 className="text-base font-medium text-indigo-300 mb-1">
                         {item.date}
                       </h2>

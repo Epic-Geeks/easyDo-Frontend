@@ -18,7 +18,13 @@ import CreateOrderForm from "./user/CreateOrderForm";
 import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
+
 import Services from "./services/Services";
+
+import About from "./About";
+import AllServices from "./AllServices";
+import Orders from "./user/Orders";
+import Reviews from "./reviews/reviews";
 
 
 
@@ -64,7 +70,23 @@ function AppRoutes() {
               element={<Services />}
             />
           </Routes>
-
+            <Route
+              path="/about"
+              element={<About />}
+            />
+              <Route
+              path="/allservices"
+              element={<AllServices />}
+            />
+            <Route
+              path="/orders"
+              element={<Orders />}
+            />
+            <Route
+              path="/reviews"
+              element={<Reviews />}
+            />
+          </Routes>
           <Footer />
 
         </Router>
