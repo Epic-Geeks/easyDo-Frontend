@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 bg-transparent">
           <div className="flex gap-4 items-center">
             <img
-              className="h-[70px] w-[120px] cursor-pointer mt-2 object-contain"
+              className="h-[70px] w-[150px] cursor-pointer mt-2 object-contain"
               src={logo}
               alt="logo"
             />
@@ -44,7 +44,7 @@ const Navbar = () => {
                     Providers
                   </Link>
                   <Link
-                    to="/"
+                    to="/about"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     About us

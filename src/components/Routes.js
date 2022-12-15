@@ -18,6 +18,7 @@ import CreateOrderForm from "./user/CreateOrderForm";
 import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
+import About from "./About";
 
 
 
@@ -58,6 +59,10 @@ function AppRoutes() {
             <Route
               path="/*"
               element={<Home />}
+            />
+            <Route
+              path="/about"
+              element={<About />}
             />
 
           </Routes>
