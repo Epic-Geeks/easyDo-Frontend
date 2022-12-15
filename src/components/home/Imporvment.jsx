@@ -15,7 +15,7 @@ const Improvment = () => {
           {data.map((svg, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-center items-center bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 cursor-pointer hover:scale-105 transition-transform hover:bg-indigo-700 hover:text-white ease-in duration-300 "
+              className="flex flex-col justify-center items-center bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 cursor-pointer hover:scale-105 transition-transform hover:bg-Myrtle-Green hover:text-white ease-in duration-300 "
             >
               <svg
                 viewBox={svg.viewBox}
