@@ -22,7 +22,7 @@ const Navbar = () => {
               alt="logo"
             />
             <div className="hidden md:block">
-              {!isAuthorized && (
+              
                 <div className="ml-48 flex items-baseline space-x-16 font-semibold">
                   <Link
                     to="/"
@@ -50,7 +50,7 @@ const Navbar = () => {
                     About us
                   </Link>
                 </div>
-              )}
+             
             </div>
           </div>
 

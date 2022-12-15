@@ -69,15 +69,14 @@ function AppRoutes() {
             <Route path="/services"
               element={<Services />}
             />
-          </Routes>
             <Route
               path="/about"
               element={<About />}
-            />
+              />
               <Route
               path="/allservices"
               element={<AllServices />}
-            />
+              />
             <Route
               path="/orders"
               element={<Orders />}
@@ -85,8 +84,8 @@ function AppRoutes() {
             <Route
               path="/reviews"
               element={<Reviews />}
-            />
-          </Routes>
+              />
+              </Routes>
           <Footer />
 
         </Router>
