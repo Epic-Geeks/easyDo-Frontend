@@ -20,7 +20,7 @@ const Services = () => {
         ))
       }
       </ul>
-        Services
+        
     </div>
   )
 }

@@ -32,19 +32,19 @@ const Navbar = () => {
                   </Link>
 
                   <Link
-                    href="#services"
+                    to="/services"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Services
                   </Link>
                   <Link
-                    to="/"
+                    to="/providers"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Providers
                   </Link>
                   <Link
-                    to="/"
+                    to="/about"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     About us
@@ -95,20 +95,20 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                to="/"
+                to="/services"
                 className="hover:bg-primary-base hover:bg-cyan-700  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Services
               </Link>
 
               <Link
-                to="/"
+                to="/providers"
                 className="hover:bg-primary-base hover:bg-cyan-700  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Providers
               </Link>
               <Link
-                to="/"
+                to="/about"
                 className="hover:bg-primary-base hover:bg-cyan-700  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 About us
