@@ -57,7 +57,7 @@ export default function About() {
               {aboutInfo &&
                 aboutInfo.map((item, index) => (
                   <div
-                    className="p-4 sm:w-1/2 lg:w-1/3 flex flex-col items-center hover:drop-shadow-xl"
+                    className={`p-4 sm:w-1/2 lg:w-1/3 flex flex-col items-center hover:drop-shadow-xl ${index >2 ?"p-4 sm:w-1/1 lg:w-1/2 flex flex-col items-center hover:drop-shadow-xl": ""}`}
                     key={index}
                   >
                     <div className="h-full w-80 border-2 border-gray-200 bg-Anti-Flash-White border-opacity-60 rounded-lg flex flex-col items-center overflow-hidden cursor-pointer hover:scale-105 transition-transform drop-shadow-xl">

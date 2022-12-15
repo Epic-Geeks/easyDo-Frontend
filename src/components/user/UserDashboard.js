@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import cookies from "react-cookies";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
-// import Orders from "../Orders";
 
 import { User, logo, control, homepage2, Chart_fill } from "../../assets/images/dashboard";
 import CustomerProfile from "./CustomerProfile";
 import EditProfile from "../EditProfile";
-import Orders from "../Orders";
+import Orders from "./Orders";
 
 export default function UserDashboard() {
   const isAuthorized = useSelector(selectIsAuthorized);
