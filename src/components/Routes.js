@@ -18,6 +18,9 @@ import CreateOrderForm from "./user/CreateOrderForm";
 import CreateServiceForm from "./provider/CreateServiceForm";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
+
+import Services from "./services/Services";
+
 import About from "./About";
 import AllServices from "./AllServices";
 import Orders from "./user/Orders";
@@ -33,7 +36,7 @@ function AppRoutes() {
     <div className="App" data-testid="homePage">
       <>
         <Router>
-          <Navbar/>
+          <Navbar />
           <Routes >
             <Route
               path="/signIn/*"
@@ -63,6 +66,10 @@ function AppRoutes() {
               path="/*"
               element={<Home />}
             />
+            <Route path="/services"
+              element={<Services />}
+            />
+          </Routes>
             <Route
               path="/about"
               element={<About />}
@@ -81,7 +88,7 @@ function AppRoutes() {
             />
           </Routes>
           <Footer />
-          
+
         </Router>
       </>
     </div>
