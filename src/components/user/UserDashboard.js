@@ -4,7 +4,7 @@ import cookies from "react-cookies";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
 // import Orders from "../Orders";
 
-import { User, logo, control, homepage2, Chart_fill } from "../../assets/dashboard";
+import { User, logo, control, homepage2, Chart_fill } from "../../assets/images/dashboard";
 import CustomerProfile from "./CustomerProfile";
 import EditProfile from "../EditProfile";
 import Orders from "../Orders";
@@ -15,24 +15,13 @@ export default function UserDashboard() {
   const [openProfile, setOpenProfile] = useState(false);
   const [openEditInfo, setOpenEditInfo] = useState(false);
   const [openOrders, setOpenOrders] = useState(false);
-  const Menus = [
-    { title: "Home", src: homepage2, path: "/" },
-    // { title: "Dashboard", src: "Chart_fill", path: '/', },
-    { title: "Edit Profile", src: User, path: "/EditProfile" },
-    // { title: "Chat", src: "Chat", path: '/' },
-    { title: "Orders ", src: Chart_fill, path: "/Orders" },
-    // { title: "Search", src: "Search" },
-    // { title: "Analytics", src: "Chart" },
-    // { title: "Files ", src: "Folder", gap: true },
-    // { title: "Setting", src: "Setting" },
-  ];
   return (
     <>
       {isAuthorized && (
-        <div className="flex mt-8 mb-8 sticky top-0">
+        <div className="flex mt-8 mb-2">
           <div
             className={`${open ? "w-72" : "w-20"
-              } duration-300 h-screen p-5 pt-8 bg-dark-purple relative `}
+              } duration-300 h-screen p-5 pt-8 bg-gray-800 relative`}
           >
             <img
               src={control}

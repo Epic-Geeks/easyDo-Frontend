@@ -1,4 +1,4 @@
-import { t1, t2, t3, t4, t5, t6, t7 } from "../../assets/home/trusted";
+import { t1, t2, t3, t4, t5, t6, t7 } from "../../assets/images/trusted";
 import SectionTitle from "./SectionTitle";
 
 export default function Trusted() {

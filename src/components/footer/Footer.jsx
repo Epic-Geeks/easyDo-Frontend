@@ -19,7 +19,7 @@ export default function Footer() {
                 <br />
                 <strong>Email: </strong> info@easydo.com
                 <br /> */}
-                <img src={logo} alt="" className="mt-10 w-[180px] h-[180px] cursor-pointer mt-2 object-contain ml-5 bg-white rounded-2xl" />
+                <img src={logo} alt="" className="mt-10 w-[256px] h-[240px] mr-3 cursor-pointer mt-2 object-contain ml-5 rounded-2xl" />
               </p>
             </div>
             <div className="mb-5 mt-10">

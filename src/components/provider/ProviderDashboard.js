@@ -9,7 +9,7 @@ import MyServices from "./MyServices";
 // import logo3 from "../../assets/dashboard/logo3.png"
 // import control from "../../assets/dashboard/control.png"
 
-import { User, logo3, control, homepage2 } from "../../assets/dashboard";
+import { User, logo3, control, homepage2 } from "../../assets/images/dashboard";
 
 export default function ProviderDashboard() {
   const isAuthorized = useSelector(selectIsAuthorized);

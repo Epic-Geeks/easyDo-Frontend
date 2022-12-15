@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteLocation, editProfile } from "../actions/AuthActions";
 import { selectUserInfo } from "../redux/counterSlicer";
 import cookies from "react-cookies";
+import Container from "./Container";
 
 export default function EditProfile() {
   const dispatch = useDispatch();
@@ -25,7 +26,8 @@ export default function EditProfile() {
 
   return (
     <div>
-      <div className="pl-20 pr-20 pb-20 mt-6">
+      {/* <Container> */}
+      <div className="pl-10 pr-20 pb-20 mt-6 sm:pl-5">
         <h1 className="text-2xl pt-6 pb-6">Edit Profile</h1>
         <hr></hr>
 
@@ -179,7 +181,7 @@ export default function EditProfile() {
           </button>
         </div>
       </div>
-
+      {/* </Container> */}
       {/* <h2>Add Address</h2>
       <form
         className="space-y-6"

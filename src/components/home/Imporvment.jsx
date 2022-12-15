@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../Container";
-import data from "../data/svg.json";
+import data from "../../assets/data/svg.json";
 
 const Improvment = () => {
   return (

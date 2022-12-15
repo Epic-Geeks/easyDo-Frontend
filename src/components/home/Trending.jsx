@@ -6,7 +6,7 @@ import {
   trend4,
   trend5,
   trend6,
-} from "../../assets/home/trending";
+} from "../../assets/images/trending";
 import Container from "../Container";
 
 const Trending = () => {

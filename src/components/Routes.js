@@ -61,10 +61,9 @@ function AppRoutes() {
             />
 
           </Routes>
-          {
-            !isAuthorized &&
+         
           <Footer />
-          }
+          
         </Router>
       </>
     </div>
