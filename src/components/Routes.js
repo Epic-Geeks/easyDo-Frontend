@@ -21,10 +21,11 @@ import Footer from "./footer/Footer";
 
 import Services from "./services/Services";
 
-import About from "./About";
+import About from "./About/About";
 import AllServices from "./AllServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
+import ContactUs from "./ContactUs";
 
 
 
@@ -85,6 +86,10 @@ function AppRoutes() {
               path="/reviews"
               element={<Reviews />}
               />
+            <Route
+              path="/contactUs"
+              element={<ContactUs />}
+            />
               </Routes>
           <Footer />
 
