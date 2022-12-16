@@ -6,7 +6,7 @@ import HowItWorks from "../home/HowItWorks";
 import Trusted from "../home/Trusted";
 import Trending from "../home/Trending";
 import Improvment from "../home/Imporvment";
-import AllServices from "../AllServices";
+import OneServices from "../oneServices";
 
 const Home = () => {
   return (
