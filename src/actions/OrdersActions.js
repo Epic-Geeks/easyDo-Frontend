@@ -7,12 +7,17 @@ import { getProfile } from "./AuthActions";
 export const createOrder = (dispatch, payload, id) => {
     payload.preventDefault();
     // console.log("payload", payload.target);
-    const { orderNotes, orderDate } = payload.target;
+    const { orderNotes, orderDate, location, phone } = payload.target;
     const obj = {
         orderNotes: orderNotes.value,
         orderDate: orderDate.value,
         serviceID: id,
+        location: location.value,
+        customerName: cookies.load("name"),
+        phoneNumber: phone.value
     };
+
+    console.log(obj)
     // console.log("payload", id, orderNotes.value, orderDate.value);
     try {
       axios
@@ -29,7 +34,7 @@ export const createOrder = (dispatch, payload, id) => {
         console.log(res.data)
             getProfile(dispatch); 
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => alert("Provider has a full schedule this day, please chose another one"));
     } catch (err) {
       alert(err);
     }
