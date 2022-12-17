@@ -23,11 +23,11 @@ export default function CreateOrderForm(props) {
       {isAuthorized && userInfo.role === "customer" && (
         <form onSubmit={(e)=>createOrder(dispatch, e, id)}>
             <label>orderNotes</label>
-            <input type="text" name="orderNotes" id="orderNotes" />
+            <input type="text" name="orderNotes" id="orderNotes" /><br/>
             <label>orderDate</label>
-            <input type="date" name="orderDate" id="orderDate" />
+            <input type="date" name="orderDate" id="orderDate" /><br/>
             {/* serviceID */}
-            <button type="submit">Create Order</button>
+            <button className='bg-blue-500 hover:bg-blue-700' type="submit">Create Order</button>
         </form>
       )}
 

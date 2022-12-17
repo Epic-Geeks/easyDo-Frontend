@@ -1,3 +1,18 @@
+
+import ServiceCard from "./ServiceCard";
+import Container from "../Container";
+import { useSelector } from "react-redux";
+import { fetchServices } from "../../redux/counterSlicer";
+import Loading from "../pages/Loading";
+
+export default function ServiceCards() {
+  const services = useSelector(fetchServices);
+  if(!services){
+    return(
+      <Loading/>
+    )
+  }
+
 import React from 'react';
 
 import OneService from "./OneService";
@@ -10,8 +25,10 @@ export default function ServiceCards() {
   const services = useSelector(fetchServices);
   const [query, setQuery] = React.useState('');
 
+
   // const pr = services.payload.counter.services.Provider.map(p=> p)
-  // console.log(services.payload.counter.services)
+  // console.log(services.payload.counter.services[0].Provider.name)
+  //react lazy
   return (
     <Container>
       <div className="max-w-300 place-content-center">
@@ -37,13 +54,14 @@ export default function ServiceCards() {
         {services.payload.counter.services &&
         services.payload.counter.services.filter(service=>service.serviceCategory.toLowerCase().includes(query)).map((service) => (
             
-          <OneService
+          <ServiceCard
             id={service.id}
             key={service.id}
             serviceDescription={service.serviceDescription}
             averageRate={service.averageRate}
             price={service.price}
             serviceCategory={service.serviceCategory}
+            providerName={service.Provider.name}
           />
         ))}
       </article>

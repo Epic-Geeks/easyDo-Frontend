@@ -115,7 +115,7 @@ export const editService = (dispatch, payload) => {
     };
     console.log("payload", obj);
     await axios
-     .put(`${process.env.REACT_APP_HEROKU_URL}/service`, obj, {
+     .put(`${process.env.REACT_APP_BACKEND}/service`, obj, {
       headers: {
        Authorization: `bearer ${cookies.load("token")}`,
       },
@@ -140,7 +140,7 @@ export const editService = (dispatch, payload) => {
     }).then(async (willDelete) => {
       if (willDelete) {
         await axios
-          .delete(`${process.env.REACT_APP_HEROKU_URL}/service/${id}`, {
+          .delete(`${process.env.REACT_APP_BACKEND}/service/${id}`, {
             headers: {
               Authorization: `bearer ${cookies.load("token")}`,
             },
