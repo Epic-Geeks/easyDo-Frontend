@@ -1,9 +1,10 @@
 import React from 'react'
 import cookies from "react-cookies"
-const CustomerProfile = () => {
+const ProviderProfile = () => {
   return (
     <div>{cookies.load("name")} Profile</div>
+
   )
 }
 
-export default CustomerProfile
+export default ProviderProfile

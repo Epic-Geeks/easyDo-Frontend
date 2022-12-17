@@ -1,0 +1,28 @@
+{
+    "id": 1,
+    "serviceDescription": "test service",
+    "price": 852,
+    "picture": null,
+    "serviceCategory": "plumber",
+    "visibility": true,
+    "averageRate": 0,
+    "providerID": 1,
+    "createdAt": "2022-12-09T12:33:00.610Z",
+    "updatedAt": "2022-12-09T12:33:00.610Z",
+    "Provider": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1Byb3ZpZGVyIiwiaWF0IjoxNjcxMTM1NDIwfQ.osYIxHRUW7XGvXMMBIykzbBZ2MnTxuAzLKkdIYwfIes",
+        "id": 1,
+        "username": "newProvider",
+        "name": "New Provider",
+        "email": "provider@provider.com",
+        "picture": [],
+        "providerCoveredCities": [],
+        "suspend": false,
+        "visibility": true,
+        "password": "$2b$10$kSOEVuH5DNH1XKA.NPjgr.fgw3BbpXI6UnhqnRALGCpF2ApgOAvqC",
+        "role": "provider",
+        "createdAt": "2022-10-27T08:16:56.932Z",
+        "updatedAt": "2022-10-27T08:16:56.932Z"
+    },
+    "Orders": []
+}

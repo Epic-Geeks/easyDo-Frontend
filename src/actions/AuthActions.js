@@ -22,7 +22,7 @@ export const login = (payload, dispatch) => {
           cookies.save("token", res.data.token);
           cookies.save("name", res.data.name);
           cookies.save("email", res.data.email);
-          cookies.save("username", res.data.email);
+          cookies.save("username", res.data.username);
           cookies.save("capabilities", JSON.stringify(res.data.capabilities));
           cookies.save("userInfo", JSON.stringify(res.data));
           getProfile( dispatch);
@@ -74,6 +74,8 @@ export const logoutHandler = (dispatch) => {
     cookies.remove("token");
     cookies.remove("capabilities");
     cookies.remove("name");
+    cookies.remove("username");
+    cookies.remove("email");
     dispatch(Logout());
   };
   

@@ -43,18 +43,31 @@ const Navbar = () => {
                   >
                     Providers
                   </Link>
+                  {
+                    !isAuthorized ? (
                   <Link
                     to="/about"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     About us
                   </Link>
+
                   {/* <Link
                     to="/contactUs"
                     className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
                   >
                     Contact us
                   </Link> */}
+
+                    ):(
+                      <Link to="/dashboard" 
+                      className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"
+                      >
+                        Dashboard
+                      </Link>
+                    )
+                  }
+
                 </div>
              
             </div>

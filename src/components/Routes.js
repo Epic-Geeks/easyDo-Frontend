@@ -21,11 +21,14 @@ import Footer from "./footer/Footer";
 
 import Services from "./services/Services";
 
+
 import About from "./About/About";
-import AllServices from "./AllServices";
+import ContactUs from "./ContactUs";
+import OneServices from "./oneServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
-import ContactUs from "./ContactUs";
+import SingleServicePage from "../components/services/OneServicePage";
+
 
 
 
@@ -41,7 +44,7 @@ function AppRoutes() {
           <Routes >
             <Route
               path="/signIn/*"
-              element={isAuthorized && userInfo.role === "customer" ? <UserDashboard /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <SignIn />}
+              element={isAuthorized && userInfo.role === "customer" ? <Navigate to={"/dashboard"} /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <SignIn />}
             />
             <Route
               path="/signUp/*"
@@ -75,13 +78,15 @@ function AppRoutes() {
               element={<About />}
               />
               <Route
-              path="/allservices"
-              element={<AllServices />}
+              path="/service/id"
+              element={<OneServices />}
               />
             <Route
               path="/orders"
               element={<Orders />}
             />
+        <Route path="services/:serviceId" element={<SingleServicePage />} />
+
             <Route
               path="/reviews"
               element={<Reviews />}

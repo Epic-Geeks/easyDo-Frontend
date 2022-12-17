@@ -6,14 +6,14 @@ import { getProfile } from "./AuthActions";
 
 export const createOrder = (dispatch, payload, id) => {
     payload.preventDefault();
-    console.log("payload", payload.target);
+    // console.log("payload", payload.target);
     const { orderNotes, orderDate } = payload.target;
     const obj = {
         orderNotes: orderNotes.value,
         orderDate: orderDate.value,
         serviceID: id,
     };
-    console.log("payload", id, orderNotes.value, orderDate.value);
+    // console.log("payload", id, orderNotes.value, orderDate.value);
     try {
       axios
         .post(
@@ -26,6 +26,7 @@ export const createOrder = (dispatch, payload, id) => {
             }
             )
         .then((res) => {
+        console.log(res.data)
             getProfile(dispatch); 
         })
         .catch((err) => alert(err.message));
