@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="py-2 z-40">
       <Container>
         <div className="flex items-center justify-between h-16 bg-transparent">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-0 items-center">
             <img
               className="h-[70px] w-[150px] cursor-pointer mt-2 object-contain"
               src={logo}
@@ -126,12 +126,22 @@ const Navbar = () => {
               >
                 Providers
               </Link>
-              <Link
-                to="/about"
-                className="hover:bg-primary-base hover:bg-cyan-700  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                About us
-              </Link>
+              {
+                    !isAuthorized ? (
+                  <Link
+                    to="/about"
+                    className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    About us
+                  </Link>
+                    ):(
+                      <Link to="/dashboard" 
+                      className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
+                      >
+                        Dashboard
+                      </Link>
+                    )
+                  }
               {!isAuthorized ? (
                 <Link
                   to="/signin"

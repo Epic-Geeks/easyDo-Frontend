@@ -19,7 +19,7 @@ const Loading = () => {
           fill="currentFill"
         />
       </svg>
-      Loading
+      Loading...
     </div>
   );
 };

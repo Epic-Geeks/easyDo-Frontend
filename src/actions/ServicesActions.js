@@ -131,29 +131,24 @@ export const editService = (dispatch, payload) => {
  };
 
 
-  export const deleteService = (dispatch, id) => {
-    swal({
-      title: "Do you wanna delete this service?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then(async (willDelete) => {
-      if (willDelete) {
+  export const deleteService = async(dispatch, id) => {
+      try {
         await axios
           .delete(`${process.env.REACT_APP_BACKEND}/service/${id}`, {
             headers: {
               Authorization: `bearer ${cookies.load("token")}`,
             },
           })
-          .then(() => {
+          .then((res) => {
+            console.log(res.data)
             getProfile(dispatch);
             getServices(dispatch);
           }
           );
-      } else {
-        swal("Your service is safe!");
+        
+      } catch (error) {
+        console.log(error)
       }
-    });
   };
   
 

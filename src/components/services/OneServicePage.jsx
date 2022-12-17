@@ -3,21 +3,25 @@ import { useSelector } from "react-redux";
 import {
   selectIsAuthorized,
   selectServiceById,
+  selectUserInfo,
 } from "../../redux/counterSlicer";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Loading from "../pages/Loading";
 import Container from "../Container";
 import Slider from "./Slider";
-
+import CreateOrder from "../user/CreateOrder";
+import cookies from "react-cookies";
 const OneServicePage = () => {
   const { serviceId } = useParams();
   const isAuthorized = useSelector(selectIsAuthorized);
+  const [showModal, setShowModal] = React.useState(false);
+  const userInfo = useSelector(selectUserInfo);
   const service = useSelector((state) =>
     selectServiceById(state, Number(serviceId))
   );
-  const go = ()=>{
-    Navigate(`/createOrder/${serviceId}`)
-  }
+  const go = () => {
+    Navigate(`/createOrder/${serviceId}`);
+  };
   if (!service) {
     return <Loading />;
   }
@@ -52,16 +56,18 @@ const OneServicePage = () => {
                 {service.serviceDescription}
               </p>
 
-              {isAuthorized ? (
+              {isAuthorized && userInfo.role === "customer" && (
                 <div className="flex items-center flex-wrap ">
-                  <Link
-                    to={`/createOrder/${serviceId}`}
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(true)}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Book this service
-                  </Link>
+                  </button>
                 </div>
-              ) : (
+              )}
+              {!isAuthorized && (
                 <div className="flex items-center flex-wrap ">
                   <button
                     onClick={() => alert("Please Login")}
@@ -71,6 +77,23 @@ const OneServicePage = () => {
                   </button>
                 </div>
               )}
+
+              {isAuthorized && userInfo.role === "provider" && (
+                <div className="flex items-center flex-wrap ">
+                  <button
+                    type="button"
+                    onClick={() => alert("Only customers can book service")}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Book this service
+                  </button>
+                </div>
+              )}
+
+              <CreateOrder
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
             </div>
           </div>
         </div>

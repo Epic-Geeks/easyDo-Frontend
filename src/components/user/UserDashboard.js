@@ -20,7 +20,7 @@ export default function UserDashboard() {
   return (
     <>
       {isAuthorized && (
-        <div className="flex mt-8 mb-2">
+        <div className="flex mt-8 mb-auto">
           <div
             className={`${open ? "w-72" : "w-20 h-screen"
               } duration-300 h-screen p-5 pt-8 bg-gray-800 relative`}
@@ -123,7 +123,7 @@ export default function UserDashboard() {
               </li>
             </ul>
           </div>
-          <div className="p-7 text-2xl font-semibold flex-1 h-screen">
+          <div className="p-7 text-2xl font-semibold flex-1">
             {
               openEditInfo &&
               <EditProfile />
