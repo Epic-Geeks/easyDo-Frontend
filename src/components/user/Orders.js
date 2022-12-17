@@ -1,10 +1,11 @@
 import React from 'react'
-// import { useSelector } from 'react-redux';
-// import { selectOrders } from '../../redux/counterSlicer';
+import { useSelector } from 'react-redux';
+import { selectOrders, selectCustomerOrders } from '../../redux/counterSlicer';
 // import { selectMyServices } from '../../redux/counterSlicer';
 
 export default function Orders() {
-    // const orders = useSelector(selectOrders);
+    const orders = useSelector(selectOrders);
+    console.log(orders)
     // const services = useSelector(selectMyServices);
     let myOrders = [
         {
@@ -38,11 +39,11 @@ export default function Orders() {
         <div className="bg-gray-200">
             <h2 className="text-2xl font-bold  p-2 text-center">Orders</h2>
             <section className="parent-section">
-                {myOrders && myOrders.map((order, index) => (
+                {/* {myOrders && myOrders.map((order, index) => (
                     <div key={index} className="card flex flex-col lg:flex-row mx-10 md:mx-20 lg:mx-52 rounded-lg bg-white">
                         <img src={order.services.picture}
                             alt="img" className="thumbnail ml-10 mr-5" height="200" width="400" />
-                        {/* {service.picture} */}
+                        
                         <div className="card-details">
                             <div className="top flex flex-row justify-between my-2 ma-5 mx-5 text-gray-500">
                                 <div className="tag">
@@ -88,8 +89,19 @@ export default function Orders() {
                         </div>
 
                     </div>
-                ))}
+                ))} */}
+            {orders && orders.map((order, idx)=>(
+                
+                <ul key={idx}>
+                    <li>customerID: {order.customerID}</li><br/>
+                    <li>orderNotes: {order.orderNotes}</li><br/>
+                    <li>serviceID: {order.serviceID}</li><br/>
+                    <li>Status: {order.status}</li><br/>
+                </ul>
+                
+            ))
 
+            }
             </section>
         </div>
     )

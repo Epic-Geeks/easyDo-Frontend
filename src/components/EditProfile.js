@@ -53,13 +53,13 @@ export default function EditProfile() {
               id="firstName"
               defaultValue={cookies.load("name")}
             />
-            <label className="pl-12 pr-2">Last Name</label>
+            <label className="pl-12 pr-2">username</label>
             <input
               className="border border-dark-purple rounded"
               type="text"
               name="lastName"
               id="lastName"
-              // defaultValue={cookies.load("lastName")}
+              defaultValue={cookies.load("username")}
             />
           </form>
         </div>

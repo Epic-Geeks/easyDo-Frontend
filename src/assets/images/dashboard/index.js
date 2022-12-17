@@ -3,7 +3,7 @@ import Chat from "./Chat.png";
 import control from "./control.png";
 // import homepage from "./homepage.png";
 import logo from "./logo.png";
-import logo3 from "./logo3.png";
+import providerLogo from "./providerLogo.png";
 import User from "./User.png";
 import homepage2 from "./homepage2.png"
 
@@ -13,7 +13,7 @@ export {
     control,
     // homepage,
     logo,
-    logo3,
+    providerLogo,
     User,
     homepage2
 }

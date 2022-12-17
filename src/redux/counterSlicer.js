@@ -35,7 +35,9 @@ export const selectServices = (state) => state.counter.services
 export const selectUserInfo = (state) => state.counter.userInfo
 export const selectOrders = (state) => state.counter.orders
 export const selectMyServices = (state) => state.counter.myServices
-
-
+export const selectServiceById = (state, serviceId) =>
+    state.counter.services.find(service => service.id === serviceId)
+export const selectCustomerOrders = (state, customerID)=> 
+    state.counter.orders.map(order => order)
 export const {Login_Success, Logout, fetchServices} = counterSlicer.actions;
 export default counterSlicer.reducer;
