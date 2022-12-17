@@ -22,7 +22,7 @@ import Footer from "./footer/Footer";
 import Services from "./services/Services";
 
 import About from "./About";
-import AllServices from "./AllServices";
+import OneServices from "./oneServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
 import SingleServicePage from "../components/services/OneServicePage";
@@ -75,8 +75,8 @@ function AppRoutes() {
               element={<About />}
               />
               <Route
-              path="/allservices"
-              element={<AllServices />}
+              path="/service/id"
+              element={<OneServices />}
               />
             <Route
               path="/orders"
