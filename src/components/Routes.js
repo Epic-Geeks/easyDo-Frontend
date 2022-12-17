@@ -21,11 +21,14 @@ import Footer from "./footer/Footer";
 
 import Services from "./services/Services";
 
-import About from "./About";
+
+import About from "./About/About";
+import ContactUs from "./ContactUs";
 import OneServices from "./oneServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
 import SingleServicePage from "../components/services/OneServicePage";
+
 
 
 
@@ -88,6 +91,10 @@ function AppRoutes() {
               path="/reviews"
               element={<Reviews />}
               />
+            <Route
+              path="/contactUs"
+              element={<ContactUs />}
+            />
               </Routes>
           <Footer />
 
