@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { trend1 } from '../../assets/images/trending';
 
+import { FaHeart } from "react-icons/fa";
+
 const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, providerName })=> {
   const [avatar, setAvatar] = useState();
+  const [red, setRed] = useState(false);
 
     return (
       <div className="h-[400px] w-[320px] p-2" key={id}>
@@ -24,6 +27,9 @@ const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, 
             {serviceCategory}
           <i className="fa fa- text-xs text-[#6D9886] text-[14px] ml-auto" />
           </span>
+          <div className={``}>
+           <FaHeart className={`${red ? "text-red-600" : ""}`} onClick={() => setRed(!red)}/>
+          </div>
         </div>
         <div className='max-w-24'>
         <h2 className="font-bold text-[17px] px-2 hover:text-[#6D9886] transition-colors cursor-pointer text-ellipsis overflow-hidden">
