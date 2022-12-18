@@ -24,7 +24,6 @@ import Services from "./services/Services";
 
 import About from "./About/About";
 import ContactUs from "./ContactUs";
-import OneServices from "./oneServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
 import SingleServicePage from "../components/services/OneServicePage";
@@ -76,10 +75,6 @@ function AppRoutes() {
             <Route
               path="/about"
               element={<About />}
-              />
-              <Route
-              path="/service/id"
-              element={<OneServices />}
               />
             <Route
               path="/orders"

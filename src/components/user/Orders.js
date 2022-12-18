@@ -1,8 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectOrders, selectCustomerOrders, selectUserInfo } from '../../redux/counterSlicer';
-// import { selectMyServices } from '../../redux/counterSlicer';
-import cookies from "react-cookies";
+//import cookies from "react-cookies";
+
+
+
 export default function Orders() {
     const orders = useSelector(selectOrders);
     const userInfo = useSelector(selectUserInfo);
@@ -26,7 +28,7 @@ export default function Orders() {
                                         { userInfo.role === "provider" &&
                                             <>
                                             <p className="author-name"> {order.customerName} </p>
-                                           <p className="author-phone">{order.phoneNumber} </p>
+                                            <p className="author-phone">{order.phoneNumber} </p>
                                             </>
 
                                         }
@@ -47,7 +49,7 @@ export default function Orders() {
                                 <p className="leading-relaxed font-sans">{order.orderNotes}</p>
                                 <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
 
-                              <span className="title-font font-medium text-2xl font-sans text-gray-900"></span>
+                            <span className="title-font font-medium text-2xl font-sans text-gray-900"></span>
                                 </div>
                                 <div className="flex">
                                     <button className="flex ml-auto font-sans text-base text-white bg-teal-700 border-0 py-2 px-6 focus:outline-none hover:bg-teal-500 rounded">Delete</button>
@@ -56,7 +58,7 @@ export default function Orders() {
                             </div>
                         </div>
                     </div>
-               
+            
             ))}
 
         </div>
