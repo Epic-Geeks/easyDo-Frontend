@@ -5,6 +5,7 @@ import { selectUserInfo } from "../redux/counterSlicer";
 import cookies from "react-cookies";
 import Container from "./Container";
 import { FiArrowRight } from "react-icons/fi";
+import swal from "sweetalert";
 
 export default function EditProfile() {
   const dispatch = useDispatch();
@@ -238,7 +239,14 @@ export default function EditProfile() {
           <button
             className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-8 rounded mt-8 "
             type="submit"
-          >
+            onClick={() =>   swal({
+              title:"your profile has been updated", 
+              icon: "success",
+              buttons: {
+                cancel: "Ok",
+              },
+            })}
+          > 
             Save
           </button>
         </div>
