@@ -14,7 +14,7 @@ export default function ServiceCards() {
 
   return (
     <Container>
-      <div className="max-w-300 place-content-center">
+      <div className="max-w-300 mt-5 place-content-center">
         <form className="flex place-content-center">
           <div className="relative w-1/3 place-items-center">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -56,7 +56,7 @@ export default function ServiceCards() {
         </form>
       </div>
 
-      <article className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4 mb-8">
+      <article className="grid my-10 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4 mb-8">
         {services.payload.counter.services &&
           services.payload.counter.services
             .filter((service) =>

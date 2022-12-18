@@ -91,6 +91,13 @@ export const getServices = (dispatch) => {
       .then((res) => {
           getProfile(dispatch); 
           getServices(dispatch);
+          swal({
+            title:"Service created successfully", 
+            icon: "success",
+            buttons: {
+              cancel: "Ok",
+            },
+          });
       })
       .catch((err) => alert(err.message));
   } catch (err) {
@@ -123,6 +130,13 @@ export const editService = (dispatch, payload) => {
      .then(() => {
       getProfile(dispatch);
       getServices(dispatch);
+      swal({
+        title:"Service edited successfully",
+        icon: "success",
+        buttons: {
+          cancel: "Ok",
+        },
+      });
      });
    } else {
     swal("Your service is safe!");
@@ -143,6 +157,13 @@ export const editService = (dispatch, payload) => {
             console.log(res.data)
             getProfile(dispatch);
             getServices(dispatch);
+            swal({
+              title:"Service deleted successfully", 
+              icon: "success",
+              buttons: {
+                cancel: "Ok",
+              },
+            });
           }
           );
         

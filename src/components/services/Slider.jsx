@@ -24,19 +24,19 @@ const Slider = () => {
         }
       };
   return (
-    <div className='m-6'>
+    <div className='h-[500px] w-[500px]'>
     {images.map((item, index) => {
       return (
         <div
           key={index}
           className={
             activeSlide === index
-              ? 'flex justify-between items-center lg:w-256'
+              ? 'flex h-[500px] w-[500px] justify-between items-center'
               : 'hidden'
           }
         >
           <button
-            className='text-6xl border-2 border-black'
+            className='text-6xl'
             onClick={() => prevSliderHandler(index)}
           >
             <FiChevronLeft />
@@ -49,7 +49,7 @@ const Slider = () => {
             />
           </div>
           <button
-            className='text-6xl border-2 border-black'
+            className='text-6xl'
             onClick={() => nextSliderHandler(index)}
           >
             <FiChevronRight />

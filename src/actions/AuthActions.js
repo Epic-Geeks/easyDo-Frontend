@@ -2,6 +2,7 @@ import axios from "axios";
 import cookies from "react-cookies";
 import base64 from "base-64";
 import { Login_Success, Logout } from "../redux/counterSlicer";
+import swal from "sweetalert";
 
 export const login = (payload, dispatch) => {
     payload.preventDefault();
@@ -52,14 +53,24 @@ export const signupAction = (payload, dispatch) => {
       axios
         .post(`${process.env.REACT_APP_BACKEND}/${role.value}/signup`, obj,{   
           headers: { "Content-Type": "multipart/form-data" } 
-  })
-        .then((res) => {
+          
+  })  
+
+        .then((res) => {  
+          swal({
+            title:"welcome on our website", 
+            icon: "success",
+            buttons: {
+              cancel: "Ok",
+            },
+          });
             cookies.save("token", res.data.token);
             cookies.save("name", res.data.name);
             cookies.save("capabilities", JSON.stringify(res.data.capabilities));
             cookies.save("userInfo", JSON.stringify(res.data));
             console.log("res.data", res.data);
           dispatch(Login_Success(res.data));
+        
         })
         .catch((e) => console.error(e.message));
     } catch (e) {
