@@ -3,15 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import cookies from "react-cookies";
 import { selectIsAuthorized, selectServiceById } from "../../redux/counterSlicer";
 import { logo, control } from "../../assets/images/dashboard";
-import CustomerProfile from "./CustomerProfile";
 import EditProfile from "../EditProfile";
 import Orders from "./Orders";
 import { logoutHandler } from "../../actions/AuthActions";
+import CustomerOrders from "../Orders/CustomerOrders";
 export default function UserDashboard() {
   const dispatch = useDispatch();
   const isAuthorized = useSelector(selectIsAuthorized);
   const [open, setOpen] = useState(true);
-  const [openProfile, setOpenProfile] = useState(false);
   const [openEditInfo, setOpenEditInfo] = useState(false);
   const [openOrders, setOpenOrders] = useState(false);
   const service = useSelector((state) => selectServiceById(state, Number(2)));
@@ -48,27 +47,10 @@ export default function UserDashboard() {
               </h1>
             </div>
             <ul className="pt-6">
-              <li
-                onClick={() => {
-                  setOpenProfile(!openProfile)
-                  setOpenEditInfo(false);
-                  setOpenOrders(false)
-                }}
-                className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
-                       `}
-              >
-                <svg className="h-8 w-7 text-white-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg>
-                <span
-                  className={`${!open && "hidden"
-                    } origin-left duration-200`}
-                >
-                  Profile
-                </span>
-              </li>
+
               <li
                 onClick={() => {
                   setOpenEditInfo(!openEditInfo);
-                  setOpenProfile(false)
                   setOpenOrders(false)
                 }}
 
@@ -86,7 +68,6 @@ export default function UserDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false)
                   setOpenOrders(!openOrders)
                 }}
                 className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
@@ -104,7 +85,6 @@ export default function UserDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false)
                   setOpenOrders(false)
                   dispatch(logoutHandler)
 
@@ -129,10 +109,7 @@ export default function UserDashboard() {
             }
             {
               openOrders &&
-              <Orders />
-            }
-            {openProfile &&
-              <CustomerProfile />
+              <CustomerOrders />
             }
           </div>
         </div>

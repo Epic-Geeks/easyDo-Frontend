@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createOrder } from "../../actions/OrdersActions";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsAuthorized, selectUserInfo } from "../../redux/counterSlicer";
+import { selectIsAuthorized, selectServiceById, selectUserInfo } from "../../redux/counterSlicer";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
@@ -11,6 +11,10 @@ const CreateOrder = ({ setShowModal, showModal }) => {
   const isAuthorized = useSelector(selectIsAuthorized);
   const userInfo = useSelector(selectUserInfo);
   const { serviceId } = useParams();
+  const {Provider} = useSelector(state=> selectServiceById(state, Number(serviceId)));
+  const [providerName, setProviderName] =useState(Provider.name)
+  const [providerNumber, setProviderNumber] =useState(Provider.phoneNumber)
+  console.log(providerNumber)
   const [currentLocation, setCurrentLocation] = useState("");
   const disableOldDate = () => {
     let today, dd, mm, yyyy;
@@ -33,7 +37,7 @@ const CreateOrder = ({ setShowModal, showModal }) => {
         },
       });
     } else {
-      createOrder(dispatch, e, serviceId);
+      createOrder(dispatch, e, serviceId, providerName, providerNumber);
     }
   };
   useEffect(() => {

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { selectIsAuthorized } from "../../redux/counterSlicer";
 import MyServices from "./MyServices";
 import cookies from "react-cookies";
-import ProviderProfile from "./ProviderProfile";
 import EditProfile from "../EditProfile";
 import Orders from "../user/Orders";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,7 +16,6 @@ export default function ProviderDashboard() {
   const dispatch = useDispatch();
   const isAuthorized = useSelector(selectIsAuthorized);
   const [open, setOpen] = useState(true);
-  const [openProfile, setOpenProfile] = useState(true);
   const [openEditInfo, setOpenEditInfo] = useState(false);
   const [openOrders, setOpenOrders] = useState(false);
   const [openServices, setOpenServices] = useState(false);
@@ -53,30 +51,13 @@ export default function ProviderDashboard() {
               </h1>
             </div>
             <ul className="pt-6">
-              <li
-                onClick={() => {
-                  setOpenProfile(!openProfile)
-                  setOpenEditInfo(false);
-                  setOpenServices(false)
-                  setOpenOrders(false)
-                }}
-                className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
-                       `}
-              >
-                <svg className="h-8 w-7 text-white-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg>
-                <span
-                  className={`${!open && "hidden"
-                    } origin-left duration-200`}
-                >
-                  Profile
-                </span>
-              </li>
+
               <li
                 onClick={() => {
                   setOpenEditInfo(!openEditInfo);
-                  setOpenProfile(false)
                   setOpenOrders(false)
                   setOpenServices(false)
+                  setCreateSrvice(false)
 
                 }}
 
@@ -95,7 +76,6 @@ export default function ProviderDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false);
                   setOpenOrders(false);
                   setOpenServices(false);
                   setCreateSrvice(!openCreateService);
@@ -115,7 +95,6 @@ export default function ProviderDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false)
                   setOpenOrders(false)
                   setOpenServices(!openServices)
                   setCreateSrvice(false);
@@ -135,7 +114,6 @@ export default function ProviderDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false)
                   setOpenOrders(!openOrders)
                   setOpenServices(false)
                   setCreateSrvice(false);
@@ -156,8 +134,8 @@ export default function ProviderDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenProfile(false)
                   setOpenOrders(false)
+                  setCreateSrvice(false)
                   dispatch(logoutHandler)
 
                 }}
@@ -183,9 +161,6 @@ export default function ProviderDashboard() {
             {
               openOrders &&
               <ProviderOrders />
-            }
-            {openProfile &&
-              <ProviderProfile />
             }
             {openServices &&
               <MyServices />

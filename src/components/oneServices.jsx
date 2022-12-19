@@ -77,9 +77,7 @@ export default function OneService() {
                                                         }}
                                                         color={index < services.averageRate ? "#ffc107" : "#e4e5e9"}
                                                         onClick={() => goTo()}
-                                                    // onMouseOver={() => handleMouseOver( index + 1 )}
-                                                    // onMouseLeave={handleMouseLeave}
-                                                    />
+
                                                 ))}
                                             </div>
                                             <p className="ml-2 text-sm text-gray-900 dark:text-white">{services.averageRate}</p>

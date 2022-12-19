@@ -24,6 +24,7 @@ export default function Reviews() {
 
     const handleRating = (value) => {
         setCurrentValue(value);
+        // console.log(value)
     };
 
     const handleMouseOver = (value) => {
@@ -57,18 +58,18 @@ export default function Reviews() {
                     ))}
                 </div>
                 <form className="mb-6">
-                    <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    {/* <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                         <label for="comment" className="sr-only"></label>
                         <textarea id="comment" rows="3"
                             className="resize-none px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                             placeholder="What's your feedback ?" required></textarea>
-                    </div>
-                    <button type="submit"
+                    </div> */}
+                    {/* <button type="submit"
                         className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-cyan-700 rounded-lg focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900 hover:bg-teal-500">
                         Post review
-                    </button>
+                    </button> */}
                 </form>
-                {comments && comments.map((comments, idx) => (
+                {/* {comments && comments.map((comments, idx) => (
                     <article key={idx} className="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
                         <footer className="flex justify-between items-center mb-2">
                             <div className="flex items-center">
@@ -125,7 +126,7 @@ export default function Reviews() {
                         <p className="text-sm text-gray-600 dark:text-gray-400 float-right"><time pubdate datetime="2022-02-08"
                             title="date">{comments.date}</time></p>
                     </article>
-                ))}
+                ))} */}
             </div>
         </section>
     )

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GrChatOption } from 'react-icons/gr';
 import { FaStar } from 'react-icons/fa';
 import { useSelector } from "react-redux";
@@ -40,12 +40,12 @@ export default function OneServicePage() {
 
   return (
     <div className="services">
-      <div className="service flex flex-col shadow-xl rounded-xl  mx-20 my-10">
+      <div className="service flex flex-col shadow-xl rounded-xl mx-20 my-10">
 
-        <section className="text-gray-700 body-font overflow-hidden bg-white">
+        <section className="text-gray-700 bg-cyan-500 border body-font rounded-xl overflow-hidden bg-white">
           <div className="container mx-auto">
             <div className="lg:w-4/5 mx-auto flex ">
-              <div className="flex flex-row h-[500px]"> <Slider /> </div>
+              <div className="flex flex-row pt-5"> <Slider /> </div>
 
               <div className="flex flex-col ">
                 <div className="flex flex-col justify-around sm:flex-row max-w-md mx-auto border-b-2 border-gray-200">
@@ -56,36 +56,39 @@ export default function OneServicePage() {
                   </div>
 
                   <div className="author-details text-lg mt-20">
-                    <p className="author-name mt-2 ml-10"> {service.Provider.name}</p>
-                    <p className="author-email mt-2 ml-10"> {service.Provider.email}</p>
-                    <p className="author-phone mt-2 ml-10"> {service.Provider.phone}</p>
+                    <p className="author-name mt-2 ml-10">Name: {service.Provider.name}</p>
+                    <p className="author-email mt-2 ml-10">Email: {service.Provider.email}</p>
+                    <p className="author-phone mt-2 ml-10">Phone: {service.Provider.phoneNumber}</p>
                   </div>
                 </div>
 
                 <div className="flex flex-col w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm title-font my-2 text-gray-500 tracking-widest">{service.providerCoveredCities}</h2>
+                  <h2 className="text-sm my-2 text-gray-900">{
+                  service.Provider.providerCoveredCities.map(city=>(
+                    <>{city}<br/></>
+                  ))
+                  }</h2>
                   <h1 className="text-gray-900 text-3xl my-2 title-font font-medium mb-1">{service.serviceCategory}</h1>
                   <div className="flex items-center">
                     <div className="flex my-3">
+                      <p className="ml-2 text-sm mr-3 text-gray-900 dark:text-white">Average Rate</p>
                       {stars.map((star, index) => (
                         <FaStar
                           key={index}
                           size={15}
                           style={{
                             marginRight: 3,
-                            cursor: "pointer",
+                            cursor: "not-allowed	",
                           }}
                           color={index < service.averageRate ? "#ffc107" : "#e4e5e9"}
-                          onClick={() => goTo()}
+                          
                         />
                       ))}
                     </div>
-                    <p className="ml-2 text-sm text-gray-900 dark:text-white">{service.averageRate}</p>
                     <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                    <a href="/reviews" className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">Reviews</a>
 
                   </div>
-                  <p className="leading-relaxed my-3">{service.serviceDescription}</p>
+                  <p className="leading-relaxed my-3 text-ellipsis">{service.serviceDescription}</p>
                 </div>
               </div>
 
@@ -107,7 +110,7 @@ export default function OneServicePage() {
                       },
 
                     })}
-                  >Service reservation</button>
+                  >Book Service</button>
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <GrChatOption />
                   </button>
@@ -118,15 +121,16 @@ export default function OneServicePage() {
               {isAuthorized && userInfo.role === "provider" && (
                 <div className="flex ml-auto">
                   <button className="flex ml-auto text-white bg-teal-700 border-0 py-2 px-2 focus:outline-none hover:bg-teal-500 rounded"
-                    onClick={() => swal(
+                    onClick={() =>{ swal(
                       {
                         text: "Only customers can book service",
                         buttons: {
                           cancel: "Ok",
                         },
 
-                      })}
-                  >Service reservation</button>
+                      })
+                    }}
+                  >Book Service</button>
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <GrChatOption />
                   </button>
@@ -138,7 +142,7 @@ export default function OneServicePage() {
                 <div className="flex ml-auto">
                   <button className="flex ml-auto text-white bg-teal-700 border-0 py-2 px-2 focus:outline-none hover:bg-teal-500 rounded"
                     onClick={() => setShowModal(true)}
-                  >Service reservation</button>
+                  >Book Service</button>
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <GrChatOption />
                   </button>

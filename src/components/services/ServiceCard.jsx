@@ -9,7 +9,7 @@ const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, 
   const [red, setRed] = useState(false);
 
     return (
-      <div className="h-[400px] w-[320px] p-2" key={id}>
+      <div className="h-[400px] w-[320px] p-2 mb-10" key={id}>
         <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform cursor-pointer">
           <img src={trend1} alt="fund1" className='object-cover h-56 w-96' />
           <div className="absolute top-4 uppercase right-4 leading-tight font-bold w-[70px] h-[70px] flex items-center justify-center bg-white text-black rounded-full text-[10px] text-center">
