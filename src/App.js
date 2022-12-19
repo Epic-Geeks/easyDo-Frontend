@@ -8,7 +8,7 @@ import cookies from "react-cookies";
 
 
 
-import AppRoutes from "./components/Routes";
+import AppRoutes from "./components/routes/Routes";
 
 function App() {
     const dispatch = useDispatch();

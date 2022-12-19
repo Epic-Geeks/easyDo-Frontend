@@ -6,8 +6,8 @@ export default function CreateServiceForm(props) {
   const dispatch = useDispatch();
 
   return (
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-      <div class="md:flex">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <div className="md:flex">
         <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-1 dark:bg-gray-800 dark:border-gray-700">
           <div className="flex items-center justify-center">
             <form

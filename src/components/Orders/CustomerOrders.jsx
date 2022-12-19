@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { updateOrderStatus } from "../../actions/OrdersActions";
 import { selectOrders, selectUserInfo } from "../../redux/counterSlicer";
 import NotFound from "../notFound/NotFound";
 import Loading from "../pages/Loading";
-
-const ProviderOrders = () => {
+import Rate from "./Rate";
+const CustomerOrders = () => {
   const orders = useSelector(selectOrders);
   const dispatch = useDispatch();
   const [showAll, setShowAll] = useState(false);
- 
   const userInfo = useSelector(selectUserInfo);
 
   if (!orders) {
@@ -20,7 +20,7 @@ const ProviderOrders = () => {
     <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex items-center justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
-          {userInfo.role === "customer" ? "My Orders" : "Latest Customers"}
+          My Orders
         </h5>
         <p
           onClick={() => setShowAll(!showAll)}
@@ -58,20 +58,22 @@ const ProviderOrders = () => {
                         </b>
                       </p>
                       <p className="text-xs text-gray-500 truncate dark:text-gray-400">
-                        Customer Name: {order.customerName}
+                        Provider Name: {order.providerName}
                       </p>
-                      <p className="text-sm inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
+                      <p className="text-xs inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
                         <i className="fa fa-location text-xs rotate-6" />
 
-                        <span className="text-center ml-2 text-xs text-gray-500 dark:text-gray-400">
+                        <span className="text-center text-xs ml-2 text-lg text-gray-500 dark:text-gray-400">
                           {order.location}
                         </span>
                       </p>
-                      <p title="customer number"className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
-                      customer number<br/><a href={`tel:${order.customerNumber}`}>
-                          <i className="fa fa-phone text-xs rotate-6" />
-                          <span className="text-center text-xs ml-2 text-xstext-gray-500 dark:text-gray-400">
-                            {order.customerNumber}
+                      <p className="text-xs mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
+                        provider number
+                        <br />{" "}
+                        <a href={`tel:${order.providerNumber}`}>
+                          <i className="fa fa-phone text-lg rotate-6" />
+                          <span className="text-center text-xs  ml-2 text-lg text-gray-500 dark:text-gray-400">
+                            {order.providerNumber}
                           </span>
                         </a>
                       </p>
@@ -79,37 +81,26 @@ const ProviderOrders = () => {
                         title={order.orderNotes}
                         className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
-                        Notes: <br /> {order.orderNotes}
+                        Your Notes: <br /> {order.orderNotes}
                       </p>
                     </div>
                     <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
-                      <form
-                        className=""
-                        onSubmit={(e) =>
-                          updateOrderStatus(dispatch, e, order.id)
-                        }
-                      >
-                        <select
-                          id="status"
-                          name="status"
-                          className="bg-gray-50 mb-2 lg:w-56 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >
-                          <option className=" text-center" value={"pending"}>
-                            Pending-default
-                          </option>
-                          <option value="inProgress">In Progress</option>
-                          <option value="approved">Approved</option>
-                          <option value="done">Done</option>
-                          <option value="cancele">Cancel</option>
-                        </select>
+                      {order.status === "done" ? (
+                        <>
+                          <span className="text-xs bg-cyan-700 text-center text-white rounded-lg p-2">
+                            Rate your provider
+                          </span>
+                          <Rate orderId={order.id} />
+                        </>
+                      ) : (
                         <button
                           type="submit"
-                          className="w-full lg:w-56 lg:justify-end bg-cyan-700 py-3 text-center text-white rounded-lg p-2 border"
-                          title="Update Status"
+                          className="w-full cursor-not-allowed lg:w-56 lg:justify-end bg-gray-700  py-3 text-center text-white rounded-lg p-2 border"
+                          title="Rate Service"
                         >
-                          Update Status
+                          Rate Service
                         </button>
-                      </form>
+                      )}
                     </div>
                   </div>
                 </li>
@@ -148,10 +139,10 @@ const ProviderOrders = () => {
                         </span>
                       </p>
                       <p className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
-                        <a href={`tel:${order.customerNumber}`}>
+                        <a href={`tel:${order.phoneNumber}`}>
                           <i className="fa fa-phone text-lg rotate-6" />
                           <span className="text-center ml-2 text-lg text-gray-500 dark:text-gray-400">
-                            {order.customerNumber}fsadsa
+                            {order.phoneNumber}
                           </span>
                         </a>
                       </p>
@@ -159,7 +150,7 @@ const ProviderOrders = () => {
                         title={order.orderNotes}
                         className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
-                        Notes: <br /> {order.orderNotes}
+                        <br /> {order.orderNotes}
                       </p>
                     </div>
                     <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
@@ -198,18 +189,17 @@ const ProviderOrders = () => {
               )
             )}
         </ul>
-        {
-           orders.length === 0 && 
-           
-           <NotFound message={{
-            body: "You don't have any orders yet, Be patient you will be Elon Musk soon!",
-            title: "No Orders!" 
-        }}/>
-           
-        }
+        {orders.length === 0 && (
+          <NotFound
+            message={{
+              body: "You don't have any orders yet, book your service now!",
+              title: "Pick your needs!",
+            }}
+          />
+        )}
       </div>
     </div>
   );
 };
 
-export default ProviderOrders;
+export default CustomerOrders;

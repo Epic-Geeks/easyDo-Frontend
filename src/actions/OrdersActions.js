@@ -5,7 +5,7 @@ import { fetchServices } from "../redux/counterSlicer";
 import { getProfile } from "./AuthActions";
 import swal from "sweetalert";
 
-export const createOrder = (dispatch, payload, id) => {
+export const createOrder = (dispatch, payload, id, providerName, providerNumber) => {
     payload.preventDefault();
     // console.log("payload", payload.target);
     const { orderNotes, orderDate, location, phone } = payload.target;
@@ -15,7 +15,9 @@ export const createOrder = (dispatch, payload, id) => {
         serviceID: id,
         location: location.value,
         customerName: cookies.load("name"),
-        phoneNumber: phone.value
+        customerNumber: phone.value,
+        providerName: providerName,
+        providerNumber: providerNumber
     };
 
     console.log(obj)
@@ -67,4 +69,21 @@ export const createOrder = (dispatch, payload, id) => {
     } catch (error) {
       
     }
+  }
+
+  export const ratingOrder = async(dispatch, payload)=>{
+    console.log(payload)
+
+    try {
+      await axios.put(`${process.env.REACT_APP_BACKEND}/orderStatus/${payload.orderId}/done`,{rateService:payload.rate},{
+         headers: {
+             Authorization: `Bearer ${cookies.load("token")}`,
+           },
+         }).then((res)=>{
+           console.log(res.data)
+           getProfile(dispatch)
+         }).catch(err=> console.log(err))
+     } catch (error) {
+       
+     }
   }

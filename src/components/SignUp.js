@@ -28,7 +28,8 @@ export default function SignUp() {
       username: e.target.username.value,
       email: e.target.email.value,
       role: e.target.role.value,
-      password: e.target.password.value
+      password: e.target.password.value,
+      phoneNumber: e.target.phoneNumber.value
     }
     if (e.target.role.value === "provider") data.providerCoveredCities = coverdCity
     else data.customerAddress = coverdCity;
@@ -64,6 +65,12 @@ export default function SignUp() {
                 <div className="mt-5">
                   <input type="text"
                     placeholder="Email" id="email" name="email" required
+                    className="border border-gray-400 py-1 px-2 w-full" />
+                </div>
+                <div className="mt-5">
+                  <input type="tel"
+                  pattern="[0-9]{10}"
+                    placeholder="07********" id="phoneNumber" name="phoneNumber" required
                     className="border border-gray-400 py-1 px-2 w-full" />
                 </div>
                 <div className="mt-3">Add your picture</div>
