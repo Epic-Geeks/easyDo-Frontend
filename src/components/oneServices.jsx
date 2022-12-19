@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa'
 // import { selectOrders } from '../redux/counterSlicer';
 // import { selectMyServices } from '../redux/counterSlicer';
 
-export default function OneServices() {
+export default function OneService() {
     // const orders = useSelector(selectOrders);
     // const services = useSelector(selectMyServices);
 

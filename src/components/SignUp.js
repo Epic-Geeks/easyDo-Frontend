@@ -1,40 +1,59 @@
+import { data } from "autoprefixer";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { signupAction } from "../actions/AuthActions";
-const checkBoxStyle = "w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600";
+import { cities } from "../assets/data/cities";
+const checkBoxStyle = "w-4 h-4 text-blue-600 bg-gray-100 rounded  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-800";
 export default function SignUp() {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-
+  const [policy, setPolicy] = useState(false);
+  const [coverdCity, setCoverdCity] = useState([]);
   const handleCheckBox = (e) => {
-    console.log(e.target.value);
+    const { value, checked } = e.target;
+    if (checked) {
+      setCoverdCity(pre => [...pre, value])
+    } else {
+      setCoverdCity(prev => {
+        return [...prev.filter(val => val !== value)]
+      })
+    }
   }
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      username: e.target.username.value,
+      email: e.target.email.value,
+      role: e.target.role.value,
+      password: e.target.password.value
+    }
+    if (e.target.role.value === "provider") data.providerCoveredCities = coverdCity
+    else data.customerAddress = coverdCity;
+    signupAction(data, dispatch)
+  }
+
   const fileSelected = (e) => {
     console.log(e.target.files[0])
   }
   return (
     <div>
-      <div className="min-h-screen py-4 flex items-center justify-center m-5">
+      <div className="min-h-screen py-4 flex items-center justify-center mt-10 mb-10">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto overflow-hidden shadow-2xl hover:scale-105 transition-transform">
+          <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto overflow-hidden shadow-2xl  transition-transform">
             <div
               className="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center bg-signupImg"
             >
-              <h1 className="text-white text-3xl mb-3">Welcome</h1>
-              <div>
-                <p className="text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac
-                </p>
-              </div>
+
             </div>
             <div className="w-full lg:w-1/2 py-16 px-12">
               <h2 className="text-3xl mb-4">Register</h2>
               <p className="mb-4">
                 Create your account. It's free and only take a minute
               </p>
-              <form onSubmit={(e) => signupAction(e, dispatch)}>
+              <form onSubmit={handleSignup}>
                 <div className="grid grid-cols-2 gap-5">
                   <input type="text" placeholder="Name" id="name" name="name" required
                     className="border border-gray-400 py-1 px-2" />
@@ -56,7 +75,7 @@ export default function SignUp() {
                 </div>
                 <div className="mt-4">
 
-                  <p className="mb-4">I'm a</p>
+                  <p className="mb-4"><b>I'm a</b></p>
 
                   <input id="customer" className="peer/draft" type="radio" value={"customer"} name="role" />
                   <label htmlFor="customer" className="ml-2 peer-checked/draft:text-sky-500">Customer</label><br />
@@ -65,155 +84,32 @@ export default function SignUp() {
                   <label htmlFor="provider" className="ml-2 peer-checked/published:text-sky-500">Provider</label><br />
 
                   {/* <div className="hidden peer-checked/draft:block">Drafts are only visible to administrators.</div> */}
-                  <div className="hidden peer-checked/published:block border-4 border-gray-600 rounded-lg">
-                    <p className="mt-3 ml-2">I can coverd these cities</p>
-                    <div className="flex items-center m-4">
-                      <input id="Amman"
-                        type="checkbox"
-                        value="Amman"
-                        // onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Amman"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Amman
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="Irbid"
-                        type="checkbox"
-                        value="Irbid"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Irbid"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Irbid
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="Aqaba"
-                        type="checkbox"
-                        value="Aqaba"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Aqaba"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Aqaba
-                      </label>
-                    </div>
-                    <div className="flex items-center m-4">
-                      <input id="Ajloun"
-                        type="checkbox"
-                        value="Ajloun"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Ajloun"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Ajloun
-                      </label>
-                    </div>
-                    <div className="flex items-center m-4">
-                      <input id="Ma'an"
-                        type="checkbox"
-                        value="Ma'an"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Ma'an"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Ma'an
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="Karak"
-                        type="checkbox"
-                        value="Karak"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Karak"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Karak
-                      </label>
-                    </div>
-                    <div className="flex items-center m-4">
-                      <input id="Jaresh"
-                        type="checkbox"
-                        value="Jaresh"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Jaresh"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Jaresh
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="Madaba"
-                        type="checkbox"
-                        value="Madaba"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Madaba"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Madaba
-                      </label>
-                    </div>
-                    <div className="flex items-center m-4">
-                      <input id="Zarqa"
-                        type="checkbox"
-                        value="Zarqa"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Zarqa"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Zarqa
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="At-Tafilah"
-                        type="checkbox"
-                        value="At-Tafilah"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="At-Tafilah"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        At-Tafilah
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="As-Salt"
-                        type="checkbox"
-                        value="As-Salt"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="As-Salt"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        As-Salt
-                      </label>
-                    </div>
-
-                    <div className="flex items-center m-4">
-                      <input id="Al-Mafraq"
-                        type="checkbox"
-                        value="Al-Mafraq"
-                        onChange={handleCheckBox}
-                        className={`${checkBoxStyle}`} />
-                      <label htmlFor="Al-Mafraq"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Al-Mafraq
-                      </label>
-                    </div>
-                    <div className="m-2">Add your <b>Russme</b></div>
-                    <div className="m-2">
-                      <input type="file"
-                        onChange={fileSelected}
-                        id="picture" name="picture" disabled
-                        className="border border-gray-400 py-1 px-2 w-full" />
-                    </div>
+                  <p className="mt-3 "><b>Choose your cities</b></p>
+                  <div className="rounded-lg overflow-y-auto h-56 scroll-smooth scrollbar scrollbar-thumb-cyan-700 scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-blue-200">
+                    {
+                      cities.map(city => (
+                        <div key={city.id} className="flex items-center m-4">
+                          <input id={city.name}
+                            type="checkbox"
+                            value={city.name}
+                            name="cities"
+                            onChange={handleCheckBox}
+                            className={`${checkBoxStyle}`} />
+                          <label htmlFor={city.name}
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            {city.name}
+                          </label>
+                        </div>
+                      ))
+                    }
                   </div>
+                </div>
+                <div className="mt-5">Add your <b>Russme</b></div>
+                <div className="mt-5">
+                  <input type="file"
+                    onChange={fileSelected}
+                    id="russme" name="russme" disabled
+                    className="border border-gray-400 py-1 px-2 w-full" />
                 </div>
                 <div className="mt-5">
                   <input type="password" required id="password" name="password"
@@ -228,7 +124,7 @@ export default function SignUp() {
                 </div>
 
                 <div className="mt-5">
-                  <input type="checkbox" className="border border-gray-400" id="policy"/>
+                  <input type="checkbox" onChange={() => setPolicy(!policy)} className="border border-gray-400" id="policy" />
                   <label className="m-2" htmlFor="policy">
                     I accept the
                     <a href="#yes" className="text-gray-500 font-semibold">Terms of Use </a>
@@ -236,10 +132,10 @@ export default function SignUp() {
                     <a href="#1" className="text-gray-500 font-semibold"> Privacy Policy</a>
                   </label>
                 </div>
-                {password === confPassword && password !== "" ? (
+                {(password === confPassword && password) && policy !== false ? (
                   <div className="mt-5">
                     <button
-                      className="w-full bg-gray-500 py-3 text-center text-white">Register Now</button>
+                      className="w-full bg-cyan-700 py-3 text-center text-white">Register Now</button>
                   </div>
                 ) :
                   <div className="mt-5">

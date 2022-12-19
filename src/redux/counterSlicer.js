@@ -39,5 +39,7 @@ export const selectServiceById = (state, serviceId) =>
     state.counter.services.find(service => service.id === serviceId)
 export const selectCustomerOrders = (state, customerID)=> 
     state.counter.orders.map(order => order)
+export const getOrderById = (state, orderId)=>
+    state.counter.orders.find(order=> order.id === orderId);    
 export const {Login_Success, Logout, fetchServices} = counterSlicer.actions;
 export default counterSlicer.reducer;

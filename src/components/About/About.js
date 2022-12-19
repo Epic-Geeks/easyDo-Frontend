@@ -52,6 +52,8 @@ export default function About() {
 
   return (
     <div>
+          <Container>
+
       <div className="antialiased bg-Myrtle-Green">
         <div className="flex w-full min-h-screen justify-center items-center">
           <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-Myrtle-Green w-full max-w-4xl p-8 sm:p-12 rounded-xl text-white ">
@@ -92,7 +94,6 @@ export default function About() {
 
       <div>
         <section className="md:h-full flex items-center text-gray-600 bg-cover bg-no-repeat bg-center">
-          <Container>
             <div className="container px-5 py-10 mx-auto">
               <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-3xl text-Myrtle-Green font-semibold">
@@ -140,9 +141,9 @@ export default function About() {
                   ))}
               </div>
             </div>
-          </Container>
         </section>
       </div>
+          </Container>
     </div>
   );
 }

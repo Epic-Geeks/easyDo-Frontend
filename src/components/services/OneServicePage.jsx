@@ -19,9 +19,7 @@ const OneServicePage = () => {
   const service = useSelector((state) =>
     selectServiceById(state, Number(serviceId))
   );
-  const go = () => {
-    Navigate(`/createOrder/${serviceId}`);
-  };
+
   if (!service) {
     return <Loading />;
   }
@@ -98,15 +96,6 @@ const OneServicePage = () => {
           </div>
         </div>
       </div>
-
-      {/* <ul>
-        <li>serviceCategory: {service.serviceCategory}</li>
-        <li>serviceDescription: {service.serviceDescription}</li>
-        <li>averageRate: {service.averageRate}</li>
-        <li>visibility{service.visibility.toString()}</li>
-        <li>price: {service.price}</li>
-        <li>Provider Name: {service.Provider.name}</li>
-      </ul> */}
     </div>
   );
 };

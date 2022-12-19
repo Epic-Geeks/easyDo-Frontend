@@ -10,6 +10,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutHandler } from "../../actions/AuthActions";
 import { providerLogo, control } from "../../assets/images/dashboard";
 import CreateServiceForm from "./CreateServiceForm";
+import ProviderOrders from "../Orders/ProviderOrders";
+import Container from "../Container";
 
 export default function ProviderDashboard() {
   const dispatch = useDispatch();
@@ -172,14 +174,15 @@ export default function ProviderDashboard() {
               </li>   
             </ul>
           </div>
-          <div className="p-7 text-2xl font-semibold flex-1">
+          <Container>
+          <div className="p-2 text-2xl font-semibold flex-1">
             {
               openEditInfo &&
               <EditProfile />
             }
             {
               openOrders &&
-              <Orders />
+              <ProviderOrders />
             }
             {openProfile &&
               <ProviderProfile />
@@ -191,6 +194,8 @@ export default function ProviderDashboard() {
               <CreateServiceForm/>
             }
           </div>
+
+          </Container>
         </div>
       )}
     </div>

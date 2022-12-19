@@ -20,10 +20,11 @@ export default function EditProfile() {
     const newLocations = userInfo.customerAddress.filter(
       (location, index) => index !== idx
     );
+
     const newUserInfo = { ...userInfo, customerAddress: newLocations };
     deleteLocation(dispatch, newUserInfo);
   };
-
+console.log(JSON.stringify(userInfo.customerAddress))
   return (
     <div>
       {/* <Container> */}
@@ -154,6 +155,7 @@ export default function EditProfile() {
             type="text"
             name="city"
             id="city"
+            value={userInfo.role ==="customer"? userInfo.customerAddress[0]: userInfo.providerCoveredCities[0]}
           />
           <label className="pl-12 pr-2">Street</label>
           <input
@@ -195,19 +197,19 @@ export default function EditProfile() {
         <input type="text" name="buildingNum" id="buildingNum" />
         <button type="submit">Add Address</button>
       </form> */}
-      {userInfo &&
+      {/* {userInfo &&
         userInfo.customerAddress &&
         userInfo.customerAddress.map((item, idx) => {
-          let parsedData = JSON.parse(item);
+          let parsedData = JSON.stringify(item);
           return (
             <div key={idx}>
-              <a>{parsedData.city}</a>
+              <a>{item}</a>
               <a>{parsedData.street}</a>
               <a>{parsedData.buildingNum}</a>
               <button onClick={() => handleRemoveLoc(idx)}>delete</button>
             </div>
           );
-        })} 
+        })}  */}
         </div>
 
   );
