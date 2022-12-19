@@ -14,8 +14,7 @@ import Navbar from "./navbar/Navbar";
 import SignUp from "./SignUp";
 import UserDashboard from "./user/UserDashboard";
 import ProviderDashboard from "./provider/ProviderDashboard";
-import CreateOrderForm from "./user/CreateOrderForm";
-import CreateServiceForm from "./provider/CreateServiceForm";
+import CreateServiceForm from "./provider/CreateService";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
 
@@ -53,10 +52,7 @@ function AppRoutes() {
               path="/dashboard"
               element={isAuthorized && userInfo.role === "customer" ? <UserDashboard /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <Navigate to="/signIn" />}
             />
-            <Route
-              path="/createOrder/:id"
-              element={<CreateOrderForm />}
-            />
+            
             <Route
               path="/createService"
               element={<CreateServiceForm />}

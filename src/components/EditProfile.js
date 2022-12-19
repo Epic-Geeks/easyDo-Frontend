@@ -22,10 +22,11 @@ export default function EditProfile() {
     const newLocations = userInfo.customerAddress.filter(
       (location, index) => index !== idx
     );
+
     const newUserInfo = { ...userInfo, customerAddress: newLocations };
     deleteLocation(dispatch, newUserInfo);
   };
-
+  console.log((userInfo.customerAddress))
   return (
     <div>
       {/* <Container> */}
@@ -40,16 +41,14 @@ export default function EditProfile() {
           >
             <label className="pr-5">Name </label>
             <FiArrowRight
-              className={`inline-block text-Myrtle-Green ${
-                openName && "rotate-90"
-              }`}
+              className={`inline-block text-Myrtle-Green ${openName && "rotate-90"
+                }`}
             />
           </form>
 
           <form
-            className={`${
-              !openName && "hidden"
-            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+            className={`${!openName && "hidden"
+              } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
             onSubmit={(e) => editProfile(e, dispatch, userInfo)}
           >
             <div className="grid md:grid-cols-2 md:gap-6">
@@ -94,16 +93,14 @@ export default function EditProfile() {
         >
           <label className="pr-5">Email</label>
           <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${
-              openEmail && "rotate-90"
-            }`}
+            className={`inline-block text-Myrtle-Green ${openEmail && "rotate-90"
+              }`}
           />
         </form>
 
         <form
-          className={`${
-            !openEmail && "hidden"
-          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          className={`${!openEmail && "hidden"
+            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
           onSubmit={(e) => editProfile(e, dispatch, userInfo)}
         >
           <div className="relative z-0 mb-6 w-full group">
@@ -131,21 +128,20 @@ export default function EditProfile() {
         >
           <label className="pr-5">Password</label>
           <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${
-              openPassword && "rotate-90"
-            }`}
+            className={`inline-block text-Myrtle-Green ${openPassword && "rotate-90"
+              }`}
           />
         </form>
 
         <form
-          className={`${
-            !openPassword && "hidden"
-          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          className={`${!openPassword && "hidden"
+            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
           onSubmit={(e) => editProfile(e, dispatch, userInfo)}
         >
           <div className="relative z-0 mb-6 w-full group">
             <input
               type="password"
+              autoComplete="true"
               name="floating_password"
               id="floating_password"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -167,28 +163,26 @@ export default function EditProfile() {
         >
           <label className="pr-5">Phone</label>
           <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${
-              openPhone && "rotate-90"
-            }`}
+            className={`inline-block text-Myrtle-Green ${openPhone && "rotate-90"
+              }`}
           />
         </form>
 
         <form
-          className={`${
-            !openPhone && "hidden"
-          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          className={`${!openPhone && "hidden"
+            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
           onSubmit={(e) => editProfile(e, dispatch, userInfo)}
         >
           <div className="relative z-0 mb-6 w-full group">
             <input
               type="email"
-              name="floating_email"
-              id="floating_email"
+              name="phoneNumber"
+              id="phoneNumber"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              htmlFor="floating_email"
+              htmlFor="phoneNumber"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Phone
@@ -203,35 +197,17 @@ export default function EditProfile() {
         >
           <label className="pr-5">City</label>
           <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${
-              openCity && "rotate-90"
-            }`}
+            className={`inline-block text-Myrtle-Green ${openCity && "rotate-90"
+              }`}
           />
         </form>
 
         <form
-          className={`${
-            !openCity && "hidden"
-          } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
+          className={`${!openCity && "hidden"
+            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
           onSubmit={(e) => editProfile(e, dispatch, userInfo)}
         >
-          <div className="grid md:gap-6">
-            <div className="relative z-0 mb-6 w-full group">
-              <input
-                type="text"
-                name="city"
-                id="city"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label
-                htmlFor="city"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transhtmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                City
-              </label>
-            </div>
-          </div>
+
         </form>
         <hr></hr>
 
@@ -239,45 +215,20 @@ export default function EditProfile() {
           <button
             className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-8 rounded mt-8 "
             type="submit"
-            onClick={() =>   swal({
-              title:"your profile has been updated", 
+            onClick={() => swal({
+              title: "your profile has been updated",
               icon: "success",
               buttons: {
                 cancel: "Ok",
               },
             })}
-          > 
+          >
             Save
           </button>
         </div>
       </div>
-      {/* </Container> */}
-      {/* <h2>Add Address</h2>
-      <form
-        className="space-y-6"
-        onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-      >
-        <label>City</label>
-        <input type="text" name="city" id="city" />
-        <label>Street</label>
-        <input type="text" name="street" id="street" />
-        <label>building num</label>
-        <input type="text" name="buildingNum" id="buildingNum" />
-        <button type="submit">Add Address</button>
-      </form> */}
-      {userInfo &&
-        userInfo.customerAddress &&
-        userInfo.customerAddress.map((item, idx) => {
-          let parsedData = JSON.parse(item);
-          return (
-            <div key={idx}>
-              <a>{parsedData.city}</a>
-              <a>{parsedData.street}</a>
-              <a>{parsedData.buildingNum}</a>
-              <button onClick={() => handleRemoveLoc(idx)}>delete</button>
-            </div>
-          );
-        })}
+
     </div>
-  );
+  )
 }
+

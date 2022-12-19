@@ -49,4 +49,22 @@ export const createOrder = (dispatch, payload, id) => {
   };
 
   //@TODO
-  // get orders
+  // update order status
+
+  export const updateOrderStatus = async(dispatch,payload, orderId)=>{
+    payload.preventDefault();
+    const { status } = payload.target
+    console.log(status.value, orderId)
+    try {
+     await axios.put(`${process.env.REACT_APP_BACKEND}/orderStatus/${orderId}/${status.value}`,{},{
+        headers: {
+            Authorization: `Bearer ${cookies.load("token")}`,
+          },
+        }).then((res)=>{
+          console.log(res.data)
+          getProfile(dispatch)
+        }).catch(err=> console.log(err))
+    } catch (error) {
+      
+    }
+  }

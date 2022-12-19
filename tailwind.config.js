@@ -1,6 +1,5 @@
 module.exports = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}",
-  "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js"],
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
       extend: {
         screens: {
@@ -8,7 +7,7 @@ module.exports = {
         },
         backgroundImage: {
           homefrontbg: "url(./assets/images/home/front3.jpeg)",
-          signupImg: "url(./assets/images/signup/signup2.jpg)",
+          signupImg: "url(./assets/images/signup/signup4.jpg)",
           signinImg: "url(./assets/images/signin/signin4.jpg)",
           trendbg: "url(./assets/home/trending/trend8.jpg)"
         },
@@ -25,6 +24,8 @@ module.exports = {
         },
       },
     },
-    plugins: [],
+    plugins: [
+      require('tailwind-scrollbar')({ nocompatible: true }),
+    ],
   };
   

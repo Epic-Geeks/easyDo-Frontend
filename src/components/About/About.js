@@ -53,6 +53,7 @@ export default function About() {
 
   return (
     <div>
+
       <div className="antialiased bg-Anti-Flash-White overflow-hidden mb-10">
         <div className="text-center pt-12">
           <h1 className="text-4xl md:text-3xl text-Myrtle-Green font-semibold mb-10 z-10 overflow-hidden">
@@ -74,6 +75,7 @@ export default function About() {
               </div>
             </div>
             <div className="flex flex-col space-y-8 justify-between text-gray-600 z-10">
+
               <div>
                 {/* <h1 className="font-bold text-4xl tracking-wide">
                   About easyDo

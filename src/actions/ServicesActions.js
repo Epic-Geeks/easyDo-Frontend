@@ -67,14 +67,12 @@ export const getServices = (dispatch) => {
  export const createService = (dispatch, payload) => {
   payload.preventDefault();
   const { serviceDescription, price, serviceCategory, picture} = payload.target;
-  console.log("payload", payload.target);
+  // console.log("payload", payload.target);
   const obj = {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-    /* picture: picture.files[0], */
-
-    
+    // picture: picture.files,  
  };
   console.log("payload", obj);
  
@@ -107,44 +105,44 @@ export const getServices = (dispatch) => {
   };
 };
 
-export const editService = (dispatch, payload) => {
-  swal({
-   title: "Do you wanna edit this service?",
-   icon: "warning",
-   buttons: true,
-   dangerMode: true,
-  }).then(async (willedit) => {
-   if (willedit) {
-    const { serviceDescription, price, serviceCategory, picture } = payload.target;
-    const obj = {
-      serviceDescription: serviceDescription.value,
-      price: price.value,
-      serviceCategory: serviceCategory.value,
-      /* picture: picture.files[0], */
-    };
-    console.log("payload", obj);
-    await axios
-     .put(`${process.env.REACT_APP_BACKEND}/service`, obj, {
-      headers: {
-       Authorization: `bearer ${cookies.load("token")}`,
-      },
-     })
-     .then(() => {
-      getProfile(dispatch);
-      getServices(dispatch);
-      swal({
-        title:"Service edited successfully",
-        icon: "success",
-        buttons: {
-          cancel: "Ok",
-        },
-      });
-     });
-   } else {
-    swal("Your service is safe!");
-   }
-  });
- };
+// export const editService = (dispatch, payload) => {
+//   swal({
+//    title: "Do you wanna edit this service?",
+//    icon: "warning",
+//    buttons: true,
+//    dangerMode: true,
+//   }).then(async (willedit) => {
+//    if (willedit) {
+//     const { serviceDescription, price, serviceCategory, picture } = payload.target;
+//     const obj = {
+//       serviceDescription: serviceDescription.value,
+//       price: price.value,
+//       serviceCategory: serviceCategory.value,
+//       /* picture: picture.files[0], */
+//     };
+//     console.log("payload", obj);
+//     await axios
+//      .put(`${process.env.REACT_APP_BACKEND}/service`, obj, {
+//       headers: {
+//        Authorization: `bearer ${cookies.load("token")}`,
+//       },
+//      })
+//      .then(() => {
+//       getProfile(dispatch);
+//       getServices(dispatch);
+//       swal({
+//         title:"Service edited successfully",
+//         icon: "success",
+//         buttons: {
+//           cancel: "Ok",
+//         },
+//       });
+//      });
+//    } else {
+//     swal("Your service is safe!");
+//    }
+//   });
+//  };
 
 
 

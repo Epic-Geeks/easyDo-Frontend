@@ -38,7 +38,7 @@ export default function ServiceCards() {
             />
           </div>
           <button
-            type="submit"
+            type="button"
             className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-teal-700 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-300"
           >
             <svg
