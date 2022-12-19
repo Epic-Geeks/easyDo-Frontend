@@ -3,6 +3,7 @@ import { createOrder } from "../../actions/OrdersActions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuthorized, selectUserInfo } from "../../redux/counterSlicer";
 import { useParams } from "react-router-dom";
+import swal from "sweetalert";
 import axios from "axios";
 
 const CreateOrder = ({ setShowModal, showModal }) => {
@@ -25,7 +26,12 @@ const CreateOrder = ({ setShowModal, showModal }) => {
     e.preventDefault();
 
     if (e.target.orderNotes.value === "  ") {
-      alert("your notes can't be empty");
+      swal({
+        title:"your notes can't be empty", 
+        buttons: {
+          cancel: "Ok",
+        },
+      });
     } else {
       createOrder(dispatch, e, serviceId);
     }

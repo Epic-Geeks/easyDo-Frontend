@@ -6,6 +6,7 @@ import { getProfile } from "./AuthActions";
 import swal from "sweetalert";
 
 
+
 export const getServices = (dispatch) => {
     try {
       axios
@@ -66,13 +67,12 @@ export const getServices = (dispatch) => {
  export const createService = (dispatch, payload) => {
   payload.preventDefault();
   const { serviceDescription, price, serviceCategory, picture} = payload.target;
+  // console.log("payload", payload.target);
   const obj = {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-    /* picture: picture.files[0], */
-
-    
+    // picture: picture.files,  
  };
   console.log("payload", obj);
  
@@ -91,6 +91,13 @@ export const getServices = (dispatch) => {
       .then((res) => {
           getProfile(dispatch); 
           getServices(dispatch);
+          swal({
+            title:"Service created successfully", 
+            icon: "success",
+            buttons: {
+              cancel: "Ok",
+            },
+          });
       })
       .catch((err) => alert(err.message));
   } catch (err) {
@@ -98,37 +105,45 @@ export const getServices = (dispatch) => {
   };
 };
 
-export const editService = (dispatch, payload) => {
-  swal({
-   title: "Do you wanna edit this service?",
-   icon: "warning",
-   buttons: true,
-   dangerMode: true,
-  }).then(async (willedit) => {
-   if (willedit) {
-    const { serviceDescription, price, serviceCategory, picture } = payload.target;
-    const obj = {
-      serviceDescription: serviceDescription.value,
-      price: price.value,
-      serviceCategory: serviceCategory.value,
-      /* picture: picture.files[0], */
-    };
-    console.log("payload", obj);
-    await axios
-     .put(`${process.env.REACT_APP_BACKEND}/service`, obj, {
-      headers: {
-       Authorization: `bearer ${cookies.load("token")}`,
-      },
-     })
-     .then(() => {
-      getProfile(dispatch);
-      getServices(dispatch);
-     });
-   } else {
-    swal("Your service is safe!");
-   }
-  });
- };
+// export const editService = (dispatch, payload) => {
+//   swal({
+//    title: "Do you wanna edit this service?",
+//    icon: "warning",
+//    buttons: true,
+//    dangerMode: true,
+//   }).then(async (willedit) => {
+//    if (willedit) {
+//     const { serviceDescription, price, serviceCategory, picture } = payload.target;
+//     const obj = {
+//       serviceDescription: serviceDescription.value,
+//       price: price.value,
+//       serviceCategory: serviceCategory.value,
+//       /* picture: picture.files[0], */
+//     };
+//     console.log("payload", obj);
+//     await axios
+//      .put(`${process.env.REACT_APP_BACKEND}/service`, obj, {
+//       headers: {
+//        Authorization: `bearer ${cookies.load("token")}`,
+//       },
+//      })
+//      .then(() => {
+//       getProfile(dispatch);
+//       getServices(dispatch);
+//       swal({
+//         title:"Service edited successfully",
+//         icon: "success",
+//         buttons: {
+//           cancel: "Ok",
+//         },
+//       });
+//      });
+//    } else {
+//     swal("Your service is safe!");
+//    }
+//   });
+//  };
+
 
 
   export const deleteService = async(dispatch, id) => {
@@ -143,6 +158,13 @@ export const editService = (dispatch, payload) => {
             console.log(res.data)
             getProfile(dispatch);
             getServices(dispatch);
+            swal({
+              title:"Service deleted successfully", 
+              icon: "success",
+              buttons: {
+                cancel: "Ok",
+              },
+            });
           }
           );
         
@@ -153,6 +175,51 @@ export const editService = (dispatch, payload) => {
   
 
 
+
+export const editService = async(dispatch, payload, id) => {
+  payload.preventDefault();
+  const { serviceDescription, price, serviceCategory, picture} = payload.target;
+  const obj = {
+    serviceDescription: serviceDescription.value,
+    price: price.value,
+    serviceCategory: serviceCategory.value,
+   /*  picture: picture.files[0], */
+  };
+  console.log("payload", obj);
   
+  const formData = new FormData();
+  formData.append("serviceDescription", obj.serviceDescription);
+  formData.append("price", obj.price);
+  formData.append("serviceCategory", obj.serviceCategory);
+ /*  formData.append("picture", obj.picture); */
+ console.log("payload", payload.target.id.value);
+ console.log("payload", id);
+   try {
+    axios
+      .put(
+        `${process.env.REACT_APP_BACKEND}/service/${id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${cookies.load("token")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+        
+      )
+      .then((res) => {
+        console.log("payload", obj);
+
+        getProfile(dispatch);
+        getServices(dispatch);
+      }
+
+      )
+      .catch((err) => alert(err.message));
+  } catch (err) {
+    alert(err);
+  } 
+};
+
 
 

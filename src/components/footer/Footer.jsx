@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 export default function Footer() {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
     <footer className="mt-auto">
       <div className="bg-gray-800 text-gray-200">
         <div className="max-w-7xl mx-auto">

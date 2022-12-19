@@ -3,6 +3,7 @@ import axios from "axios";
 import cookies from "react-cookies";
 import { fetchServices } from "../redux/counterSlicer";
 import { getProfile } from "./AuthActions";
+import swal from "sweetalert";
 
 export const createOrder = (dispatch, payload, id) => {
     payload.preventDefault();
@@ -33,6 +34,13 @@ export const createOrder = (dispatch, payload, id) => {
         .then((res) => {
         console.log(res.data)
             getProfile(dispatch); 
+            swal({
+              title:"Order Created", 
+              icon: "success",
+              buttons: {
+                cancel: "Ok",
+              },
+            });
         })
         .catch((err) => alert("Provider has a full schedule this day, please chose another one"));
     } catch (err) {

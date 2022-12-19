@@ -10,6 +10,7 @@ import {
 
 import Container from "../Container";
 // import HomeServices2 from "./HomeServices2.jpg";
+import painting from "./painting.jpg";
 
 export default function About() {
   const aboutInfo = [
@@ -52,41 +53,48 @@ export default function About() {
 
   return (
     <div>
-          <Container>
 
-      <div className="antialiased bg-Myrtle-Green">
-        <div className="flex w-full min-h-screen justify-center items-center">
-          <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-Myrtle-Green w-full max-w-4xl p-8 sm:p-12 rounded-xl text-white ">
-            <div className="flex flex-col space-y-8 justify-between z-10">
+      <div className="antialiased bg-Anti-Flash-White overflow-hidden mb-10">
+        <div className="text-center pt-12">
+          <h1 className="text-4xl md:text-3xl text-Myrtle-Green font-semibold mb-10 z-10 overflow-hidden">
+            About easyDo
+          </h1>
+        </div>
+        <div className="flex w-full justify-center items-center pb-12">
+          <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-Anti-Flash-White w-full max-w-4xl sm:p-2 rounded-xl text-black ">
+            <div className="relative">
+              <div className="absolute z-0 w-40 h-40 bg-teal-400 rounded-full drop-shadow-xl -left-60 -top-"></div>
+              <div className="absolute z-0 w-20 h-20 bg-teal-400 rounded-full drop-shadow-xl -left-80 top-44"></div>
+              <div className="absolute z-0 w-40 h-40 bg-teal-400 rounded-full drop-shadow-xl -left-28 -bottom-28"></div>
+              {/* <div className="absolute z-0 w-20 h-20 bg-teal-400 rounded-full drop-shadow-xl right-28 -top-28"></div> */}
+              {/* <div className="absolute z-0 w-20 h-20 bg-teal-400 rounded-full drop-shadow-xl -right-60 -bottom-16"></div> */}
+              <div className="absolute z-0 w-10 h-10 bg-teal-400 rounded-full drop-shadow-xl -left-28 -top-32"></div>
+
+              <div className="relative z-10 md:w-96">
+                <img src={painting} alt="" className=" h-96 rounded-lg " />
+              </div>
+            </div>
+            <div className="flex flex-col space-y-8 justify-between text-gray-600 z-10">
+
               <div>
-                <h1 className="font-bold text-4xl tracking-wide">
+                {/* <h1 className="font-bold text-4xl tracking-wide">
                   About easyDo
-                </h1>
-                <p className="pt-10 text-cyan-100 text-xl ">
+                </h1> */}
+                <p className="leading-relaxed  text-xl ">
                   easyDo is the leading platform for connecting individuals
                   looking for home services with high-quality, pre-screened
                   professionals.
                 </p>
-                <p className="pt-10 text-cyan-100 text-xl ">
+                <p className="pt-10 leading-relaxed text-xl ">
                   From home cleaning to handyman services, easyDo instantly
                   matches thousands of clients each week with the best
                   professionals in cities around the Jordan.
                 </p>
-                <p className="pt-10 text-cyan-100 text-xl ">
+                <p className="pt-10 leading-relaxed text-xl ">
                   easyDo is the easiest and most convenient way to book
                   services.
                 </p>
               </div>
-            </div>
-            <div className="relative">
-              {/* <div className="absolute z-0 w-40 h-40 bg-teal-400 rounded-full drop-shadow-xl -right-28 -top-28"></div>
-              <div className="absolute z-0 w-40 h-40 bg-teal-400 rounded-full drop-shadow-xl -left-28 -bottom-28"></div>
-              <div className="absolute z-0 w-20 h-20 bg-teal-400 rounded-full drop-shadow-xl left-28 top-60"></div>
-              <div className="absolute z-0 w-10 h-10 bg-teal-400 rounded-full drop-shadow-xl -left-28 -top-40"></div> */}
-
-              {/* <div className="relative z-10 shadow-lg md:w-80">
-                <img src={HomeServices2} alt="" />
-              </div> */}
             </div>
           </div>
         </div>
@@ -94,6 +102,7 @@ export default function About() {
 
       <div>
         <section className="md:h-full flex items-center text-gray-600 bg-cover bg-no-repeat bg-center">
+          <Container>
             <div className="container px-5 py-10 mx-auto">
               <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-3xl text-Myrtle-Green font-semibold">
@@ -111,7 +120,7 @@ export default function About() {
                       }`}
                       key={index}
                     >
-                      <div className="h-full w-80 border-2 border-gray-200 bg-Anti-Flash-White border-opacity-60 rounded-lg flex flex-col items-center overflow-hidden cursor-pointer hover:scale-105 transition-transform drop-shadow-xl">
+                      <div className="h-full w-96 border-2 border-gray-200 mb-12 bg-Anti-Flash-White border-opacity-60 rounded-lg flex flex-col items-center overflow-hidden cursor-pointer hover:scale-105 transition-transform drop-shadow-xl">
                         <img
                           className="w-2/4 rounded-full h-auto mb-5 flex items-center mt-10 drop-shadow-xl"
                           src={item.image}
@@ -141,9 +150,9 @@ export default function About() {
                   ))}
               </div>
             </div>
+          </Container>
         </section>
       </div>
-          </Container>
     </div>
   );
 }

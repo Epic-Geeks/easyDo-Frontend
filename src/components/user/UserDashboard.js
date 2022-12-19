@@ -52,7 +52,6 @@ export default function UserDashboard() {
                 onClick={() => {
                   setOpenProfile(!openProfile)
                   setOpenEditInfo(false);
-
                   setOpenOrders(false)
                 }}
                 className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 

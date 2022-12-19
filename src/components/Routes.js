@@ -14,8 +14,7 @@ import Navbar from "./navbar/Navbar";
 import SignUp from "./SignUp";
 import UserDashboard from "./user/UserDashboard";
 import ProviderDashboard from "./provider/ProviderDashboard";
-import CreateOrderForm from "./user/CreateOrderForm";
-import CreateServiceForm from "./provider/CreateServiceForm";
+import CreateServiceForm from "./provider/CreateService";
 import EditProfile from "./EditProfile";
 import Footer from "./footer/Footer";
 
@@ -24,7 +23,6 @@ import Services from "./services/Services";
 
 import About from "./About/About";
 import ContactUs from "./ContactUs";
-import OneServices from "./oneServices";
 import Orders from "./user/Orders";
 import Reviews from "./reviews/reviews";
 import SingleServicePage from "../components/services/OneServicePage";
@@ -54,10 +52,7 @@ function AppRoutes() {
               path="/dashboard"
               element={isAuthorized && userInfo.role === "customer" ? <UserDashboard /> : isAuthorized && userInfo.role === "provider" ? <ProviderDashboard /> : <Navigate to="/signIn" />}
             />
-            <Route
-              path="/createOrder/:id"
-              element={<CreateOrderForm />}
-            />
+            
             <Route
               path="/createService"
               element={<CreateServiceForm />}
@@ -76,10 +71,6 @@ function AppRoutes() {
             <Route
               path="/about"
               element={<About />}
-              />
-              <Route
-              path="/service/id"
-              element={<OneServices />}
               />
             <Route
               path="/orders"
