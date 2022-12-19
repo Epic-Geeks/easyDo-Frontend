@@ -20,7 +20,7 @@ export default function Front() {
               </form>
             )}
             {!searchBar && (
-              <button className="sm:text-[20px] bg-button-primary text-[#6C6252] hover:bg-button-primary-hover transition-colors sm:px-10 px-3 py-3 rounded-md capitalize sm:w-auto w-full font-bold">
+              <button className="sm:text-[20px] bg-Myrtle-Green text-white hover:bg-cyan-700 transition-colors sm:px-10 px-3 py-3 rounded-md capitalize sm:w-auto w-full font-bold">
                 Select Your Needs
               </button>
             )}
@@ -28,13 +28,13 @@ export default function Front() {
             {!searchBar && (
               <button
                 onClick={() => setSearchBar(!searchBar)}
-                className="sm:text-[20px] text-white sm:px-10 px-3 py-3 rounded-md border-[1px] border-white capitalize sm:w-auto w-full font-bold"
+                className="sm:text-[20px] bg-black opacity-50 text-white sm:px-10 px-3 py-3 rounded-md border-[1px] hover:bg-white hover:text-black border-white capitalize sm:w-auto w-full font-bold"
               >
                 Search
               </button>
             )}
           </div>
-          <article className="lg:flex hidden items-end absolute top-[30%] right-0 w-[30%] border-l-2 h-1/2 px-2 border-l-white">
+          <article className="lg:flex hidden items-end absolute top-[40%] right-0 w-[30%] border-l-2 h-1/2 px-4 border-l-white">
             <div className="text-white text-[26px] w-[80%]">
               WHAT CAN OUR HOME IMPROVEMENT PROFESSIONALS DO FOR YOU?
             </div>

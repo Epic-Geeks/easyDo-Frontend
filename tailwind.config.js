@@ -6,7 +6,7 @@ module.exports = {
           xs: "410px",
         },
         backgroundImage: {
-          homefrontbg: "url(./assets/images/home/front3.jpeg)",
+          homefrontbg: "url(./assets/images/home/joanna-kosinska.jpg)",
           signupImg: "url(./assets/images/signup/signup4.jpg)",
           signinImg: "url(./assets/images/signin/signin4.jpg)",
           trendbg: "url(./assets/home/trending/trend8.jpg)"
