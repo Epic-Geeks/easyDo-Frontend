@@ -39,66 +39,71 @@ export default function OneServicePage() {
 
 
   return (
-    <div className="services">
-      <div className="service flex flex-col shadow-xl rounded-xl mx-20 my-10">
+    <div className="services flex justify-center">
+      <div className="service flex flex-col shadow-xl rounded-xl my-10 w-1/2 ">
 
-        <section className="text-gray-700 bg-cyan-500 border body-font rounded-xl overflow-hidden bg-white">
-          <div className="container mx-auto">
-            <div className="lg:w-4/5 mx-auto flex ">
-              <div className="flex flex-row pt-5"> <Slider /> </div>
+        <section className="text-gray-700 border body-font rounded-xl overflow-hidden bg-white px-5">
+          <div className="lg:w-full container ">
+            <div className="flex flex-col lg:flex-row sm:flex-row  ">
+              <div className="flex flex-row pt-5 pr-5"> 
+              <img className="w-full lg:h-auto h-64 object-cover object-center rounded"
+                src="https://cache-landingpages.services.handy.com/assets/services/large_other_plumbing_2-d68f071ab4cfb2860289a0923f927198ca6d73dd8819d679c91fe631ce935e45.jpg" alt="img" /> </div>
+              
+              
 
-              <div className="flex flex-col ">
-                <div className="flex flex-col justify-around sm:flex-row max-w-md mx-auto border-b-2 border-gray-200">
 
-                  <div className="relative w-[100px] h-[100px] mt-20 mb-4 left-4">
+              <div className="flex flex-col w-1/2">
+                <div className="flex flex-col justify-around sm:flex-row max-w-md border-b-2 border-gray-200">
+
+                  <div className="relative w-[100px] h-[100px] mt-5 mb-4 left-4">
                     <img className="w-full h-full border border-gray-300 object-center object-cover relative rounded-tr-[20px] rounded-bl-[20px]"
                       src={service.Provider.picture} alt={service.Provider.picture} />
                   </div>
 
-                  <div className="author-details text-lg mt-20">
+                  <div className="author-details text-lg mt-5 w-96">
                     <p className="author-name mt-2 ml-10">Name: {service.Provider.name}</p>
                     <p className="author-email mt-2 ml-10">Email: {service.Provider.email}</p>
                     <p className="author-phone mt-2 ml-10">Phone: {service.Provider.phoneNumber}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-col w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm my-2 text-gray-900">{
-                  service.Provider.providerCoveredCities.map(city=>(
-                    <>{city}<br/></>
-                  ))
-                  }</h2>
+                <div className="flex flex-col w-full lg:pl-5 lg:py-6 mt-6 lg:mt-0">
                   <h1 className="text-gray-900 text-3xl my-2 title-font font-medium mb-1">{service.serviceCategory}</h1>
                   <div className="flex items-center">
                     <div className="flex my-3">
-                      <p className="ml-2 text-sm mr-3 text-gray-900 dark:text-white">Average Rate</p>
                       {stars.map((star, index) => (
                         <FaStar
-                          key={index}
-                          size={15}
-                          style={{
-                            marginRight: 3,
-                            cursor: "not-allowed	",
-                          }}
-                          color={index < service.averageRate ? "#ffc107" : "#e4e5e9"}
-                          
+                        key={index}
+                        size={15}
+                        style={{
+                          marginRight: 3,
+                          cursor: "not-allowed	",
+                        }}
+                        color={index < service.averageRate ? "#ffc107" : "#e4e5e9"}
+                        
                         />
-                      ))}
+                        ))}
                     </div>
                     <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                        <p className="ml-2 text-sm mr-3 text-gray-900 dark:text-white">{service.averageRate}</p>
 
                   </div>
+                        <h2 className="text-sm my-2 text-gray-900">{
+                        service.Provider.providerCoveredCities.map(city=>(
+                          <>{city}<br/></>
+                        ))
+                        }</h2>
                   <p className="leading-relaxed my-3 text-ellipsis">{service.serviceDescription}</p>
                 </div>
               </div>
 
             </div>
 
-            <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+            {/* <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
 
-            </div>
+            </div> */}
             <div className="flex flex-row m-4 ">
-              <span className="title-font font-medium text-2xl text-gray-900">${service.price}</span>
+              {/* <span className="title-font font-medium text-2xl text-gray-900">${service.price}</span> */}
 
               {!isAuthorized && (
                 <div className="flex ml-auto">

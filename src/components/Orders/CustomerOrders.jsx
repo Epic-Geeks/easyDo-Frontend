@@ -18,13 +18,13 @@ const CustomerOrders = () => {
 
   return (
     <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center mx-5 mt-5 justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
           My Orders
         </h5>
         <p
           onClick={() => setShowAll(!showAll)}
-          className="text-sm font-medium cursor-pointer text-blue-600 hover:underline dark:text-blue-500"
+          className="text-lg font-medium cursor-pointer text-blue-600 hover:underline dark:text-blue-500"
         >
           {!showAll ? <>View all</> : <>View Less</>}
         </p>
@@ -57,17 +57,21 @@ const CustomerOrders = () => {
                           {order.status}
                         </b>
                       </p>
-                      <p className="text-xs text-gray-500 truncate dark:text-gray-400">
+                      <div className="flex sm:flex-col md:flex-col lg:flex-row ">
+                        <div className="flex flex-col px-5 pt-2">
+                      <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                         Provider Name: {order.providerName}
                       </p>
-                      <p className="text-xs inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
-                        <i className="fa fa-location text-xs rotate-6" />
+                      <p className="text-sm inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
+                        <i className="fa fa-location text-sm rotate-6" />
 
                         <span className="text-center text-xs ml-2 text-lg text-gray-500 dark:text-gray-400">
                           {order.location}
                         </span>
                       </p>
-                      <p className="text-xs mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
+                        </div>
+                        <div className="flex flex-col px-5">
+                      <p className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
                         provider number
                         <br />{" "}
                         <a href={`tel:${order.providerNumber}`}>
@@ -77,25 +81,31 @@ const CustomerOrders = () => {
                           </span>
                         </a>
                       </p>
+                      </div>
+                      <div className="flex flex-col px-5">
                       <p
                         title={order.orderNotes}
-                        className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
+                        className="text-sm text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
                         Your Notes: <br /> {order.orderNotes}
                       </p>
+                      </div>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
+                    <div className="flex flex-col min-w-0 items-center text-sm text-gray-900 dark:text-white">
                       {order.status === "done" ? (
                         <>
-                          <span className="text-xs bg-cyan-700 text-center text-white rounded-lg p-2">
+                          <span className="text-sm float-right bg-cyan-700 text-center text-white rounded-lg p-2">
                             Rate your provider
                           </span>
+                          <p className="float-right">
                           <Rate orderId={order.id} />
+                          </p>
                         </>
                       ) : (
                         <button
                           type="submit"
-                          className="w-full cursor-not-allowed lg:w-56 lg:justify-end bg-gray-700  py-3 text-center text-white rounded-lg p-2 border"
+                          className="w-full float-right cursor-not-allowed lg:w-56 lg:justify-end bg-gray-700  py-3 text-center text-white rounded-lg p-2 border"
                           title="Rate Service"
                         >
                           Rate Service
@@ -148,7 +158,7 @@ const CustomerOrders = () => {
                       </p>
                       <p
                         title={order.orderNotes}
-                        className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
+                        className="text-sm text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
                         <br /> {order.orderNotes}
                       </p>

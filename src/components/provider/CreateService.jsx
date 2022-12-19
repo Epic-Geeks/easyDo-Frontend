@@ -6,10 +6,10 @@ export default function CreateServiceForm(props) {
   const dispatch = useDispatch();
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div className="max-w-lg mx-auto bg-white rounded-xl my-5 shadow-lg overflow-hidden md:max-w-2xl bg-Anti-Flash-White">
       <div className="md:flex">
         <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-1 dark:bg-gray-800 dark:border-gray-700">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center py-5 justify-center">
             <form
               className="space-y-6"
               onSubmit={(e) => createService(dispatch, e)}
@@ -132,7 +132,7 @@ export default function CreateServiceForm(props) {
 
               <button
                 type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-Myrtle-Green hover:bg-cyan-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-Myrtle-Green dark:hover:cyan-700 dark:focus:ring-blue-800"
               >
                 Create
               </button>

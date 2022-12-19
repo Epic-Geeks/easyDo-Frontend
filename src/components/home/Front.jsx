@@ -8,9 +8,9 @@ export default function Front() {
     <section className="z-10 m-auto">
       <div className="sm:w-12/12 mx-auto">
         <div
-          className={`py-8  relative w-full h-[620px] bg-homefrontbg bg-cover lg:bg-center bg-no-repeat bg-left`}
+          className={`py-8  relative w-full h-screen bg-homefrontbg bg-cover lg:bg-center bg-no-repeat bg-left`}
         >
-          <div className="absolute bottom-[24%] sm:left-[6%] left-[5%] flex items-center flex-wrap gap-4">
+          <div className="absolute bottom-[31%] sm:left-[6%] left-[5%] flex items-center flex-wrap gap-4">
             {searchBar && (
               <form className="flex items-end gap-4 flex-wrap">
                 <SearchBar />

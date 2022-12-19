@@ -14,7 +14,7 @@ export default function SearchBar() {
         placeholder="Search by service, provider, category"
         onFocus={focusHandler}
         onBlur={focusHandler}
-        className="bg-blue-500 bg-opacity-50 focus:bg-opacity-100 border-[1px] border-white outline-none px-4 py-2 rounded-md sm:w-[500px] w-[300px] placeholder-white"
+        className="bg-black opacity-50 focus:bg-opacity-100 border-[1px] border-white outline-none px-4 py-2 rounded-md sm:w-[500px] w-[300px] placeholder-white"
       />
       {focusBox && (
         <div className="bg-white px-4 py-4 absolute top-[2.4rem] left-0 w-full text-[12px] border-t-[1px] border-t-black search_drop_shadow rounded-br-md rounded-bl-md">

@@ -17,9 +17,9 @@ export const getServices = (dispatch) => {
           dispatch(fetchServices(res.data));
           console.log("res.data", res.data);
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => swal(err.message));
     } catch (err) {
-      alert(err);
+      swal(err);
     }
   };
 
@@ -111,7 +111,7 @@ export const getServices = (dispatch) => {
       })
       .catch((err) => console.log(err));
   } catch (err) {
-    alert(err);
+    swal(err);
   };
 };
 
@@ -225,9 +225,9 @@ export const editService = async(dispatch, payload, id) => {
       }
 
       )
-      .catch((err) => alert(err.message));
+      .catch((err) => swal(err.message));
   } catch (err) {
-    alert(err);
+    swal(err);
   } 
 };
 

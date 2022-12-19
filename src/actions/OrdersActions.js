@@ -44,9 +44,9 @@ export const createOrder = (dispatch, payload, id, providerName, providerNumber)
               },
             });
         })
-        .catch((err) => alert("Provider has a full schedule this day, please chose another one"));
+        .catch((err) => swal("Provider has a full schedule this day, please chose another one"));
     } catch (err) {
-      alert(err);
+      swal(err);
     }
   };
 
