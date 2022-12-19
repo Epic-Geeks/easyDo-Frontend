@@ -51,9 +51,6 @@ const Navbar = () => {
                   >
                     About us
                   </Link>
-
-                 
-
                     ):(
                       <Link to="/dashboard" 
                       className="hover:bg-cyan-700  hover:text-white px-3 py-2 rounded-md text-sm"

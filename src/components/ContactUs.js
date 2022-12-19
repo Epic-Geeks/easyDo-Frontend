@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import swal from "sweetalert";
 
 import { FaPhone } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
@@ -101,8 +102,13 @@ const ContactUs = () => {
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-Polished-Pine"
                   />
                 </div>
-                <button className="inline-block self-end bg-Myrtle-Green text-white font-bold rounded-lg px-6 py-2 mt-2 uppercase text-sm">
-                  Send Message{" "}
+                <button
+                  onClick={() =>
+                    swal("Thank you", "Your message is sent successfully", "success")
+                  }
+                  className="inline-block self-end bg-Myrtle-Green text-white font-bold rounded-lg px-6 py-2 mt-2 uppercase text-sm"
+                >
+                  Send Message
                 </button>
               </form>
             </div>
