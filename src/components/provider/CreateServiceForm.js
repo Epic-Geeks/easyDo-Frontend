@@ -2,79 +2,45 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { createService } from '../../actions/ServicesActions';
 
+
 export default function CreateServiceForm(props) {
     const dispatch = useDispatch();
 
   return (
     <div>
-        <div className="flex items-center justify-center min-h-screen ">
-        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 ">
-            
-    
-        <h3 className="text-3xl font-bold dark:text-white">Create Your Service</h3>
-
-        <form className="space-y-6"  onSubmit={(e)=>createService(dispatch, e)}>
-        <div className="mb-6">
-    <label htmlFor="serviceDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ServiceDescription</label>
-    <input type="text" id="serviceDescription" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-half p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
-</div>
-
-
-<div className="mb-6">
-    <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-    <input type="text" id="price" name="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-half p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
-</div>
-
-            <fieldset>
-            <legend className="sr-only">ServiceCategory</legend>
-
-            <div className="flex items-center mb-4">
-            <input id="plumper" 
-            type="radio" 
-            name="serviceCategory" 
-            value="plumber" 
-            className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"></input>
-            <label htmlFor="serviceCategory" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-            plumber
-            </label>
-             </div>
-
-            <div className="flex items-center mb-4">
-            <input id="serviceCategory" type="radio" name="serviceCategory" value="electrician" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"></input>
-            <label htmlFor="serviceCategory" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-            electrician
-            </label>
+    <div className="flex justify-center items-center w-full">
+    <div className="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+        <h1 className="block w-full text-center text-gray-800 text-2xl  mb-6">Create Your Service</h1>
+        <form onSubmit={(e)=>createService(dispatch, e)}>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2  text-sm text-gray-900" htmlFor="Price">Price</label>
+                <input className="border py-2 px-3 font-light text-grey-800" type="text" name="Price" id="Price"></input>
             </div>
-
-  <div className="flex items-center mb-4">
-    <input id="serviceCategory" type="radio" name="serviceCategory" value="carpenter" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"></input>
-    <label htmlFor="serviceCategory" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-    carpenter
-    </label>
-  </div>
-
-  <div className="flex items-center mb-4">
-    <input id="serviceCategory" type="radio" name="serviceCategory" value="painter" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring:blue-300 dark:focus-ring-blue-600 dark:bg-gray-700 dark:border-gray-600"></input>
-    <label htmlFor="serviceCategory" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-    painter
-    </label>
-  </div>
-
-  <div className="flex items-center">
-  <input id="serviceCategory" type="radio" name="serviceCategory" value="online" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring:blue-300 dark:focus-ring-blue-600 dark:bg-gray-700 dark:border-gray-600"></input>
-    <label htmlFor="serviceCategory" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-    online
-    </label>
-  </div>
-</fieldset>
-            
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Upload a service picture</label>
+        
+            <div className="flex flex-col mb-4">
+            <label className="mb-2  text-sm text-gray-900" htmlFor="user_avatar">Upload a service picture</label>
             <input className="block w-half text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"></input>
+            </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2  text-sm text-gray-900" htmlFor="ServiceDescription">ServiceDescription</label>
+                <textarea className="border py-2 px-3 font-light text-grey-800" name="ServiceDescription" id="ServiceDescription" type="text"></textarea>
+            </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 text-sm text-gray-900" htmlFor="ServiceCategory">ServiceCategory</label>
+                
+                <select className="border font-light py-1 px-3 text-grey-800">
+                    <option>plumper</option>
+                    <option>electrician</option>
+                    <option>carpenter</option>
+                    <option>painter</option>
+                    <option>online</option>
 
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
+                </select>
+            </div>
+            <button className="block bg-blue-400  text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Create</button>
         </form>
     </div>
-    </div>
-    </div>
-  )
+</div>
+</div>
+  );
 }

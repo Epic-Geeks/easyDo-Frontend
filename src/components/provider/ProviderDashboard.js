@@ -25,7 +25,7 @@ export default function ProviderDashboard() {
       {isAuthorized && (
         <div className="flex mt-8 mb-auto">
           <div
-            className={`${open ? "w-72 " : "w-20 h-screen"
+            className={`${open ? "w-72 " : "w-20  h-screen"
               } duration-300 h-screen p-5 pt-8 bg-gray-800 relative`}
           >
             <img

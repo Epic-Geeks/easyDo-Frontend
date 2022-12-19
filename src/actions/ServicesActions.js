@@ -6,6 +6,7 @@ import { getProfile } from "./AuthActions";
 import swal from "sweetalert";
 
 
+
 export const getServices = (dispatch) => {
     try {
       axios
@@ -66,6 +67,7 @@ export const getServices = (dispatch) => {
  export const createService = (dispatch, payload) => {
   payload.preventDefault();
   const { serviceDescription, price, serviceCategory, picture} = payload.target;
+  console.log("payload", payload.target);
   const obj = {
     serviceDescription: serviceDescription.value,
     price: price.value,
@@ -145,6 +147,7 @@ export const editService = (dispatch, payload) => {
  };
 
 
+
   export const deleteService = async(dispatch, id) => {
       try {
         await axios
@@ -174,6 +177,51 @@ export const editService = (dispatch, payload) => {
   
 
 
+
+export const editService = async(dispatch, payload, id) => {
+  payload.preventDefault();
+  const { serviceDescription, price, serviceCategory, picture} = payload.target;
+  const obj = {
+    serviceDescription: serviceDescription.value,
+    price: price.value,
+    serviceCategory: serviceCategory.value,
+   /*  picture: picture.files[0], */
+  };
+  console.log("payload", obj);
   
+  const formData = new FormData();
+  formData.append("serviceDescription", obj.serviceDescription);
+  formData.append("price", obj.price);
+  formData.append("serviceCategory", obj.serviceCategory);
+ /*  formData.append("picture", obj.picture); */
+ console.log("payload", payload.target.id.value);
+ console.log("payload", id);
+   try {
+    axios
+      .put(
+        `${process.env.REACT_APP_BACKEND}/service/${id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${cookies.load("token")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+        
+      )
+      .then((res) => {
+        console.log("payload", obj);
+
+        getProfile(dispatch);
+        getServices(dispatch);
+      }
+
+      )
+      .catch((err) => alert(err.message));
+  } catch (err) {
+    alert(err);
+  } 
+};
+
 
 
