@@ -19,35 +19,35 @@ export default function About() {
       text: `Full Stack Developer`,
       image: "https://avatars.githubusercontent.com/u/106746339?v=4",
       description:
-        "For longer than 15 years, we've consistently hired reliable",
+        "I am a 25 years old mechanical engineer who graduated from the University of Jordan. I am attending to be a developer now.",
     },
     {
       name: "Malek Hamdan",
       text: `Full Stack Developer`,
       image: "https://avatars.githubusercontent.com/u/62914608?v=4",
       description:
-        "For longer than 15 years, we've consistently hired reliable",
+        "I'm fresh graduate. I studied software engineering in Al Balqa Applied University. Currently I'm JS student at ASAC.",
     },
     {
       name: "Ali Mohammad",
       text: `Full Stack Developer`,
       image: "https://avatars.githubusercontent.com/u/108058306?v=4",
       description:
-        "For longer than 15 years, we've consistently hired reliable",
+        "I'm Software Enginnering With a passion of coding and learning.",
     },
     {
       name: "Amani Alsmadi",
       text: `Full Stack Developer`,
       image: "https://avatars.githubusercontent.com/u/108059931?v=4",
       description:
-        "For longer than 15 years, we've consistently hired reliable",
+        "I graduated from Al-Balqa Applied University as a communications and software engineer. Now, I'm learning JavaScript programming with LTUC - ASAC.",
     },
     {
       name: "Shaima Alkhateeb",
       text: "Full Stack Developer",
       image: "https://avatars.githubusercontent.com/u/97349122?v=4",
       description:
-        "For longer than 15 years, we've consistently hired reliable",
+        "I'm interested in designing and coding. I’m currently full stack.",
     },
   ];
 
