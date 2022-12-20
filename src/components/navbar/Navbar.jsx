@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
 
           {isAuthorized ? (
-            <button onClick={() => dispatch(logoutHandler)}>
+            <button onClick={() => logoutHandler(dispatch)}>
               {" "}
               <Link to="/">
                 <div className="hidden xl:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
@@ -143,7 +143,7 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <Link
-                  onClick={() => dispatch(logoutHandler)}
+                  onClick={() => logoutHandler(dispatch)}
                   className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Log out

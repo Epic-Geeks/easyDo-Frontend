@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { ratingOrder, updateOrderStatus } from '../../actions/OrdersActions';
+import { getServices } from '../../actions/ServicesActions';
 
 const Rate = ({orderId}) => {
     const stars = Array(5).fill(0);
@@ -11,11 +12,8 @@ const Rate = ({orderId}) => {
     const handleRating = (value) => {
         setCurrentValue(value);
         ratingOrder(dispatch, {rate: value, orderId})
+        getServices(dispatch)
     };
-    
-  useEffect(()=>{
-    
-  },[])  
 
     const handleMouseLeave = () => {
         setHoverValue(undefined);

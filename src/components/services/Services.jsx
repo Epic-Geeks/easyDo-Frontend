@@ -59,8 +59,9 @@ export default function ServiceCards() {
       <article className="grid my-10 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4 mb-8">
         {services.payload.counter.services &&
           services.payload.counter.services
-            .filter((service) =>
-              service.serviceDescription.toLowerCase().includes(query)
+            .filter((service) => 
+              service.serviceDescription.toLowerCase().includes(query) ||
+              service.serviceCategory.toLowerCase().includes(query)
             )
             .map((service) => (
               <ServiceCard

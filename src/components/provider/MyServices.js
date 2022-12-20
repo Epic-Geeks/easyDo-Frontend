@@ -21,7 +21,6 @@ export default function MyServices() {
             {services &&
               services.map((service, index) =>
                 service.visibility === true ? (
-                  <>
                     <div className='p-4 sm:w-1/2 lg:w-1/3 flex flex-col items-center hover:drop-shadow-xl' key={index}>
                       <div className="max-w-2xl mx-auto ">
                         <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
@@ -74,7 +73,6 @@ export default function MyServices() {
                         </div>
                       </div>
                     </div>
-                  </>
                 ) : (
                   <></>
                 )

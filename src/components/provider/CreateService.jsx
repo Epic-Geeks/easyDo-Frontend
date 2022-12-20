@@ -127,7 +127,7 @@ export default function CreateServiceForm(props) {
                 id="picture"
                 type="file"
                 name="picture"
-                multiple
+                // multiple
               ></input>
 
               <button
