@@ -52,7 +52,7 @@ export default function OneServicePage() {
 
                   <div className="relative w-[100px] h-[100px] mt-20 mb-4 left-4">
                     <img className="w-full h-full border border-gray-300 object-center object-cover relative rounded-tr-[20px] rounded-bl-[20px]"
-                      src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" alt="profile pic" />
+                      src={service.Provider.picture} alt={service.Provider.picture} />
                   </div>
 
                   <div className="author-details text-lg mt-20">

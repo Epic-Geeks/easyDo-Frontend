@@ -55,32 +55,48 @@ export default function EditProfile() {
               <div className="relative z-0 mb-6 w-full group">
                 <input
                   type="text"
-                  name="floating_first_name"
-                  id="floating_first_name"
+                  name="name"
+                  id="name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   defaultValue={cookies.load("name")}
                 />
                 <label
-                  htmlFor="floating_first_name"
+                  htmlFor="name"
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transhtmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
-                  First name
+                  Name
                 </label>
+                <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
               <div className="relative z-0 mb-6 w-full group">
                 <input
                   type="text"
-                  name="floating_last_name"
-                  id="floating_last_name"
+                  name="username"
+                  id="username"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   defaultValue={cookies.load("username")}
                 />
                 <label
-                  htmlFor="floating_last_name"
+                  htmlFor="username"
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Username
                 </label>
+                <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </form>
@@ -106,17 +122,25 @@ export default function EditProfile() {
           <div className="relative z-0 mb-6 w-full group">
             <input
               type="email"
-              name="floating_email"
-              id="floating_email"
+              name="email"
+              id="email"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={cookies.load("email")}
             />
             <label
-              htmlFor="floating_email"
+              htmlFor="email"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Email address
             </label>
+            <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
           </div>
           {/* </div> */}
         </form>
@@ -142,17 +166,25 @@ export default function EditProfile() {
             <input
               type="password"
               autoComplete="true"
-              name="floating_password"
-              id="floating_password"
+              name="password"
+              id="password"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              htmlFor="floating_password"
+              htmlFor="password"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Password
             </label>
+            <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
           </div>
         </form>
         <hr></hr>
@@ -175,11 +207,11 @@ export default function EditProfile() {
         >
           <div className="relative z-0 mb-6 w-full group">
             <input
-              type="email"
+              type="tel"
               name="phoneNumber"
               id="phoneNumber"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
+
             />
             <label
               htmlFor="phoneNumber"
@@ -187,6 +219,14 @@ export default function EditProfile() {
             >
               Phone
             </label>
+            <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
           </div>
         </form>
         <hr></hr>
@@ -207,25 +247,31 @@ export default function EditProfile() {
             } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
           onSubmit={(e) => editProfile(e, dispatch, userInfo)}
         >
+          <div className="relative z-0 mb-6 w-full group">
+            <input
+              type="text"
+              name="city"
+              id="city"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
 
+            />
+            <label
+              htmlFor="city"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              City
+            </label>
+            <div className="flex justify-end">
+                  <button
+                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+                </div>
+          </div>
         </form>
         <hr></hr>
-
-        <div className="flex justify-end">
-          <button
-            className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-8 rounded mt-8 "
-            type="submit"
-            onClick={() => swal({
-              title: "your profile has been updated",
-              icon: "success",
-              buttons: {
-                cancel: "Ok",
-              },
-            })}
-          >
-            Save
-          </button>
-        </div>
       </div>
 
     </div>

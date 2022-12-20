@@ -25,11 +25,16 @@ export default function MyServices() {
                     <div className='p-4 sm:w-1/2 lg:w-1/3 flex flex-col items-center hover:drop-shadow-xl' key={index}>
                       <div className="max-w-2xl mx-auto ">
                         <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                          <img
-                            className="rounded-t-lg p-8 "
-                            src="https://heroes.services/wp-content/uploads/bb-plugin/cache/plumbing-banner-landscape.jpg"
-                            /*{service.picture}*/ alt="product image"
-                          ></img>
+                          {/* {
+                            service.picture && service.picture.map((img,idx)=>(
+                              
+                              ))
+                            } */}
+                            {/* <img
+                              className="rounded-t-lg p-8 "
+                              src={service.picture[0]}
+                               alt={service.picture[0]}
+                            /> */}
 
                           <div className="px-5 pb-5">
                             <h3 className="text-base font-semibold tracking-tight dark:text-white">

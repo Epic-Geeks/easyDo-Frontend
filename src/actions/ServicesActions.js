@@ -67,15 +67,24 @@ export const getServices = (dispatch) => {
  export const createService = (dispatch, payload) => {
   payload.preventDefault();
   const { serviceDescription, price, serviceCategory, picture} = payload.target;
-  // console.log("payload", payload.target);
+  // const arr = []
+  // for(let i = 0; i< picture.files.length; i++){
+  //   arr.push(picture.files[i]);
+  // }
+  // const fd = new FormData();
+  // arr.forEach(img=> {
+  //   fd.append("picture", img)
+  // })
+  // for (const value of fd.values()) {
+  //   arr.push(value);
+  // }
   const obj = {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-    // picture: picture.files,  
+    // picture: arr[0].File,  
  };
-  console.log("payload", obj);
- 
+//  console.log(arr[0])
   
   try {
     axios
@@ -85,6 +94,7 @@ export const getServices = (dispatch) => {
         {
           headers: {
               Authorization: `Bearer ${cookies.load("token")}`,
+              // "content-type": "multipart/form-data"              
             },
           }
           )
@@ -99,7 +109,7 @@ export const getServices = (dispatch) => {
             },
           });
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => console.log(err));
   } catch (err) {
     alert(err);
   };
