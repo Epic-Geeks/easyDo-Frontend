@@ -67,10 +67,11 @@ export const getServices = (dispatch) => {
  export const createService = (dispatch, payload) => {
   payload.preventDefault();
   const { serviceDescription, price, serviceCategory, picture} = payload.target;
-  // const arr = []
+  const arr = []
   // for(let i = 0; i< picture.files.length; i++){
   //   arr.push(picture.files[i]);
   // }
+  // console.log(arr)
   // const fd = new FormData();
   // arr.forEach(img=> {
   //   fd.append("picture", img)
@@ -82,9 +83,9 @@ export const getServices = (dispatch) => {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-    // picture: arr[0].File,  
+    picture: picture.files[0],  
  };
-//  console.log(arr[0])
+ console.log(obj.picture)
   
   try {
     axios
@@ -94,7 +95,7 @@ export const getServices = (dispatch) => {
         {
           headers: {
               Authorization: `Bearer ${cookies.load("token")}`,
-              // "content-type": "multipart/form-data"              
+              "content-type": "multipart/form-data"
             },
           }
           )

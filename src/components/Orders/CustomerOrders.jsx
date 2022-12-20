@@ -199,7 +199,7 @@ const CustomerOrders = () => {
               )
             )}
         </ul>
-        {orders.length === 0 && (
+        {orders && orders.length == 0 && (
           <NotFound
             message={{
               body: "You don't have any orders yet, book your service now!",

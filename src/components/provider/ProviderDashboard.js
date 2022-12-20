@@ -17,7 +17,7 @@ export default function ProviderDashboard() {
   const isAuthorized = useSelector(selectIsAuthorized);
   const [open, setOpen] = useState(true);
   const [openEditInfo, setOpenEditInfo] = useState(false);
-  const [openOrders, setOpenOrders] = useState(false);
+  const [openOrders, setOpenOrders] = useState(true);
   const [openServices, setOpenServices] = useState(false);
   const [openCreateService, setCreateSrvice] = useState(false);
   return (
@@ -115,7 +115,7 @@ export default function ProviderDashboard() {
               <li
                 onClick={() => {
                   setOpenEditInfo(false);
-                  setOpenOrders(!openOrders)
+                  setOpenOrders(true)
                   setOpenServices(false)
                   setCreateSrvice(false);
 
@@ -137,7 +137,7 @@ export default function ProviderDashboard() {
                   setOpenEditInfo(false);
                   setOpenOrders(false)
                   setCreateSrvice(false)
-                  dispatch(logoutHandler)
+                  logoutHandler(dispatch)
 
                 }}
                 className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md 
