@@ -3,19 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteLocation, editProfile } from "../actions/AuthActions";
 import { selectUserInfo } from "../redux/counterSlicer";
 import cookies from "react-cookies";
-import Container from "./Container";
-import { FiArrowRight } from "react-icons/fi";
-import swal from "sweetalert";
 
 export default function EditProfile() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
-
-  const [openName, setOpenName] = useState(false);
-  const [openEmail, setOpenEmail] = useState(false);
-  const [openPassword, setOpenPassword] = useState(false);
-  const [openPhone, setOpenPhone] = useState(false);
-  const [openCity, setOpenCity] = useState(false);
 
   const handleRemoveLoc = (idx) => {
     // userInfo.customerAddress.splice(idx, 1); // faster way to remove an item from an array
@@ -26,255 +17,118 @@ export default function EditProfile() {
     const newUserInfo = { ...userInfo, customerAddress: newLocations };
     deleteLocation(dispatch, newUserInfo);
   };
-  console.log((userInfo.customerAddress))
+  console.log(userInfo.customerAddress);
   return (
     <div>
-      {/* <Container> */}
-      <div className="pl-10 pr-20 pb-20 mt-6 sm:pl-5">
+      <div className="pl-10 pr-20 pb-20 mt-6 mb-2 sm:pl-5 max-h-full">
         <h1 className="text-2xl pt-6 pb-6">Edit Profile</h1>
-        <hr></hr>
 
-        <div>
-          <form
-            onClick={() => setOpenName(!openName)}
-            className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
-          >
-            <label className="pr-5">Name </label>
-            <FiArrowRight
-              className={`inline-block text-Myrtle-Green ${openName && "rotate-90"
-                }`}
-            />
-          </form>
 
-          <form
-            className={`${!openName && "hidden"
-              } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
-            onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-          >
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  defaultValue={cookies.load("name")}
-                />
-                <label
-                  htmlFor="name"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transhtmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Name
-                </label>
-                <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  defaultValue={cookies.load("username")}
-                />
-                <label
-                  htmlFor="username"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Username
-                </label>
-                <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
+        <form onSubmit={(e) => editProfile(e, dispatch, userInfo)}>
+          <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="relative z-0 mb-6 w-full group">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                defaultValue={cookies.load("name")}
+                placeholder=" "
+              />
+              <label
+                htmlFor="name"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Name
+              </label>
             </div>
-          </form>
-        </div>
-        <hr></hr>
-
-        <form
-          onClick={() => setOpenEmail(!openEmail)}
-          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
-        >
-          <label className="pr-5">Email</label>
-          <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${openEmail && "rotate-90"
-              }`}
-          />
-        </form>
-
-        <form
-          className={`${!openEmail && "hidden"
-            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
-          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-        >
+            <div className="relative z-0 mb-6 w-full group">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                defaultValue={cookies.load("username")}
+                placeholder=" "
+              />
+              <label
+                htmlFor="username"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Username
+              </label>
+            </div>
+          </div>
           <div className="relative z-0 mb-6 w-full group">
             <input
               type="email"
               name="email"
               id="email"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={cookies.load("email")}
+              placeholder=" "
             />
             <label
               htmlFor="email"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Email address
+              Email
             </label>
-            <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
           </div>
-          {/* </div> */}
-        </form>
-        <hr></hr>
-
-        <form
-          onClick={() => setOpenPassword(!openPassword)}
-          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
-        >
-          <label className="pr-5">Password</label>
-          <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${openPassword && "rotate-90"
-              }`}
-          />
-        </form>
-
-        <form
-          className={`${!openPassword && "hidden"
-            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
-          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-        >
           <div className="relative z-0 mb-6 w-full group">
             <input
               type="password"
-              autoComplete="true"
               name="password"
               id="password"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
               htmlFor="password"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Password
             </label>
-            <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
           </div>
-        </form>
-        <hr></hr>
-
-        <form
-          onClick={() => setOpenPhone(!openPhone)}
-          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
-        >
-          <label className="pr-5">Phone</label>
-          <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${openPhone && "rotate-90"
-              }`}
-          />
-        </form>
-
-        <form
-          className={`${!openPhone && "hidden"
-            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
-          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-        >
+            <div className="relative z-0 mb-6 w-full group">
+              <input
+                type="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                name="phoneNumber"
+                id="phoneNumber"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+              />
+              <label
+                htmlFor="phoneNumber"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Phone number (123-456-7890)
+              </label>
+            </div>
           <div className="relative z-0 mb-6 w-full group">
-            <input
-              type="tel"
-              name="phoneNumber"
-              id="phoneNumber"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-
-            />
-            <label
-              htmlFor="phoneNumber"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Phone
-            </label>
-            <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
-          </div>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+              />
+              <label
+                htmlFor="city"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                City
+              </label>
+            </div>
+          <button
+            type="submit"
+            className="float-right text-white bg-Myrtle-Green hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Save
+          </button>
         </form>
-        <hr></hr>
-
-        <form
-          onClick={() => setOpenCity(!openCity)}
-          className="px-5 py-2 hover:bg-Anti-Flash-White rounded cursor-pointer"
-        >
-          <label className="pr-5">City</label>
-          <FiArrowRight
-            className={`inline-block text-Myrtle-Green ${openCity && "rotate-90"
-              }`}
-          />
-        </form>
-
-        <form
-          className={`${!openCity && "hidden"
-            } px-8 py-8 bg-Anti-Flash-White rounded mb-2`}
-          onSubmit={(e) => editProfile(e, dispatch, userInfo)}
-        >
-          <div className="relative z-0 mb-6 w-full group">
-            <input
-              type="text"
-              name="city"
-              id="city"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-Polished-Pine focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-
-            />
-            <label
-              htmlFor="city"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-Polished-Pine peer-focus:dark:text-Polished-Pine peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              City
-            </label>
-            <div className="flex justify-end">
-                  <button
-                    className="bg-Polished-Pine hover:bg-Myrtle-Green text-white font-bold py-2 px-2 rounded mt-2"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </div>
-          </div>
-        </form>
-        <hr></hr>
       </div>
-
     </div>
-  )
+  );
 }
-

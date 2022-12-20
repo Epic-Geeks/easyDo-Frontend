@@ -28,9 +28,9 @@ export const login = (payload, dispatch) => {
           cookies.save("userInfo", JSON.stringify(res.data));
           getProfile( dispatch);
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => swal(err.message));
     } catch (err) {
-      alert(err);
+      swal(err);
     }
   };
 
@@ -112,29 +112,36 @@ export const editProfile = (payload, dispatch, userInfo) => {
   // const encoded = base64.encode(`${email.value}:${password.value}`);
   // console.log("payload", payload);
 
-  // try {
-  //   axios
-  //     .put(
-  //       `${process.env.REACT_APP_BACKEND}/${userInfo.role}/${userInfo.id}`,
-  //       {customerAddress: newArr},
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${cookies.load("token")}`,
-  //         },
-  //       }
-  //     )
-  //     .then(async(res) => {
-  //       console.log("res.data", res.data);
-  //       // cookies.save("token", res.data.token);
-  //       // cookies.save("name", res.data.name);
-  //       // cookies.save("capabilities", JSON.stringify(res.data.capabilities));
-  //       // cookies.save("userInfo", JSON.stringify(res.data));
-  //       getProfile( dispatch);
-  //     })
-  //     .catch((err) => alert(err.message));
-  // } catch (err) {
-  //   alert(err);
-  // }
+  try {
+    axios
+      .put(
+        `${process.env.REACT_APP_BACKEND}/${userInfo.role}/${userInfo.id}`,
+        obj,
+        {
+          headers: {
+            Authorization: `Bearer ${cookies.load("token")}`,
+          },
+        }
+      )
+      .then(async(res) => {
+        console.log("res.data", res.data);
+        cookies.save("token", res.data.token);
+        cookies.save("name", res.data.name);
+        cookies.save("capabilities", JSON.stringify(res.data.capabilities));
+        cookies.save("userInfo", JSON.stringify(res.data));
+        getProfile( dispatch);
+        swal({
+          title:"your profile has been updated",
+          icon: "success",
+          buttons: {
+            cancel: "Ok",
+          },
+        });
+      })
+      .catch((err) => swal(err.message));
+  } catch (err) {
+    swal(err);
+  }
 };
 
 
@@ -164,8 +171,8 @@ export const deleteLocation = (dispatch, userInfo) => {
         // cookies.save("userInfo", JSON.stringify(res.data));
         getProfile( dispatch);
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => swal(err.message));
   } catch (err) {
-    alert(err);
+    swal(err);
   }
 };

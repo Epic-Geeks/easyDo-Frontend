@@ -9,7 +9,7 @@ const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, 
   const [red, setRed] = useState(false);
 
     return (
-      <div className="h-[400px] w-[320px] p-2 mb-10" key={id}>
+      <div className="md:h-full w-[320px] p-2 mb-2 mt-10" key={id}>
         <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform cursor-pointer">
           <img src={trend1} alt="fund1" className='object-cover h-56 w-96' />
           <div className="absolute top-4 uppercase right-4 leading-tight font-bold w-[70px] h-[70px] flex items-center justify-center bg-white text-black rounded-full text-[10px] text-center">
@@ -35,7 +35,7 @@ const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, 
         <h2 className="font-bold text-[17px] px-2 hover:text-[#6D9886] transition-colors cursor-pointer text-ellipsis overflow-hidden">
           {serviceDescription}
         </h2>
-        <h4 className='text-xs text-[14px] cursor-pointer font-medium underline text-right'>
+        <h4 className='text-xs text-[14px] cursor-pointer font-medium underline text-right pt-3'>
         <Link title='View Service' 
          to={`/services/${id}`}>View Service</Link>
         </h4>

@@ -11,13 +11,18 @@ import {
   FaInstagram,
   FaGithub,
 } from "react-icons/fa";
+import Container from "./Container";
 
 const ContactUs = () => {
   return (
-    <div className="antialiased bg-gray-100">
-      <div className="flex w-full min-h-screen justify-center items-center">
-        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-Myrtle-Green w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
-          <div className="flex flex-col space-y-8 justify-between">
+    <div className="antialiased bg-gray-100 relative">
+      <div className="absolute container">
+      <iframe className="w-screen h-screen z-0 absolute" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=1208&amp;height=721&amp;hl=en&amp;q=%20Amman+(ltus)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+      </div>
+
+      <div className="flex w-full min-h-screen justify-center items-center z-10 relative absolute">
+        <div className=" z-10 relative absolute flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-Myrtle-Green w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
+          <div className="flex flex-col space-y-8 justify-between relative z-10 ">
             <div>
               <h1 className="font-bold text-4xl tracking-wide">Contact Us</h1>
               <p className="pt-2 text-cyan-100 text-sm">
@@ -115,6 +120,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

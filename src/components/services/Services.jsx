@@ -31,7 +31,7 @@ export default function ServiceCards() {
             <input
               type="text"
               id="voice-search"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-teal-500 focus:border-teal-500 block w-full pl-10 p-2.5"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-teal-500 focus:border-teal-500 block w-full pl-10 p-2.5 rounded-md"
               placeholder="Search..."
               required=""
               onChange={(e) => setQuery(e.target.value)}
@@ -39,7 +39,7 @@ export default function ServiceCards() {
           </div>
           <button
             type="button"
-            className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-teal-700 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-300"
+            className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-Myrtle-Green hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-teal-300 rounded-md"
           >
             <svg
               aria-hidden="true"
@@ -56,7 +56,7 @@ export default function ServiceCards() {
         </form>
       </div>
 
-      <article className="grid my-10 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4 mb-8">
+      <article className="grid my-10 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center lg:gap-14 gap-4 mb-8">
         {services.payload.counter.services &&
           services.payload.counter.services
             .filter((service) =>

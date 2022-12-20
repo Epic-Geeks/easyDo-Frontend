@@ -14,14 +14,14 @@ const Navbar = () => {
   return (
     <nav className="py-2 z-40">
       <Container>
-        <div className="flex items-center justify-between h-16 bg-transparent">
+        <div className=" flex items-center justify-between h-16">
           <div className="flex gap-0 items-center">
             <img
               className="h-[70px] w-[150px] cursor-pointer mt-2 object-contain"
               src={logo}
               alt="logo"
             />
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
               
                 <div className="ml-48 flex items-baseline space-x-16 font-semibold">
                   <Link
@@ -69,19 +69,19 @@ const Navbar = () => {
             <button onClick={() => dispatch(logoutHandler)}>
               {" "}
               <Link to="/">
-                <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
+                <div className="hidden xl:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
                   Log out
                 </div>
               </Link>
             </button>
           ) : (
             <Link to="/signin">
-              <div className="hidden md:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
+              <div className="hidden xl:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
                 Log In
               </div>
             </Link>
           )}
-          <div className="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex xl:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="mt-8 md:hidden transition-all" id="mobile-menu">
+          <div className="mt-8 xl:hidden transition-all" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-black">
               <Link
                 to="/"

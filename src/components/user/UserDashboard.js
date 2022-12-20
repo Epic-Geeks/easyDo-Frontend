@@ -19,7 +19,7 @@ export default function UserDashboard() {
   return (
     <>
       {isAuthorized && (
-        <div className="flex mt-8 mb-auto">
+        <div className="flex mb-auto min-h-screen">
           <div
             className={`${open ? "w-72" : "w-20 h-100%"
               } duration-300 h-100% p-5 pt-8 bg-gray-800 relative`}

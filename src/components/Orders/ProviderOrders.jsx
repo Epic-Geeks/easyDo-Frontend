@@ -17,8 +17,8 @@ const ProviderOrders = () => {
   }
 
   return (
-    <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex items-center justify-between mb-4">
+    <div className="p-3 mx-5 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex px-5 mt-5 items-center justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
           {userInfo.role === "customer" ? "My Orders" : "Latest Customers"}
         </h5>
@@ -57,6 +57,8 @@ const ProviderOrders = () => {
                           {order.status}
                         </b>
                       </p>
+                      <div className="flex sm:flex-col md:flex-col lg:flex-row ">
+                      <div className="flex flex-col px-5 pt-2">
                       <p className="text-xs text-gray-500 truncate dark:text-gray-400">
                         Customer Name: {order.customerName}
                       </p>
@@ -67,6 +69,8 @@ const ProviderOrders = () => {
                           {order.location}
                         </span>
                       </p>
+                      </div>
+                      <div className="flex flex-col px-5">
                       <p title="customer number"className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
                       customer number<br/><a href={`tel:${order.customerNumber}`}>
                           <i className="fa fa-phone text-xs rotate-6" />
@@ -75,14 +79,18 @@ const ProviderOrders = () => {
                           </span>
                         </a>
                       </p>
+                      </div>
+                      <div className="flex flex-col px-5">
                       <p
                         title={order.orderNotes}
                         className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
                         Notes: <br /> {order.orderNotes}
                       </p>
+                      </div>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
+                    <div className="flex flaot-right min-w-0 items-center text-sm text-gray-900 dark:text-white">
                       <form
                         className=""
                         onSubmit={(e) =>
