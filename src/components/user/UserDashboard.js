@@ -21,13 +21,14 @@ export default function UserDashboard() {
       {isAuthorized && (
         <div className="flex mt-8 mb-auto">
           <div
-            className={`${open ? "w-72" : "w-20 h-screen"
-              } duration-300 h-screen p-5 pt-8 bg-gray-800 relative`}
+            className={`${open ? "w-72" : "w-20 h-100%"
+              } duration-300 h-100% p-5 pt-8 bg-gray-800 relative`}
           >
+            <div className="sticky top-5">
             <img
               src={control}
               alt="control img"
-              className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-dark-purple ${!open && "rotate-180"
+              className={`absolute cursor-pointer rounded-full -right-7 top-9 w-7 border-2 border-dark-purple ${!open && "rotate-180"
                 }`}
               onClick={() => setOpen(!open)}
             />
@@ -101,6 +102,7 @@ export default function UserDashboard() {
                 </span>
               </li>
             </ul>
+          </div>
           </div>
           <div className="p-7 text-2xl font-semibold flex-1">
             {
