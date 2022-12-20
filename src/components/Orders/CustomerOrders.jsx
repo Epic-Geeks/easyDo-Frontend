@@ -12,9 +12,9 @@ const CustomerOrders = () => {
   const [showAll, setShowAll] = useState(false);
   const userInfo = useSelector(selectUserInfo);
 
-  if (!orders) {
-    return <Loading />;
-  }
+  // if (!orders) {
+  //   return <Loading />;
+  // }
 
   return (
     <div className="p-3 text-2xl font-semibold flex-1 border rounded-lg shadow-md sm:p-2 dark:bg-gray-800 dark:border-gray-700">

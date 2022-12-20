@@ -8,15 +8,15 @@ export default function ServiceCard({ id, card }) {
         </div>
       </div>
       <div className="flex items-center gap-4 my-4 px-2">
-        <h1 className="bg-[#5c807162] px-3 py-1 rounded-md text-[#6D9886] text-[17px] font-medium">
-          € {card.price}
+        <h1 className="bg-Myrtle-Green px-3 py-1 rounded-md text-white text-[17px] font-medium">
+          JD {card.price}
         </h1>
-        <p className="text-xs font-bold text-[#6D9886]">
+        <p className="text-xs font-bold text-Myrtle-Green">
           <i className="fa fa-clock text-xs text-[14px]" /> {card.date}
         </p>
-        <i className="fa fa-heart text-xs text-[#6D9886] text-[14px] ml-auto" />
+        <i className="fa fa-heart text-xs text-Myrtle-Green text-[14px] ml-auto" />
       </div>
-      <h2 className="font-bold text-[17px] px-2 hover:text-[#6D9886] transition-colors cursor-pointer">
+      <h2 className="font-bold text-[17px] px-2 hover:text-Myrtle-Green transition-colors cursor-pointer">
         {card.topic}
       </h2>
     </div>

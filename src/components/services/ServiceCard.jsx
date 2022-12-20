@@ -17,10 +17,10 @@ const ServiceCard =({ id, serviceDescription,averageRate,price,serviceCategory, 
           </div>
         </div>
         <div className="flex items-center gap-4 my-4 px-2">
-          <h1 className="bg-blue-500 px-3 py-1 rounded-md text-white text-[17px] font-medium">
-            € {price}
+          <h1 className="bg-Myrtle-Green px-3 py-1 rounded-md text-white text-[17px] font-medium">
+            JD {price}
           </h1>
-          <p className="text-xs font-bold text-blue-500">
+          <p className="text-xs font-bold text-Myrtle-Green">
             <i className="fa fa-clock text-xs text-[14px]" /> {averageRate+4.5}
           </p>
           <span className='text-xs text-[14px] ml-auto'>

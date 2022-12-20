@@ -30,11 +30,11 @@ export default function MyServices() {
                               
                               ))
                             } */}
-                            {/* <img
+                            <img
                               className="rounded-t-lg p-8 "
-                              src={service.picture[0]}
-                               alt={service.picture[0]}
-                            /> */}
+                              src={"https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=600"}
+                               alt={service.serviceDescription}
+                            />
 
                           <div className="px-5 pb-5">
                             <h3 className="text-base font-semibold tracking-tight dark:text-white">
