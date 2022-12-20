@@ -11,6 +11,7 @@ export default function SignUp() {
   const [confPassword, setConfPassword] = useState("");
   const [policy, setPolicy] = useState(false);
   const [coverdCity, setCoverdCity] = useState([]);
+  const [image, setImage] = useState({})
   const handleCheckBox = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -29,13 +30,15 @@ export default function SignUp() {
       email: e.target.email.value,
       role: e.target.role.value,
       password: e.target.password.value,
-      phoneNumber: e.target.phoneNumber.value
+      phoneNumber: e.target.phoneNumber.value,
+      picture: image
     }
+    console.log(data)
     if (e.target.role.value === "provider") data.providerCoveredCities = coverdCity
     else data.customerAddress = coverdCity;
     signupAction(data, dispatch)
   }
-
+  
   const fileSelected = (e) => {
     console.log(e.target.files[0])
   }
@@ -76,8 +79,8 @@ export default function SignUp() {
                 <div className="mt-3">Add your picture</div>
                 <div className="mt-2">
                   <input type="file"
-                    onChange={fileSelected}
-                    id="picture" name="picture" disabled
+                    onChange={(e)=> setImage(e.target.files[0])}
+                    id="picture" name="picture" 
                     className="border border-gray-400 py-1 px-2 w-full" />
                 </div>
                 <div className="mt-4">

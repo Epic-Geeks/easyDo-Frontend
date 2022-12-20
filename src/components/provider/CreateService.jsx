@@ -117,15 +117,17 @@ export default function CreateServiceForm(props) {
 
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                htmlFor="user_avatar"
+                htmlFor="picture"
               >
-                Upload a service picture
+                Upload pictures
               </label>
               <input
                 className="block w-half text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                aria-describedby="user_avatar_help"
-                id="user_avatar"
+                
+                id="picture"
                 type="file"
+                name="picture"
+                multiple
               ></input>
 
               <button

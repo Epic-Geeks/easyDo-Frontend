@@ -97,40 +97,44 @@ export const logoutHandler = (dispatch) => {
 
 export const editProfile = (payload, dispatch, userInfo) => {
   payload.preventDefault();
-  const { city, street, buildingNum } = payload.target;
+  console.log(payload)
+  const { name, username, email, password, phoneNumber, city } = payload.target;
   let obj = {
-      city: city.value,
-      street: street.value,
-      buildingNum: buildingNum.value,
+    name: name.value,
+    username: username.value,
+    email: email.value,
+    password: password.value,
+    phoneNumber: phoneNumber.value,
+    customerAddress: city.value
     };
-    let newArr = [...userInfo.customerAddress, JSON.stringify(obj)];
-    console.log("obj", newArr);
+    
+    console.log("obj", obj);
   // const encoded = base64.encode(`${email.value}:${password.value}`);
   // console.log("payload", payload);
 
-  try {
-    axios
-      .put(
-        `${process.env.REACT_APP_BACKEND}/${userInfo.role}/${userInfo.id}`,
-        {customerAddress: newArr},
-        {
-          headers: {
-            Authorization: `Bearer ${cookies.load("token")}`,
-          },
-        }
-      )
-      .then(async(res) => {
-        console.log("res.data", res.data);
-        // cookies.save("token", res.data.token);
-        // cookies.save("name", res.data.name);
-        // cookies.save("capabilities", JSON.stringify(res.data.capabilities));
-        // cookies.save("userInfo", JSON.stringify(res.data));
-        getProfile( dispatch);
-      })
-      .catch((err) => alert(err.message));
-  } catch (err) {
-    alert(err);
-  }
+  // try {
+  //   axios
+  //     .put(
+  //       `${process.env.REACT_APP_BACKEND}/${userInfo.role}/${userInfo.id}`,
+  //       {customerAddress: newArr},
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${cookies.load("token")}`,
+  //         },
+  //       }
+  //     )
+  //     .then(async(res) => {
+  //       console.log("res.data", res.data);
+  //       // cookies.save("token", res.data.token);
+  //       // cookies.save("name", res.data.name);
+  //       // cookies.save("capabilities", JSON.stringify(res.data.capabilities));
+  //       // cookies.save("userInfo", JSON.stringify(res.data));
+  //       getProfile( dispatch);
+  //     })
+  //     .catch((err) => alert(err.message));
+  // } catch (err) {
+  //   alert(err);
+  // }
 };
 
 
