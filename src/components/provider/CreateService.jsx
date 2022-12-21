@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createService } from "../../actions/ServicesActions";
 
 export default function CreateServiceForm(props) {
   const dispatch = useDispatch();
+  const [img, setImg] = useState({});
+ const hanldeSubmit = (e)=>{
+  e.preventDefault();
+  const serviceDescription = e.target.serviceDescription.value,
+  price = e.target.price.value,
+  serviceCategory = e.target.price.value,
+  picture = e.target.picture.files
+  
+  const fd = new FormData();
+  fd.append("serviceDescription",serviceDescription);
+  fd.append("price",price);
+  fd.append("serviceCategory",serviceCategory);
+  for(let i=0; i< picture.length; i++){
+    fd.append("picture", picture[i]);
+  }
+const arr = [];
+for (const value of fd.values()) {
+    arr.push(value);
+  }
+  console.log(arr)
+  createService(dispatch, arr)
+
+ }
 
   return (
     <div className="max-w-lg mx-auto bg-white rounded-xl my-5 shadow-lg overflow-hidden md:max-w-2xl bg-Anti-Flash-White">
@@ -12,7 +35,8 @@ export default function CreateServiceForm(props) {
           <div className="flex items-center py-5 justify-center">
             <form
               className="space-y-6"
-              onSubmit={(e) => createService(dispatch, e)}
+              onSubmit={ (e)=> createService(dispatch, e)
+              }
             >
               <div className="mb-6">
                 <label
@@ -127,7 +151,7 @@ export default function CreateServiceForm(props) {
                 id="picture"
                 type="file"
                 name="picture"
-                // multiple
+                multiple
               ></input>
 
               <button

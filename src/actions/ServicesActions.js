@@ -83,7 +83,7 @@ export const getServices = (dispatch) => {
     serviceDescription: serviceDescription.value,
     price: price.value,
     serviceCategory: serviceCategory.value,
-    picture: picture.files[0],  
+    // picture: picture.files[0],  
  };
  console.log(obj.picture)
   
@@ -95,7 +95,7 @@ export const getServices = (dispatch) => {
         {
           headers: {
               Authorization: `Bearer ${cookies.load("token")}`,
-              "content-type": "multipart/form-data"
+              // "content-type": "multipart/form-data"
             },
           }
           )
@@ -112,7 +112,7 @@ export const getServices = (dispatch) => {
       })
       .catch((err) => console.log(err));
   } catch (err) {
-    swal(err);
+    swal("Somthing went wrong");
   };
 };
 
@@ -180,7 +180,7 @@ export const getServices = (dispatch) => {
           );
         
       } catch (error) {
-        console.log(error)
+        swal("Somthing went wrong");
       }
   };
   
@@ -228,7 +228,8 @@ export const editService = async(dispatch, payload, id) => {
       )
       .catch((err) => swal(err.message));
   } catch (err) {
-    swal(err);
+    swal("Somthing went wrong");
+
   } 
 };
 

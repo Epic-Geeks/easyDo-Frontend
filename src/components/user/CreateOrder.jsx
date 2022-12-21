@@ -14,7 +14,7 @@ const CreateOrder = ({ setShowModal, showModal }) => {
   const {Provider} = useSelector(state=> selectServiceById(state, Number(serviceId)));
   const [providerName, setProviderName] =useState(Provider.name)
   const [providerNumber, setProviderNumber] =useState(Provider.phoneNumber)
-  console.log(providerNumber)
+ 
   const [currentLocation, setCurrentLocation] = useState("");
   const disableOldDate = () => {
     let today, dd, mm, yyyy;

@@ -145,32 +145,40 @@ const ProviderOrders = () => {
                           {order.status}
                         </b>
                       </p>
-                      <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                      <div className="flex sm:flex-col md:flex-col lg:flex-row ">
+                      <div className="flex flex-col px-5 pt-2">
+                      <p className="text-xs text-gray-500 truncate dark:text-gray-400">
                         Customer Name: {order.customerName}
                       </p>
                       <p className="text-sm inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
-                        <i className="fa fa-location text-lg rotate-6" />
+                        <i className="fa fa-location text-xs rotate-6" />
 
-                        <span className="text-center ml-2 text-lg text-gray-500 dark:text-gray-400">
+                        <span className="text-center ml-2 text-xs text-gray-500 dark:text-gray-400">
                           {order.location}
                         </span>
                       </p>
-                      <p className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
-                        <a href={`tel:${order.customerNumber}`}>
-                          <i className="fa fa-phone text-lg rotate-6" />
-                          <span className="text-center ml-2 text-lg text-gray-500 dark:text-gray-400">
-                            {order.customerNumber}fsadsa
+                      </div>
+                      <div className="flex flex-col px-5">
+                      <p title="customer number"className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
+                      customer number<br/><a href={`tel:${order.customerNumber}`}>
+                          <i className="fa fa-phone text-xs rotate-6" />
+                          <span className="text-center text-xs ml-2 text-xstext-gray-500 dark:text-gray-400">
+                            {order.customerNumber}
                           </span>
                         </a>
                       </p>
+                      </div>
+                      <div className="flex flex-col px-5">
                       <p
                         title={order.orderNotes}
                         className="text-xs text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
                         Notes: <br /> {order.orderNotes}
                       </p>
+                      </div>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
+                    <div className="flex flaot-right min-w-0 items-center text-sm text-gray-900 dark:text-white">
                       <form
                         className=""
                         onSubmit={(e) =>
@@ -187,7 +195,7 @@ const ProviderOrders = () => {
                           </option>
                           <option value="inProgress">In Progress</option>
                           <option value="approved">Approved</option>
-                          <option value="done">done</option>
+                          <option value="done">Done</option>
                           <option value="cancele">Cancel</option>
                         </select>
                         <button

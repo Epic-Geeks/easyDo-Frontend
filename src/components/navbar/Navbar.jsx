@@ -65,7 +65,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {isAuthorized ? (
+          {isAuthorized && (
             <button onClick={() => logoutHandler(dispatch)}>
               {" "}
               <Link to="/">
@@ -74,7 +74,7 @@ const Navbar = () => {
                 </div>
               </Link>
             </button>
-          ) : (
+          )}{!isAuthorized &&  (
             <Link to="/signin">
               <div className="hidden xl:block hover:bg-cyan-700  px-4 py-1 rounded-md font-semibold">
                 Log In
@@ -119,14 +119,16 @@ const Navbar = () => {
                 Contact Us
               </Link>
               {
-                    !isAuthorized ? (
+                    !isAuthorized && (
                   <Link
                     to="/about"
                     className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
                   >
                     About us
                   </Link>
-                    ):(
+                    )}
+                    {
+                      !isAuthorized &&(
                       <Link to="/dashboard" 
                       className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
                       >
@@ -134,20 +136,22 @@ const Navbar = () => {
                       </Link>
                     )
                   }
-              {!isAuthorized ? (
+              {!isAuthorized && (
                 <Link
                   to="/signin"
                   className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Log In
                 </Link>
-              ) : (
-                <Link
-                  onClick={() => logoutHandler(dispatch)}
-                  className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
-                >
+              ) }
+              {isAuthorized && (
+                <button
+                onClick={() => logoutHandler(dispatch) }
+                className="hover:bg-primary-base hover:bg-cyan-700 hover:text-white  text-gray-800 block px-3 py-2 rounded-md text-base font-medium"
+                >                   
                   Log out
-                </Link>
+                  
+                </button>
               )}
             </div>
           </div>
