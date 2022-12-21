@@ -75,7 +75,7 @@ export default function EditProfile() {
               Email
             </label>
           </div>
-          <div className="relative z-0 mb-6 w-full group">
+          {/* <div className="relative z-0 mb-6 w-full group">
             <input
               type="password"
               name="password"
@@ -89,7 +89,7 @@ export default function EditProfile() {
             >
               Password
             </label>
-          </div>
+          </div> */}
             <div className="relative z-0 mb-6 w-full group">
               <input
                 type="tel"
@@ -106,7 +106,7 @@ export default function EditProfile() {
                 Phone number (123-456-7890)
               </label>
             </div>
-          <div className="relative z-0 mb-6 w-full group">
+          {/* <div className="relative z-0 mb-6 w-full group">
               <input
                 type="text"
                 name="city"
@@ -120,7 +120,7 @@ export default function EditProfile() {
               >
                 City
               </label>
-            </div>
+            </div> */}
           <button
             type="submit"
             className="float-right text-white bg-Myrtle-Green hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

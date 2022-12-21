@@ -95,17 +95,17 @@ export const logoutHandler = (dispatch) => {
 
 
 
-export const editProfile = (payload, dispatch, userInfo) => {
+export const editProfile = async(payload, dispatch, userInfo) => {
   payload.preventDefault();
   console.log(payload)
   const { name, username, email, password, phoneNumber, city } = payload.target;
   let obj = {
-    name: name.value,
-    username: username.value,
-    email: email.value,
-    password: password.value,
-    phoneNumber: phoneNumber.value,
-    customerAddress: city.value
+    name: name.value || userInfo.name,
+    username: username.value || userInfo.username,
+    email: email.value || userInfo.email,
+    // password: password.value ,
+    phoneNumber: phoneNumber.value || userInfo.phoneNumber,
+    // customerAddress: city.value
     };
     
     console.log("obj", obj);
@@ -113,7 +113,7 @@ export const editProfile = (payload, dispatch, userInfo) => {
   // console.log("payload", payload);
 
   try {
-    axios
+   await axios
       .put(
         `${process.env.REACT_APP_BACKEND}/${userInfo.role}/${userInfo.id}`,
         obj,

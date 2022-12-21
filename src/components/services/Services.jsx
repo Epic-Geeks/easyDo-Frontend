@@ -4,13 +4,12 @@ import { useSelector } from "react-redux";
 import { fetchServices } from "../../redux/counterSlicer";
 import Loading from "../pages/Loading";
 import React from "react";
+import NotFound from "../notFound/NotFound";
 
 export default function ServiceCards() {
   const services = useSelector(fetchServices);
   const [query, setQuery] = React.useState("");
-  if (!services) {
-    return <Loading />;
-  }
+
 
   return (
     <Container>
@@ -75,6 +74,9 @@ export default function ServiceCards() {
               />
             ))}
       </article>
+      {services && 
+      <Loading/>
+      }
     </Container>
   );
 }

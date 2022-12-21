@@ -103,13 +103,16 @@ const CustomerOrders = () => {
                           </p>
                         </>
                       ) : (
-                        <button
-                          type="submit"
-                          className="w-full float-right cursor-not-allowed lg:w-56 lg:justify-end bg-gray-700  py-3 text-center text-white rounded-lg p-2 border"
-                          title="Rate Service"
-                        >
-                          Rate Service
-                        </button>
+                        
+                          <>
+                          <span className="text-sm float-right cursor-not-allowed bg-cyan-700 text-center text-white rounded-lg p-2">
+                            Rate your provider
+                          </span>
+                          <p className="float-right text-sm">
+                          Still {order.status}
+                          </p>
+                        </>
+                        
                       )}
                     </div>
                   </div>
