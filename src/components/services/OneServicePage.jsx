@@ -23,17 +23,11 @@ export default function OneServicePage() {
   const service = useSelector((state) =>
     selectServiceById(state, Number(serviceId))
   );
-  console.log(service);
-  const go = () => {
-    Navigate(`/createOrder/${serviceId}`);
-  };
+
   if (!service) {
     return <Loading />;
   }
   const stars = Array(5).fill(0);
-  const goTo = () => {
-    window.location.href = "/reviews"
-  }
 
 
 
@@ -90,7 +84,7 @@ export default function OneServicePage() {
                   </div>
                         <h2 className="text-sm my-2 text-gray-900">{
                         service.Provider.providerCoveredCities.map(city=>(
-                          <>{city}<br/></>
+                          <span key={city}>{city}<br/></span>
                         ))
                         }</h2>
                   <p className="leading-relaxed my-3 text-ellipsis">{service.serviceDescription}</p>

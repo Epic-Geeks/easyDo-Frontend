@@ -46,7 +46,7 @@ export const createOrder = (dispatch, payload, id, providerName, providerNumber)
         })
         .catch((err) => swal("Provider has a full schedule this day, please chose another one"));
     } catch (err) {
-      swal(err);
+      swal("Somthing went wrong!")
     }
   };
 
@@ -65,9 +65,9 @@ export const createOrder = (dispatch, payload, id, providerName, providerNumber)
         }).then((res)=>{
           console.log(res.data)
           getProfile(dispatch)
-        }).catch(err=> console.log(err))
+        }).catch(err=> swal("Somthing went wrong!"))
     } catch (error) {
-      
+      swal("Somthing went wrong!")
     }
   }
 
@@ -82,8 +82,8 @@ export const createOrder = (dispatch, payload, id, providerName, providerNumber)
          }).then((res)=>{
            console.log(res.data)
            getProfile(dispatch)
-         }).catch(err=> console.log(err))
+         }).catch(err=> swal("Somthing went wrong!"))
      } catch (error) {
-       
+      swal("Somthing went wrong!")
      }
   }

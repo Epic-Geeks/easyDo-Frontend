@@ -138,59 +138,60 @@ const CustomerOrders = () => {
                           {order.status}
                         </b>
                       </p>
+                      <div className="flex sm:flex-col md:flex-col lg:flex-row ">
+                        <div className="flex flex-col px-5 pt-2">
                       <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Customer Name: {order.customerName}
+                        Provider Name: {order.providerName}
                       </p>
                       <p className="text-sm inline-flex mt-2 text-gray-500 truncate dark:text-gray-400">
-                        <i className="fa fa-location text-lg rotate-6" />
+                        <i className="fa fa-location text-sm rotate-6" />
 
-                        <span className="text-center ml-2 text-lg text-gray-500 dark:text-gray-400">
+                        <span className="text-center text-xs ml-2 text-lg text-gray-500 dark:text-gray-400">
                           {order.location}
                         </span>
                       </p>
+                        </div>
+                        <div className="flex flex-col px-5">
                       <p className="text-sm mt-2 text-gray-500 hover:cursor-pointer truncate dark:text-gray-400">
-                        <a href={`tel:${order.phoneNumber}`}>
+                        provider number
+                        <br />{" "}
+                        <a href={`tel:${order.providerNumber}`}>
                           <i className="fa fa-phone text-lg rotate-6" />
-                          <span className="text-center ml-2 text-lg text-gray-500 dark:text-gray-400">
-                            {order.phoneNumber}
+                          <span className="text-center text-xs  ml-2 text-lg text-gray-500 dark:text-gray-400">
+                            {order.providerNumber}
                           </span>
                         </a>
                       </p>
+                      </div>
+                      <div className="flex flex-col px-5">
                       <p
                         title={order.orderNotes}
                         className="text-sm text-ellipsis mt-2 text-gray-500 dark:text-gray-400"
                       >
-                        <br /> {order.orderNotes}
+                        Your Notes: <br /> {order.orderNotes}
                       </p>
+                      </div>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0 items-center text-sm text-gray-900 dark:text-white">
-                      <form
-                        className=""
-                        onSubmit={(e) =>
-                          updateOrderStatus(dispatch, e, order.id)
-                        }
-                      >
-                        <select
-                          id="status"
-                          name="status"
-                          className="bg-gray-50 mb-2 lg:w-56 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >
-                          <option className=" text-center" value={"pending"}>
-                            Pending-default
-                          </option>
-                          <option value="inProgress">In Progress</option>
-                          <option value="approved">Approved</option>
-                          <option value="done">done</option>
-                          <option value="cancele">Cancel</option>
-                        </select>
+                    <div className="flex flex-col min-w-0 items-center text-sm text-gray-900 dark:text-white">
+                      {order.status === "done" ? (
+                        <>
+                          <span className="text-sm float-right bg-cyan-700 text-center text-white rounded-lg p-2">
+                            Rate your provider
+                          </span>
+                          <p className="float-right">
+                          <Rate orderId={order.id} />
+                          </p>
+                        </>
+                      ) : (
                         <button
                           type="submit"
-                          className="w-full lg:w-56 lg:justify-end bg-cyan-700 py-3 text-center text-white rounded-lg p-2 border"
-                          title="Update Status"
+                          className="w-full float-right cursor-not-allowed lg:w-56 lg:justify-end bg-gray-700  py-3 text-center text-white rounded-lg p-2 border"
+                          title="Rate Service"
                         >
-                          Update Status
+                          Rate Service
                         </button>
-                      </form>
+                      )}
                     </div>
                   </div>
                 </li>
@@ -199,7 +200,7 @@ const CustomerOrders = () => {
               )
             )}
         </ul>
-        {orders && orders.length == 0 && (
+        {orders && orders.length === 0 && (
           <NotFound
             message={{
               body: "You don't have any orders yet, book your service now!",

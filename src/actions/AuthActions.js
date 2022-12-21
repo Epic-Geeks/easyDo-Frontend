@@ -28,7 +28,7 @@ export const login = (payload, dispatch) => {
           cookies.save("userInfo", JSON.stringify(res.data));
           getProfile( dispatch);
         })
-        .catch((err) => swal(err.message));
+        .catch((err) =>swal("Somthing went wrong!"));
     } catch (err) {
       swal(err);
     }
@@ -58,10 +58,10 @@ export const signupAction = (payload, dispatch) => {
           dispatch(Login_Success(res.data));
         
         })
-        .catch((e) => console.error(e.message));
+        .catch((e) => swal("Username or email already taken!"));
     } catch (e) {
     //   dispatch(FAILED_SIGNUP ());
-    console.error(e);
+    // swal("Somthing went wrong!")
     }
   };
 
@@ -138,9 +138,9 @@ export const editProfile = (payload, dispatch, userInfo) => {
           },
         });
       })
-      .catch((err) => swal(err.message));
+      .catch((err) => swal("Somthing went wrong!"));
   } catch (err) {
-    swal(err);
+    swal("Somthing went wrong!");
   }
 };
 
@@ -171,7 +171,7 @@ export const deleteLocation = (dispatch, userInfo) => {
         // cookies.save("userInfo", JSON.stringify(res.data));
         getProfile( dispatch);
       })
-      .catch((err) => swal(err.message));
+      .catch((err) => swal("Somthing went wrong!"));
   } catch (err) {
     swal(err);
   }

@@ -51,14 +51,14 @@ export default function MyServices() {
                             </div>
 
                             <div className="flex items-center justify-between">
-                              <button
+                              {/* <button
                                 className="bg-Myrtle-Green text-white font-bold rounded-lg px-6 py-2 mt-2 mr-2 text-sm hover:bg-cyan-700"
                                 type="button"
                                 data-modal-toggle="defadivtModal"
                                 onClick={() => setShow(true)}
                               >
                                 Edit Service
-                              </button>
+                              </button> */}
                               {/* Call the Modal component */}
                               <button
                                 className="bg-Myrtle-Green text-white font-bold rounded-lg px-6 py-2 mt-2 text-sm hover:bg-cyan-700"
